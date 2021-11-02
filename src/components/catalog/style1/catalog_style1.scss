@@ -1,0 +1,43 @@
+@import "../../../styles/style1/helpers/helpers";
+
+.content-catalog {
+    .content__content {
+        @apply grid md:gap-y-px;
+        grid-template-columns: repeat(auto-fit, minmax(218px, 1fr));
+
+        gap: 1rem;
+        background: #f6f7f8;
+    }
+
+}
+
+.content-catalog-list {
+    position: relative;
+    .teaser {
+        @screen lg {
+            grid-column: 1/-1;
+        }
+    }
+    > * {
+        @include first(1) {
+            margin-top: 0;
+        }
+    }
+    .block {
+            margin-bottom: 0;
+    }
+
+    .content-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    }
+}
+
+.ajax-progress {
+    position: absolute !important;
+    background: rgba(255, 255, 255, .7) !important;
+    &:before {
+        position: fixed !important;
+    }
+}

@@ -1,0 +1,53 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+.header-phones {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2rem auto;
+    align-self: center;
+    justify-self: center;
+
+    .icon {
+        justify-self: center;
+        align-self: center;
+        &:before {
+            @include fontAwesome("\f879", 1.5em, 400);
+            grid-row: 1/3;
+            display: block;
+            align-self: center;
+            @apply text-color-1-m-secondary;
+            left: 0;
+            //margin-right: 0.75rem;
+        }
+    }
+    .info {
+        display: flex;
+        flex-flow: column;
+        a {
+            //font-size: 1.125rem;
+            font-weight: 400;
+            border: none;
+
+            line-height: 1.25;
+            border-bottom: 1px solid transparent;
+            max-width: max-content;
+        }
+
+        .phone-number {
+            font-weight: 600;
+            border: none;
+            @apply text-color-1-n-p;
+            line-height: 1.25;
+            border-bottom: 1px solid transparent;
+        }
+
+        .phone-link {
+
+            &:hover {
+                @apply border-color-1-m-secondary;
+                border-bottom: 1px solid;
+            }
+
+        }
+    }
+}

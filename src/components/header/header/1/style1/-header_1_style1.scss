@@ -1,0 +1,73 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+.header_layout-1 {
+    @include max-screen(991px) {
+        display: none !important;
+    }
+    .menu {
+        @include max-screen(1199px) {
+            display: none;
+        }
+    }
+    .header__container {
+        align-items: center;
+        display: grid;
+        grid-gap: 1rem;
+        grid-auto-flow: column;
+    }
+    .header__top {
+        .header__container {
+            height: 80px;
+            grid-template-columns: auto 1fr auto auto auto;
+        }
+    }
+    .header__bottom {
+        background-color: $color-3-bg;
+        .header__container {
+            height: 68px;
+            grid-template-columns: 1fr 300px;
+        }
+    }
+    .header__fav-cmp {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        margin-left: 1rem;
+    }
+    .header__call-us {
+        position: relative;
+        margin-left: 1rem;
+    }
+    .header__wf {
+        display: none;
+        background-color: #f7f7f7;
+        box-shadow: 0 3px 10px hsla(0, 0%, 0%, 0.1);
+        position: absolute;
+        z-index: 7;
+        top: 36px;
+        right: -54px;
+        width: 270px;
+        margin: 0 auto;
+        padding: 26px 22px 30px;
+        text-align: left;
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        form {
+            margin: 0;
+        }
+        input {
+            width: 100%;
+        }
+    }
+    .fav__link,
+    .cmp__link {
+        &::before {
+            font-size: 1.375rem;
+        }
+    }
+}

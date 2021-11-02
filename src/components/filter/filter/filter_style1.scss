@@ -1,0 +1,127 @@
+@import "../../../styles/style1/helpers/helpers";
+
+.filter {
+    background-color: #ffffff;
+
+    legend {
+        padding: 0;
+    }
+    .fieldset-legend {
+        display: block;
+        @apply text-color-1-n text-base;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .form-checkboxes {
+
+    }
+    label {
+        @apply text-color-1-n #{!important};
+    }
+    label.focus {
+        top: 0;
+        background-color: transparent;
+    }
+    form {
+        .fieldgroup {
+            padding: 0;
+            margin: 0 0 1rem;
+            border: none;
+            .form-item {
+
+                white-space: nowrap;
+            }
+            .form-item-filter-only-in-stock {
+                white-space: normal
+            }
+        }
+        .fieldgroup_column-1 {
+            .form-item {
+                white-space: normal;
+            }
+        }
+    }
+}
+
+.filter__inner {
+    .form-item {
+        //width: 50%;
+        margin: 0.5rem 0;
+    }
+}
+.fieldgroup_column-2 {
+    .form-checkboxes {
+        //flex-direction: row;
+        //flex-wrap: wrap;
+    }
+
+    .filter__other {
+        > div {
+
+        }
+    }
+}
+.filter__other {
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.filter__more {
+    cursor: pointer;
+    span {
+        position: relative;
+        padding-right: 0.875rem;
+        border-bottom: 1px dashed transparent;
+        @apply border-color-1-m-primary text-color-1-m-primary;
+        &:before {
+            @include fontAwesome("\f107", 1em, 100);
+            position: absolute;
+            top: 0.1rem;
+            right: 0;
+            transition: all 0.15s ease-in-out;
+        }
+        &:hover {
+
+        }
+    }
+    &.active {
+        span {
+            &:before {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+.filter__action {
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+
+}
+
+.hidden-panel {
+    .filter {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+    }
+    .filter__inner {
+        padding: 0;
+    }
+}
+
+.scripted {
+    .filter {
+        .form-actions {
+            .filter-submit {
+                display: none !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,1016 @@
++style("https://www.jqueryscript.net/demo/Color-Picker-Plugin-jQuery-MiniColors/jquery.minicolors.css")
++script("https://www.jqueryscript.net/demo/Color-Picker-Plugin-jQuery-MiniColors/jquery.minicolors.js")
+
+//+style("css/algus-color.css")
+//+script("js/algus-color.js")
+
++b.algus-color
+    +e.list
+
+        //Без цвета
+        //+e.item.active(data-color='none', style='background-color: #ffffff;')
+
+        ////светло-красный
+        //+e.item(data-color='lightred', style='background-color: #d91e36;')
+        //
+        ////красный
+        //+e.item(data-color='red', style='background-color: #d60e12;')
+        //
+        ////светло-оранжевый
+        //+e.item(data-color='lightorange', style='background-color: #ff7043;')
+        //
+        ////темно-оранжевый
+        //+e.item(data-color='darkorange', style='background-color: #ff5900;')
+        //
+        ////светло-желтый
+        //+e.item(data-color='lightyellow', style='background-color: #fec601;')
+        //
+        ////темно-желтый
+        //+e.item(data-color='darkyellow', style='background-color: #ffb535;')
+        //
+        ////зеленый
+        //+e.item(data-color='green', style='background-color: #13db92;')
+        //
+        ////светло-синяя
+        //+e.item(data-color='lightblue', style='background-color: #00acee;')
+        //
+        ////синий
+        //+e.item(data-color='blue', style='background-color: #42a4ff;')
+        //
+        ////темно-синий
+        //+e.item(data-color='darkblue', style='background-color: #278df3;')
+        //
+        ////черно-синий
+        //+e.item(data-color='blackblue', style='background-color: #0168ae;')
+        //
+        ////кастомный
+        //+e.item(data-color='custom')
+
+    include algus-color-custom
+
+style.
+    .algus-color {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 0 15px;
+    }
+    .algus-color.active {
+        background-color: #fff1e0;
+    }
+    .algus-color.active .algus-color-custom {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .algus-color__active {
+        width: 40px;
+        height: 40px;
+        background-color: #2dea73;
+        margin-right: 8px;
+    }
+    .algus-color__list {
+        display: grid;
+        grid-template-columns: repeat(9, 20px);
+        grid-gap: 5px;
+    }
+    .algus-color__item {
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+        border-radius: 3px;
+        text-indent: -999999px;
+        display: flex;
+        flex-direction: column;
+    }
+    .algus-color__item_one-color span {
+        height: 100%;
+    }
+    .algus-color__item_two-color span {
+        height: 50%;
+    }
+    .algus-color__item[data-color="custom"]::before {
+        content: "\f044";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 18px;
+        font-weight: 400;
+        color: #000;
+        line-height: 1;
+        position: absolute;
+        top: -1px;
+        left: 0;
+    }
+
+script.
+    $(document).ready(function () {
+
+        var colors = {
+            1: [
+                {
+                    "name": "Бежевый",
+                    "code": "beige",
+                    "colors": ["#eddec1"],
+                },
+                {
+                    "name": "Желто-оранжевый",
+                    "code": "yellow-orange",
+                    "colors": ["linear-gradient(78.13deg, #FBA105 5.23%, #FBE448 100%)", "linear-gradient(90deg, #FA5744 20.86%, #F87956 81.04%)"],
+                },
+                {
+                    "name": "Черно-оранжевый",
+                    "code": "black-orange",
+                    "colors": ["#303037", "#FF7043"],
+                },
+                {
+                    "name": "Красный",
+                    "code": "red",
+                    "colors": ["#f84c4c"],
+                },
+                {
+                    "name": "Красный с градиентом",
+                    "code": "red-gradient",
+                    "colors": ["linear-gradient(90deg, #F97071, #C64559)"],
+                },
+                {
+                    "name": "Красно-желтый",
+                    "code": "red-yellow",
+                    "colors": ["#DB1721", "#FCDE1E"],
+                },
+                {
+                    "name": "Черно-желтый",
+                    "code": "black-yellow",
+                    "colors": ["#2A2A2A", "#FED700"],
+                },
+                {
+                    "name": "Голубой с зеленым",
+                    "code": "blue-green",
+                    "colors": ["#2BBBF5", "#B7DB2A"],
+                },
+                {
+                    "name": "Синий",
+                    "code": "blue",
+                    "colors": ["#3079F1"],
+                },
+                {
+                    "name": "Синий с градиентом",
+                    "code": "blue-gradient",
+                    "colors": ["linear-gradient(90deg, #0075FF, #2640C8)"],
+                },
+                {
+                    "name": "Черно-синий",
+                    "code": "black-blue",
+                    "colors": ["#222325", "#3873A8"],
+                },
+                {
+                    "name": "Фиолетовый",
+                    "code": "purple",
+                    "colors": ["#561ECD"],
+                },
+                {
+                    "name": "Сине-желтый",
+                    "code": "blue-yellow",
+                    "colors": ["#0078D7", "#FAD727"],
+                },
+                {
+                    "name": "Бирюзовый",
+                    "code": "turquoise",
+                    "colors": ["turquoise"],
+                },
+                {
+                    "name": "Бирюзово-красный",
+                    "code": "turquoise-red",
+                    "colors": ["turquoise", "#D02558"],
+                },
+                {
+                    "name": "Зеленый",
+                    "code": "green",
+                    "colors": ["#01A863"],
+                },
+                {
+                    "name": "Темно-зеленый",
+                    "code": "darkgreen",
+                    "colors": ["#254A46"],
+                },
+                {
+                    "name": "Черно-зеленый",
+                    "code": "black-green",
+                    "colors": ["#0E1116", "#3BD30C"],
+                },
+            ],
+            2: [
+                {
+                    "name": "светло-красный",
+                    "code": "lightred",
+                    "colors": ["#ffff00", "#d91e36"],
+                },
+                {
+                    "name": "красный",
+                    "code": "red",
+                    "colors": ["#d60e12"],
+                },
+                {
+                    "name": "светло-оранжевый",
+                    "code": "lightorange",
+                    "colors": ["#ff7043"],
+                },
+                {
+                    "name": "темно-оранжевый",
+                    "code": "darkorange",
+                    "colors": ["#ff5900"],
+                },
+                {
+                    "name": "светло-желтый",
+                    "code": "lightyellow",
+                    "colors": ["#fec601"],
+                },
+                {
+                    "name": "темно-желтый",
+                    "code": "darkyellow",
+                    "colors": ["#ffb535"],
+                },
+                {
+                    "name": "зеленый",
+                    "code": "green",
+                    "colors": ["#13db92"],
+                },
+                {
+                    "name": "светло-синяя",
+                    "code": "lightblue",
+                    "colors": ["#00acee"],
+                },
+                {
+                    "name": "синий",
+                    "code": "blue",
+                    "colors": ["#42a4ff"],
+                },
+                {
+                    "name": "темно-синий",
+                    "code": "darkblue",
+                    "colors": ["#278df3"],
+                },
+                {
+                    "name": "черно-синий",
+                    "code": "blackblue",
+                    "colors": ["#0168ae"],
+                },
+                {
+                    "name": "кастомный",
+                    "code": "custom",
+                    "colors": ["#000"],
+                }
+            ],
+            3: [],
+            4: [],
+        };
+
+        // КАСТОМНЫЙ ТЭГ СТАЙЛ
+        window.writeCustomStyleTag = function writeCustomStyleTag() {
+            $("body").append(`
+                <style id="color-scheme-custom">
+                    body {
+                        background-color: ${localStorage.getItem("custom-color-page")};
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    a {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    ul li::before,
+                    ol li::before {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+
+                    /* БЛОК ТЕХНИКА В НАЛИЧИИ*/
+                    .b-instock {
+                        background-color: ${localStorage.getItem("custom-color-bg-blocks")};
+                    }
+
+                    /* БЛОК ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ */
+                    .b-get-consultation {
+                        background-color: ${localStorage.getItem("custom-color-bg-blocks")};
+                    }
+
+                    /* ШАПКА */
+                    .hd__top {
+                        background-color: ${localStorage.getItem("custom-color-header-top")};
+                    }
+                    .hd__bottom {
+                        background-color: ${localStorage.getItem("custom-color-header-bottom")};
+                    }
+
+                    /* ССЫЛКИ В ВЕРХНЕЙ ЧАСТИ ШАПКИ */
+                    .hd__phones a {
+                        color: ${localStorage.getItem("custom-color-header-link-top")};
+                    }
+                    .hd__call-us > a {
+                        color: ${localStorage.getItem("custom-color-header-link-top")};
+                    }
+                    .hd__call-us > a:before {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* СЛОГАН */
+                    .slogan {
+                        color: ${localStorage.getItem("custom-color-slogan")};
+                    }
+                    .slogan::before {
+                        background-color: ${localStorage.getItem("custom-color-slogan")};
+                    }
+
+                    /* ГЛАВНОЕ МЕНЮ В ШАПКЕ */
+                    .nv-main-menu__link {
+                        color: ${localStorage.getItem("custom-color-link-main-menu")};
+                    }
+                    .nv-main-menu__item:hover .nv-main-menu__link {
+                        color: ${localStorage.getItem("custom-color-link-main-menu-hover")};
+                        border-top-color: ${localStorage.getItem("custom-color-border-link-main-menu-hover")};
+                    }
+
+                    /* ФУТЕР/ПОДВАЛ */
+                    .ft {
+                        background-color: ${localStorage.getItem("custom-color-footer-bg")};
+                        color: ${localStorage.getItem("custom-color-footer-text")};
+                    }
+                    .ft a {
+                        color: ${localStorage.getItem("custom-color-footer-link")};
+                    }
+                    .ft a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .ft__title h3 {
+                        color: ${localStorage.getItem("custom-color-footer-title")};
+                    }
+                    .ft__title h3 a {
+                        color: ${localStorage.getItem("custom-color-footer-title")};
+                    }
+                    .ft__title h3 a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .ft__foot {
+                        border-top-color: ${localStorage.getItem("custom-color-footer-hr")};
+                    }
+                    .ft-contacts__email a,
+                    .ft-contacts__full-contacts a {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .ft-contacts__email a:hover,
+                    .ft-contacts__full-contacts a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .ft_layout-3 .ft__head {
+                        border-bottom-color: ${localStorage.getItem("custom-color-footer-hr")};
+                    }
+
+                    /* КНОПКА ГЛАВНАЯ */
+                    /* кнопка в фильтре "Подобрать" */
+                    /* кнопка "Запросить КП" */
+                    /* кнопка в вебформе "Отправить" */
+                    /* кнопка в форме "вход и восстановление пароля" */
+                    .btn_primary {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text")};
+                    }
+                    .btn_primary:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text-hover")};
+                    }
+
+                    /* КНОПКА ОСНОВНАЯ */
+                    /* обычные кнопки на сайте */
+                    /* кнопка в фильтре "Сбросить" */
+                    .btn_secondary {
+                        background-color: ${localStorage.getItem("custom-color-btn-secondary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-secondary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-secondary-text")};
+                    }
+                    .btn_secondary:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-secondary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-secondary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-secondary-text-hover")};
+                    }
+
+                    /* КНОПКА НЕ ОСНОВНАЯ И НЕ ГЛАВНАЯ */
+                    /* кнопка "Купить в лизинг" */
+                    .btn_three {
+                        background-color: ${localStorage.getItem("custom-color-btn-three-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-three-border")};
+                        color: ${localStorage.getItem("custom-color-btn-three-text")};
+                    }
+                    .btn_three:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-three-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-three-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-three-text-hover")};
+                    }
+
+                    /* КНОПКА ССЫЛКА */
+                    .btn_link {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .btn_link.btn_arrow-right span:after {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* ВЕБФОРМЫ */
+                    .wf__action input {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text")};
+                    }
+                    .wf__action input:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text-hover")};
+                    }
+
+                    /* ФОРМА ВХОДА И ВОССТАНОВЛЕНИЯ ПАРОЛЯ */
+                    .user-login-form .form-submit,
+                    .user-pass .form-submit {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text")};
+                    }
+                    .user-login-form .form-submit:hover,
+                    .user-pass .form-submit:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text-hover")};
+                    }
+
+                    /* ПОИСК */
+                    /* В ШАПКЕ */
+                    /* НА СТРАНЦИЕ ПОИСКА */
+                    /* В МОБИЛЬНОЙ ШАПКЕ */
+                    .search .form-text {
+                        background-color: ${localStorage.getItem("custom-color-search-field-bg")};
+                        border-color: ${localStorage.getItem("custom-color-search-field-border")};
+                    }
+                    .search .form-actions:after {
+                        color: #ffffff;
+                        background-color: ${localStorage.getItem("custom-color-search-submit-bg")};
+                    }
+                    .search .form-actions:hover:after {
+                        background-color: ${localStorage.getItem("custom-color-search-submit-bg-hover")};
+                    }
+
+                    /* РЕЗУЛЬТАТЫ ПОИСКА НА VUEJS */
+                    .search-result__link {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .search-result__item.active .search-result__link,
+                    .search-result__link:hover {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* ЯРЛЫКИ, СТАТУСЫ */
+                    .lb-sale {
+                        background-color: ${localStorage.getItem("custom-color-label-sale-bg")};
+                        color: ${localStorage.getItem("custom-color-label-sale-text")};
+                    }
+                    .presence_in {
+                        color: ${localStorage.getItem("custom-color-presence-in")};
+                    }
+                    .presence_in span:before {
+                        color: ${localStorage.getItem("custom-color-presence-in-icon")};
+                    }
+                    .presence_none {
+                        color: ${localStorage.getItem("custom-color-presence-none")};
+                    }
+
+                    /* ЦЕНЫ */
+                    /*.price_current {
+                        color: ${localStorage.getItem("custom-color-price")};
+                    }*/
+                    /*/.price_new {
+                        color: ${localStorage.getItem("custom-color-price-spec")};
+                    }*/
+                    /*.price_none {
+                        color: ${localStorage.getItem("custom-color-price-none")};
+                    }*/
+                    /*.price_factory {
+                        color: ${localStorage.getItem("custom-color-price-factory")};
+                    }*/
+
+                    /* БОКОВОЙ ФИЛЬТР */
+                    .filter__more {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .filter__more:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .filter__action .edit-submit {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text")};
+                    }
+                    .filter__action .edit-submit:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-primary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text-hover")};
+                    }
+                    .filter__action .edit-clear {
+                        background-color: ${localStorage.getItem("custom-color-btn-secondary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-secondary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-secondary-text")};
+                    }
+                    .filter__action .edit-clear:hover {
+                        background-color: ${localStorage.getItem("custom-color-btn-secondary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-secondary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-secondary-text-hover")};
+                    }
+
+                    /* ЧЕКБОКС */
+                    /* чекбокс включен */
+                    input[type="checkbox"]:checked + label::before {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                        border-color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* РАДИОБОКС */
+                    input[type="radio"]:not(checked) + label:after {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* СЕЛЕКТ */
+                    .cs-active .cs-placeholder,
+                    .cs-active .cs-options {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .cs-selected,
+                    .cs-options ul li:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+
+                    /* ТОЧКИ СЛАЙДЕРА */
+                    .dots__dot:hover {
+                        background-color: ${localStorage.getItem("custom-color-2")};
+                    }
+                    .dots__dot.active {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* СТРЕЛКИ СЛАЙДЕРА */
+                    .arrows__arrow:before {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .arrows__arrow:hover {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .arrows__prev:after {
+                        color: #fff;
+                    }
+                    .arrows__next:after {
+                        color: #fff;
+                    }
+
+                    /* ПРЕЛОАДЕР */
+                    .ajax-progress-throbber:before,
+                    .ajax-progress-fullscreen:before {
+                        border-color: ${localStorage.getItem("custom-color-2")} transparent;
+                    }
+
+                    /* ПРЕЛОАДЕР В КАТАЛОГЕ */
+                    .catalog-items__overlay::before {
+                        border-color: ${localStorage.getItem("custom-color-2")} transparent;
+                    }
+
+                    /* ИКОНКА ПЕЧАТЬ */
+                    .print a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .print a::before {
+                        color: ${localStorage.getItem("custom-color-icons")};
+                    }
+                    .print a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .print a:hover:before {
+                        color: inherit;
+                    }
+
+                    /* ИКОНКА PDF */
+                    .pdf a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .pdf a::before {
+                        color: ${localStorage.getItem("custom-color-icons")};
+                    }
+                    .pdf a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .pdf a:hover:before {
+                        color: inherit;
+                    }
+
+                    /* ИКОНКА ИЗБРАННОЕ */
+                    .fav__hint {
+                        border-color: ${localStorage.getItem("custom-color-1")};
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .fav_hd a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .fav_hd a::before {
+                        color: ${localStorage.getItem("custom-color-icons-header")};
+                    }
+                    .fav_hd a.is-active:before {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .fav_hd a:hover:before {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .fav_hd .counter {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .fav:not(.fav_hd) a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .fav:not(.fav_hd) a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .fav:not(.fav_hd) a::before {
+                        color: ${localStorage.getItem("custom-color-icons")};
+                    }
+                    .fav:not(.fav_hd) a.is-active:before {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .fav:not(.fav_hd) a:hover:before {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+
+                    /* ИКОНКА СРАВНЕНИЯ */
+                    .cmp__hint {
+                        border-color: ${localStorage.getItem("custom-color-1")};
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .cmp_hd a::before {
+                        color: ${localStorage.getItem("custom-color-icons-header")};
+                    }
+                    .cmp_hd a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .cmp_hd a.is-active:before {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .cmp_hd a:hover:before {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .cmp_hd .counter {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .cmp:not(.cmp_hd) a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .cmp:not(.cmp_hd) a::before {
+                        color: ${localStorage.getItem("custom-color-icons")};
+                    }
+                    .cmp:not(.cmp_hd) a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+                    .cmp:not(.cmp_hd) a.is-active:before {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .cmp:not(.cmp_hd) a:hover:before {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+
+                    /* МОДАЛЬНОЕ ОКНО */
+                    .ui-dialog .ui-dialog-buttonpane button {
+                        background: ${localStorage.getItem("custom-color-btn-primary-bg")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text")};
+                    }
+                    .ui-dialog .ui-dialog-buttonpane button:hover {
+                        background: ${localStorage.getItem("custom-color-btn-primary-bg-hover")};
+                        border-color: ${localStorage.getItem("custom-color-btn-primary-border-hover")};
+                        color: ${localStorage.getItem("custom-color-btn-primary-text-hover")};
+                    }
+
+                    /* ХЛЕБНЫЕ КРОШКИ */
+                    .bc__sep::before {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .bc-m__link:before {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* ТАБЛИЦА СРАВНЕНИЯ */
+                    .cmptb__remove a:before {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .cmptb__remove a:hover:before {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+
+                    /* СТИЛИЗАЦИЯ ПОЛОС ПРОКРУТКИ */
+                    .mCSB_dragger_bar {
+                        background-color: ${localStorage.getItem("custom-color-1")} !important;
+                    }
+
+                    /* ЗАГОЛОВОК ЕДИНИЦЫ ТЕХНИКИ В МОДАЛЬНОМ ОКНЕ */
+                    .item-unit4__name a {
+                        color: ${localStorage.getItem("custom-color-link")};
+                    }
+                    .item-unit4__name a:hover {
+                        color: ${localStorage.getItem("custom-color-link-hover")};
+                    }
+
+                    /* НОВОСТИ */
+                    .item-news-front__body,
+                    .item-news-list__body {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+
+                    /* ТЕЛЕФОНЫ СПРАВА */
+                    .card-unit__b_contacts-info a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .card-unit__phone a:before {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* БЛОК "СВЯЗАТЬСЯ С НАМИ" В КАРТОЧКЕ ЕДИНИЦЫ ТЕХНИКИ */
+                    .b-contacts-node__phone a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .b-contacts-node__phone a:before,
+                    .b-contacts-node__email a:before {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* ИКОНКИ НА СТРАНИЦЕ КОНТАКТОВ */
+                    .b-contacts__item_phone .b-contacts__title span:before,
+                    .b-contacts__item_email .b-contacts__title span:before,
+                    .b-contacts__item_adress .b-contacts__title span:before,
+                    .b-contacts__item_time .b-contacts__title span:before {
+                        color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* ПАГИНАЦИЯ */
+                    .pg__item a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .pg__item:hover {
+                        border-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .pg__current,
+                    .pg__current:hover {
+                        border-color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* МОБИЛЬНАЯ КОМПОНЕНТЫ */
+
+                    /* ИКОНКА ПОИСКА В МОБИЛЬНОЙ ШАПКЕ */
+                    .search-m-btn {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .search-m-btn:before {
+                        color: #ffffff;
+                    }
+
+                    /* СИСТЕМНЫЕ ВКЛАДКИ ДРУПАЛА */
+                    .system-tabs ul {
+                        border-bottom-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .system-tabs ul li a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .system-tabs ul li a:hover {
+                        background-color: ${localStorage.getItem("custom-color-2")};
+                        color: #ffffff;
+                    }
+                    .system-tabs ul li a.is-active {
+                        color: #ffffff;
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .system-tabs__burger {
+                        border-bottom-color: ${localStorage.getItem("custom-color-1")};
+                    }
+                    .system-tabs__mn li a {
+                        color: ${localStorage.getItem("custom-color-text")};
+                    }
+                    .system-tabs__mn li a:hover {
+                        background-color: ${localStorage.getItem("custom-color-2")};
+                        color: #ffffff;
+                    }
+                    .system-tabs__mn li.is-active a {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                        color: #ffffff;
+                    }
+
+                    /* ПРОМО СЛАЙДЕР */
+                    .b-promo {
+                        background-color: ${localStorage.getItem("custom-color-bg-blocks")};
+                    }
+                    .b-promo_style-3 .b-promo__image_desktop::before,
+                    .b-promo_style-4 .b-promo__image_desktop::before {
+                        background-color: ${localStorage.getItem("custom-color-1")};
+                    }
+
+                    /* КАРТОЧКА. КАРТИНКА-ПОСТЕР */
+                    .image__preview .image__item.swiper-slide-thumb-active::before {
+                        border-color: ${localStorage.getItem("custom-color-dop-1")};
+                        }
+                </style>
+            `);
+        }
+
+        // ВЫВОД ЦВЕТОВ В ШАПКУ
+        window.printListColors = function changeLayout() {
+            document.querySelector('.algus-color__list').innerHTML = "";
+            var layoutValue = localStorage.getItem("algus-select-layout-value");
+            console.groupCollapsed('цветовая схема');
+            colors[layoutValue].map(function (item) {
+                console.group(item.name);
+                var newElem = document.createElement("div");
+                newElem.classList.add('algus-color__item');
+                newElem.setAttribute('data-color', item.code);
+                if (item.colors.length === 1) {
+                    var span1 = document.createElement("span");
+                    span1.style.background = item.colors[0];
+                    newElem.classList.add('algus-color__item_one-color');
+                } else {
+                    var span1 = document.createElement("span");
+                    span1.style.background = item.colors[0];
+                    var span2 = document.createElement("span");
+                    span2.style.background = item.colors[1];
+                    newElem.classList.add('algus-color__item_two-color');
+                }
+                if (span1 != undefined)
+                    newElem.appendChild(span1)
+                if (span2 != undefined)
+                    newElem.appendChild(span2);
+                document.querySelector('.algus-color__list').appendChild(newElem);
+                console.groupEnd();
+            });
+            console.groupEnd();
+        }
+
+        printListColors();
+
+
+
+
+
+        // if ( localStorage.getItem("algus-select-layout-value") === '2' ) {
+        //     // console.log( localStorage.getItem("algus-select-layout-value") );
+        //     colors.2.map(function (item) {
+        //         console.group(item.name);
+        //             var newElem = document.createElement("div");
+        //             newElem.classList.add('algus-color__item');
+        //             newElem.setAttribute('data-color', item.code);
+        //             if (item.colors.length === 1) {
+        //                 var span1 = document.createElement("span");
+        //                 span1.style.backgroundColor = item.colors[0];
+        //                 newElem.classList.add('algus-color__item_one-color');
+        //             } else {
+        //                 var span1 = document.createElement("span");
+        //                 span1.style.backgroundColor = item.colors[0];
+        //                 var span2 = document.createElement("span");
+        //                 span2.style.backgroundColor = item.colors[1];
+        //                 newElem.classList.add('algus-color__item_two-color');
+        //             }
+        //             if ( span1 != undefined )
+        //                 newElem.appendChild(span1)
+        //             if (span2 != undefined)
+        //                 newElem.appendChild(span2);
+        //             document.querySelector('.algus-color__list').appendChild(newElem);
+        //         console.groupEnd();
+        //     });
+        // }
+
+        /*
+        ++++++++++++++++++++
+        if (!localStorage.getItem("selectedColor")) {
+            $("<link>")
+                .attr("rel", "stylesheet")
+                .attr("type", "text/css")
+                .attr("href", "css/layout-" + localStorage.getItem("algus-select-layout-value") + "-color-scheme-" + $('.algus-color__item').first().data('color') + ".css")
+                // .attr("href", "css/color-scheme-" + $('.algus-color__item').first().data('color') + ".css")
+                .appendTo("body");
+            localStorage.setItem("selectedColor", $('.algus-color__item').first().data('color'));
+        } else {
+            if (localStorage.getItem("selectedColor") == 'custom') {
+                // добавляем тэг style кастомных стилей
+                writeCustomStyleTag();
+            } else {
+                // добавляем тег линк с цветовой схемой
+                $("<link>")
+                    .attr("rel", "stylesheet")
+                    .attr("type", "text/css")
+                    .attr("href", "css/layout-" + localStorage.getItem("algus-select-layout-value") + "-color-scheme-" + localStorage.getItem("selectedColor") + ".css")
+                    // .attr("href", "css/color-scheme-" + localStorage.getItem("selectedColor") + ".css")
+                    .appendTo("body");
+            }
+        }
+        */
+
+        /*
+        // при открытии страницы добавляем класс актив к выбранному пункту цвета
+        $(".algus-color__item[data-color='" + localStorage.getItem("selectedColor") + "']").addClass("active");
+        */
+
+        /*
+        +++++++++++++++++++++++++++
+        // клик по выбору цвета
+        $(".algus-color__item").on("click", function () {
+            var colorSelected = $(this).data("color");
+            var layout = localStorage.getItem("algus-select-layout-value");
+            localStorage.setItem("selectedColor", colorSelected);
+
+            $("link[href^='css/layout-" + layout + "-color-scheme']").remove();
+
+            if (colorSelected == 'custom') {
+                // добавляем тэг style кастомных стилей
+                writeCustomStyleTag();
+                $(this).parents('.algus-color').addClass('active');
+            } else {
+                // добавляем тег линк с цветовой схемой
+                $("<link>")
+                    .attr("rel", "stylesheet")
+                    .attr("type", "text/css")
+                    .attr("href", "css/layout-" + layout + "-color-scheme-" + colorSelected + ".css")
+                    .appendTo("body");
+            }
+
+        });
+        */
+
+        /*
+        // закрываем открытую панель с кастомными настройками цвета
+        $(document).click(function (event) {
+            if ($(event.target).closest(".algus-color-custom, .algus-color__item[data-color=\"custom\"]").length) return;
+            $(".algus-color").removeClass("active");
+            event.stopPropagation();
+        });
+        */
+
+        $(".algus-color-custom__row").each(function () {
+            var row = $(this);
+            var input = $(this).find("input");
+            var rowClass = row.data("class");
+
+            // ЕСЛИ В ХРАНИЛИЩЕ ПУСТО, ТО
+            // ЗАПИСЫВАЕМ ЗНАЧЕНИЕ ПОЛЯ В ХРАНИЛИЩЕ
+            // А ЕСЛИ В ХРАНИЛИЩЕ ЕСТЬ, ТО
+            // ЗАПИСЫВАЕМ ЗНАЧЕНИЕ ИЗ ХРАНИЛИЩЕ В ПОЛЕ
+            if (localStorage.getItem(rowClass) === null) {
+                if (navigator.userAgent.search(/Chrome/) > 0) {
+                    localStorage.setItem(rowClass, "#" + input.val());
+                } else {
+                    localStorage.setItem(rowClass, input.val());
+                }
+            } else {
+                input.val(localStorage.getItem(rowClass));
+            }
+        });
+
+        // $('.algus-color-custom__input').each(function () {
+        //     var input = $(this);
+        //     var rowClass = input.parent().data('class');
+        //     $(this).minicolors({
+        //         control: $(this).attr('data-control') || 'hue',
+        //         defaultValue: $(this).attr('data-defaultValue') || '',
+        //         format: $(this).attr('data-format') || 'hex',
+        //         keywords: $(this).attr('data-keywords') || 'transparent',
+        //         inline: $(this).attr('data-inline') === 'true',
+        //         letterCase: $(this).attr('data-letterCase') || 'lowercase',
+        //         opacity: $(this).attr('data-opacity'),
+        //         position: $(this).attr('data-position') || 'bottom left',
+        //         swatches: $(this).attr('data-swatches') ? $(this).attr('data-swatches').split('|') : [],
+        //         change: function (value, opacity) {
+        //             // if (!value) return;
+        //             // // if (opacity) value += ', ' + opacity;
+        //             // if (typeof console === 'object') {
+        //             //     // input.parent().find('.custom-color__input[type="text"]').val(value);
+        //             //     input.val(value);
+        //             //
+        //             //     // УДАЛЯЕМ ИНЛАЙН СТИЛИ
+        //             //     $('style#color-scheme-custom').remove();
+        //             //
+        //             //     // ЗАПИСЫВАЕМ В ЛОКАЛСТОРАДЖ ЗНАЧЕНИЕ ИНПУТА
+        //             //     localStorage.setItem(rowClass, value);
+        //             //
+        //             //     // ДОБАВЛЯЕМ В КОД СТРАНИЦЫ ТЕГ СТАЙЛ С НОВЫМИ СТИЛЯМИ
+        //             //     writeCustomStyleTag();
+        //             //
+        //             // }
+        //         },
+        //         hide: function () {
+        //             $('.minicolors-panel').css({'visibility': 'hidden'});
+        //         },
+        //         show: null,
+        //         theme: 'bootstrap'
+        //     });
+        //
+        // });
+
+        $('.minicolors-panel').css({'visibility': 'hidden'});
+
+        $('.minicolors-swatch').on('click', function () {
+            $('.minicolors-panel').css({'visibility': 'visible'});
+        });
+
+    });

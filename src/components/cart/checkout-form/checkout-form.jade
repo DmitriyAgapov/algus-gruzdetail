@@ -1,0 +1,64 @@
+// checkout-form
++b.checkout-form
+    +e.title.H2 Укажите ваши контактные данные!
+    +e.markup
+        p После оформления заказа мы свяжемся с вами и уточним информацию по доставке и оплате
+    +e.form
+        fieldset#edit-contact-information
+            legend
+                span(fieldset-legend) Контактная информация
+            .fieldset-wrapper
+                .form-type-email.form-item
+                    label(for="field5") Ваш Email
+                    input#field5.form-text(type="text", name="contact_information[email]", value="")
+        #payment-information-wrapper
+            fieldset#edit-payment-information
+                legend
+                    span(fieldset-legend) Платёжная информация
+                .fieldset-wrapper
+                    .form-wrapper
+                        .field--name-field-contact-face
+                            .form-item
+                                label(for="field1") Контактное лицо
+                                input#field1.form-text(type="text", name="", value="")
+                        .field--name-field-company
+                            .form-item
+                                label(for="field2") Название организации
+                                input#field2.form-text(type="text", name="", value="")
+                        .field--name-field-city
+                            .form-item
+                                label(for="field3") Город доставки
+                                input#field3.form-text(type="text", name="", value="")
+                        .field--name-field-phone
+                            .form-item
+                                label(for="field4") Ваш телефон
+                                input#field4.form-text(type="text", name="payment_information[billing_information][field_phone][0][value]", value="")
+                        .field--name-field-file
+                            .form-item
+                                label(for="field3") Файл
+                                input.form-file(name="",type="file")
+                        //- .field--name-field-file
+                        //-     .form-item.form-type-managed-file
+                        //-         label(for="edit-payment-information-billing-information-field-file-0-upload--E53wmkUrJE4") Файл
+                        //-     .form-managed-file
+                        //-         input(type="hidden", name="payment_information[billing_information][field_file][0][fids]", value="2338")
+                        //-         span.file.file--mime-image-png.file--image
+                        //-             a(href="#", type="image/png; length=121793") social_icons_v2_graphicsland.ru-5-700x578.png
+                        //-         input(type="submit", name="", value="Удалить").button.form-submit
+                        .field--name-field-comment
+                            .form-item
+                                label(for="field6") Комментарии к заказу
+                                textarea.form-textarea#field6(name="")
+    #edit-actions.form-actions
+        input.form-submit(type="submit", name="op", value="Завершить форму оплаты.")
+    +e.privacy-policy
+        input#privacy-policy(type='checkbox')
+        label(for="privacy-policy")
+            | Завершая оформление заказа, я подтверждаю, что ознакомлен с 
+            a(href="/privacy-policy") обработку персональных данных
+            | , и согласен на хранение и обработку предоставленных персональных данных.
+            
+    include ../cart-btn/cart-btn-checkout-form
+    //- +e.ft
+        
+// КОНЕЦ: checkout-form

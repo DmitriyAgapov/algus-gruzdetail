@@ -1,0 +1,277 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$attention-small-name: 'attention-small';
+$attention-small-x: 131px;
+$attention-small-y: 24px;
+$attention-small-offset-x: -131px;
+$attention-small-offset-y: -24px;
+$attention-small-width: 10px;
+$attention-small-height: 10px;
+$attention-small-total-width: 144px;
+$attention-small-total-height: 129px;
+$attention-small-image: '../img/sprite.png';
+$attention-small: (131px, 24px, -131px, -24px, 10px, 10px, 144px, 129px, '../img/sprite.png', 'attention-small', );
+$attention-name: 'attention';
+$attention-x: 107px;
+$attention-y: 86px;
+$attention-offset-x: -107px;
+$attention-offset-y: -86px;
+$attention-width: 14px;
+$attention-height: 14px;
+$attention-total-width: 144px;
+$attention-total-height: 129px;
+$attention-image: '../img/sprite.png';
+$attention: (107px, 86px, -107px, -86px, 14px, 14px, 144px, 129px, '../img/sprite.png', 'attention', );
+$cart-blue-name: 'cart-blue';
+$cart-blue-x: 0px;
+$cart-blue-y: 49px;
+$cart-blue-offset-x: 0px;
+$cart-blue-offset-y: -49px;
+$cart-blue-width: 27px;
+$cart-blue-height: 27px;
+$cart-blue-total-width: 144px;
+$cart-blue-total-height: 129px;
+$cart-blue-image: '../img/sprite.png';
+$cart-blue: (0px, 49px, 0px, -49px, 27px, 27px, 144px, 129px, '../img/sprite.png', 'cart-blue', );
+$cart-white-name: 'cart-white';
+$cart-white-x: 37px;
+$cart-white-y: 49px;
+$cart-white-offset-x: -37px;
+$cart-white-offset-y: -49px;
+$cart-white-width: 27px;
+$cart-white-height: 27px;
+$cart-white-total-width: 144px;
+$cart-white-total-height: 129px;
+$cart-white-image: '../img/sprite.png';
+$cart-white: (37px, 49px, -37px, -49px, 27px, 27px, 144px, 129px, '../img/sprite.png', 'cart-white', );
+$cart-name: 'cart';
+$cart-x: 94px;
+$cart-y: 0px;
+$cart-offset-x: -94px;
+$cart-offset-y: 0px;
+$cart-width: 27px;
+$cart-height: 27px;
+$cart-total-width: 144px;
+$cart-total-height: 129px;
+$cart-image: '../img/sprite.png';
+$cart: (94px, 0px, -94px, 0px, 27px, 27px, 144px, 129px, '../img/sprite.png', 'cart', );
+$close-name: 'close';
+$close-x: 131px;
+$close-y: 44px;
+$close-offset-x: -131px;
+$close-offset-y: -44px;
+$close-width: 10px;
+$close-height: 10px;
+$close-total-width: 144px;
+$close-total-height: 129px;
+$close-image: '../img/sprite.png';
+$close: (131px, 44px, -131px, -44px, 10px, 10px, 144px, 129px, '../img/sprite.png', 'close', );
+$file-white-name: 'file-white';
+$file-white-x: 30px;
+$file-white-y: 86px;
+$file-white-offset-x: -30px;
+$file-white-offset-y: -86px;
+$file-white-width: 16px;
+$file-white-height: 16px;
+$file-white-total-width: 144px;
+$file-white-total-height: 129px;
+$file-white-image: '../img/sprite.png';
+$file-white: (30px, 86px, -30px, -86px, 16px, 16px, 144px, 129px, '../img/sprite.png', 'file-white', );
+$hd-catalog-name: 'hd-catalog';
+$hd-catalog-x: 82px;
+$hd-catalog-y: 86px;
+$hd-catalog-offset-x: -82px;
+$hd-catalog-offset-y: -86px;
+$hd-catalog-width: 15px;
+$hd-catalog-height: 15px;
+$hd-catalog-total-width: 144px;
+$hd-catalog-total-height: 129px;
+$hd-catalog-image: '../img/sprite.png';
+$hd-catalog: (82px, 86px, -82px, -86px, 15px, 15px, 144px, 129px, '../img/sprite.png', 'hd-catalog', );
+$mail-white-name: 'mail-white';
+$mail-white-x: 48px;
+$mail-white-y: 116px;
+$mail-white-offset-x: -48px;
+$mail-white-offset-y: -116px;
+$mail-white-width: 14px;
+$mail-white-height: 10px;
+$mail-white-total-width: 144px;
+$mail-white-total-height: 129px;
+$mail-white-image: '../img/sprite.png';
+$mail-white: (48px, 116px, -48px, -116px, 14px, 10px, 144px, 129px, '../img/sprite.png', 'mail-white', );
+$phone-white-name: 'phone-white';
+$phone-white-x: 131px;
+$phone-white-y: 0px;
+$phone-white-offset-x: -131px;
+$phone-white-offset-y: 0px;
+$phone-white-width: 13px;
+$phone-white-height: 14px;
+$phone-white-total-width: 144px;
+$phone-white-total-height: 129px;
+$phone-white-image: '../img/sprite.png';
+$phone-white: (131px, 0px, -131px, 0px, 13px, 14px, 144px, 129px, '../img/sprite.png', 'phone-white', );
+$print-name: 'print';
+$print-x: 56px;
+$print-y: 0px;
+$print-offset-x: -56px;
+$print-offset-y: 0px;
+$print-width: 28px;
+$print-height: 28px;
+$print-total-width: 144px;
+$print-total-height: 129px;
+$print-image: '../img/sprite.png';
+$print: (56px, 0px, -56px, 0px, 28px, 28px, 144px, 129px, '../img/sprite.png', 'print', );
+$promo-title-corner-name: 'promo-title-corner';
+$promo-title-corner-x: 0px;
+$promo-title-corner-y: 0px;
+$promo-title-corner-offset-x: 0px;
+$promo-title-corner-offset-y: 0px;
+$promo-title-corner-width: 46px;
+$promo-title-corner-height: 39px;
+$promo-title-corner-total-width: 144px;
+$promo-title-corner-total-height: 129px;
+$promo-title-corner-image: '../img/sprite.png';
+$promo-title-corner: (0px, 0px, 0px, 0px, 46px, 39px, 144px, 129px, '../img/sprite.png', 'promo-title-corner', );
+$red-dot-name: 'red-dot';
+$red-dot-x: 131px;
+$red-dot-y: 64px;
+$red-dot-offset-x: -131px;
+$red-dot-offset-y: -64px;
+$red-dot-width: 5px;
+$red-dot-height: 5px;
+$red-dot-total-width: 144px;
+$red-dot-total-height: 129px;
+$red-dot-image: '../img/sprite.png';
+$red-dot: (131px, 64px, -131px, -64px, 5px, 5px, 144px, 129px, '../img/sprite.png', 'red-dot', );
+$search-btn-white-name: 'search-btn-white';
+$search-btn-white-x: 94px;
+$search-btn-white-y: 37px;
+$search-btn-white-offset-x: -94px;
+$search-btn-white-offset-y: -37px;
+$search-btn-white-width: 23px;
+$search-btn-white-height: 22px;
+$search-btn-white-total-width: 144px;
+$search-btn-white-total-height: 129px;
+$search-btn-white-image: '../img/sprite.png';
+$search-btn-white: (94px, 37px, -94px, -37px, 23px, 22px, 144px, 129px, '../img/sprite.png', 'search-btn-white', );
+$search-input-name: 'search-input';
+$search-input-x: 56px;
+$search-input-y: 86px;
+$search-input-offset-x: -56px;
+$search-input-offset-y: -86px;
+$search-input-width: 16px;
+$search-input-height: 16px;
+$search-input-total-width: 144px;
+$search-input-total-height: 129px;
+$search-input-image: '../img/sprite.png';
+$search-input: (56px, 86px, -56px, -86px, 16px, 16px, 144px, 129px, '../img/sprite.png', 'search-input', );
+$to-cart-white-name: 'to-cart-white';
+$to-cart-white-x: 0px;
+$to-cart-white-y: 86px;
+$to-cart-white-offset-x: 0px;
+$to-cart-white-offset-y: -86px;
+$to-cart-white-width: 20px;
+$to-cart-white-height: 20px;
+$to-cart-white-total-width: 144px;
+$to-cart-white-total-height: 129px;
+$to-cart-white-image: '../img/sprite.png';
+$to-cart-white: (0px, 86px, 0px, -86px, 20px, 20px, 144px, 129px, '../img/sprite.png', 'to-cart-white', );
+$viber-white-name: 'viber-white';
+$viber-white-x: 0px;
+$viber-white-y: 116px;
+$viber-white-offset-x: 0px;
+$viber-white-offset-y: -116px;
+$viber-white-width: 14px;
+$viber-white-height: 13px;
+$viber-white-total-width: 144px;
+$viber-white-total-height: 129px;
+$viber-white-image: '../img/sprite.png';
+$viber-white: (0px, 116px, 0px, -116px, 14px, 13px, 144px, 129px, '../img/sprite.png', 'viber-white', );
+$whatsapp-white-name: 'whatsapp-white';
+$whatsapp-white-x: 24px;
+$whatsapp-white-y: 116px;
+$whatsapp-white-offset-x: -24px;
+$whatsapp-white-offset-y: -116px;
+$whatsapp-white-width: 14px;
+$whatsapp-white-height: 13px;
+$whatsapp-white-total-width: 144px;
+$whatsapp-white-total-height: 129px;
+$whatsapp-white-image: '../img/sprite.png';
+$whatsapp-white: (24px, 116px, -24px, -116px, 14px, 13px, 144px, 129px, '../img/sprite.png', 'whatsapp-white', );
+$spritesheet-width: 144px;
+$spritesheet-height: 129px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($attention-small, $attention, $cart-blue, $cart-white, $cart, $close, $file-white, $hd-catalog, $mail-white, $phone-white, $print, $promo-title-corner, $red-dot, $search-btn-white, $search-input, $to-cart-white, $viber-white, $whatsapp-white, );
+$spritesheet: (144px, 129px, '../img/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

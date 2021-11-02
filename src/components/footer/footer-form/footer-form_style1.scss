@@ -1,0 +1,14 @@
+.webform-flexbox {
+    display: grid;
+    gap: 1.5rem;
+
+    @screen sm {
+        grid-template-columns: 1fr 9rem;
+    }
+    .webform-flex--0 {
+        .form-submit {
+            width: 100%;
+        }
+    }
+
+}

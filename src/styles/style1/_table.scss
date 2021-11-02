@@ -1,0 +1,119 @@
+@import "./helpers/helpers";
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    @apply border-color-1-n-mm;
+
+    th {
+	font-weight: normal;
+    }
+    th,
+    td {
+		vertical-align: top;
+		padding: 0.5rem 1rem;
+		text-align: left;
+	@apply border-color-1-n-mm border;
+    }
+    &[border="0"] td, &[border="0"] th {
+	@apply border-none;
+    }
+}
+//table:not(.table-custom):not(.table-nostyle) {
+//    background-color: $table-bg;
+//    border-color: $table-border-color;
+//    thead {
+//	background-color: $table-head-bg;
+//	color: $table-head-color;
+//    }
+//}
+//.table-sm {
+//    th,
+//    td {
+//	padding: $table-cell-padding-sm;
+//    }
+//}
+.table-striped {
+    tbody {
+	tr {
+	    &:nth-of-type(odd) {
+		th, td {
+		    @apply bg-color-1-n-mm-input;
+		}
+	    }
+	}
+    }
+}
+.table-hover {
+    tr {
+	&:hover {
+	    th, td {
+		@apply bg-color-2-n-mm;
+
+	    }
+	}
+    }
+}
+.table-custom {
+    //border: $table-custom-border-width solid $table-custom-border-color;
+    // background-color: $table-custom-bg;
+    thead {
+	//background-color: $table-custom-head-bg;
+	//color: $table-custom-head-color;
+    }
+    //tbody {
+    //    tr {
+    //        &:nth-of-type(#{$table-custom-striped-order}) {
+    //            th, td {
+    //                background-color: $table-custom-striped-bg;
+    //            }
+    //        }
+    //    }
+    //}
+    td,
+    th {
+	//border-bottom: $table-custom-border-width solid $table-custom-border-color;
+	//padding: $table-custom-cell-padding;
+    }
+}
+.table-nostyle {
+    border: none;
+    thead {
+	background-color: transparent;
+    }
+    tr {
+	background-color: transparent;
+	th, td {
+	    border: none;
+	    padding: 0;
+	    line-height: inherit !important;
+	}
+    }
+}
+
+@include max-screen(991px) {
+    .table-mobile {
+	display: block;
+	margin-top: 20px;
+	border: none;
+	thead {
+	    display: none;
+	}
+	tbody {
+	    display: block;
+	}
+	tr {
+	    display: block;
+	    border: 1px solid currentColor;
+	    padding: 10px;
+	    margin-bottom: -1px;
+	}
+	td, th {
+	    display: block;
+	    width: 100% !important;
+	    padding: 0;
+	    border: none;
+	    background-color: transparent !important;
+	}
+    }
+}

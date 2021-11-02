@@ -1,0 +1,274 @@
+@import "helpers/helpers";
+
+@layer components {
+  .field {
+    @include first(1) {
+      margin-top: 0;
+    }
+    @include last(1) {
+      margin-bottom: 0;
+    }
+    @include unique() {
+      margin: 0;
+    }
+    margin: 0.5rem 0;
+
+    .suffix {
+      margin-left: 0.25em;
+    }
+
+    .prefix {
+      margin-right: 0.5em;
+    }
+
+    &.field-label-inline {
+      .label {
+        display: inline-block;
+        margin-right: 1ch;
+      }
+
+      .value {
+        display: inline-block;
+      }
+    }
+
+    &.field-label-hidden {
+      .label {
+        display: none;
+      }
+    }
+  }
+
+  .group-field {
+    position: relative;
+  }
+
+  .field-manufacture-by {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+    background-color: #edf2f7;
+
+    a {
+      @apply text-color-1-n border-b-0 ml-0.5;
+    }
+  }
+
+  .field-delivery {
+
+  }
+
+  .field-cat-number {
+    a {
+      @apply text-color-1-n font-semibold no-underline text-base;
+      line-height: 1.5;
+      border-bottom: none;
+    }
+  }
+
+  .field-title {
+    a {
+      @apply text-color-1-n;
+      border-bottom: none;
+    }
+  }
+
+  .field-field-offers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    //position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    user-select: none;
+    font-size: $font-size-sm;
+    font-weight: 700;
+    color: $label-color-text;
+    background-color: $label-discount;
+    border-radius: 50%;
+  }
+
+  .group-field-price {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 0;
+    align-items: flex-start;
+
+    .field {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .group-price-nds {
+    display: flex;
+
+    .nds {
+      @apply text-color-1-n-m;
+      align-self: flex-end;
+      margin-bottom: 2px;
+    }
+  }
+
+  .field-seller {
+    @apply text-color-1-n-m;
+    font-size: 12px;
+  }
+
+  .field-quanity {
+
+    margin-top: 0;
+
+    @apply text-label-availible font-semibold;
+  }
+
+  .field-field-price {
+
+    .value {
+      @apply mr-2 font-semibold text-2xl text-color-1-n-p;
+    }
+
+    .suffix {
+      @apply text-color-1-n text-2xl;
+    }
+  }
+
+  .field-field-price-old {
+    position: relative;
+    max-width: max-content;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(50% - 1px);
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      @apply bg-color-1-n-mm;
+    }
+
+    @apply text-color-1-n-mm font-semibold;
+  }
+
+  .field-field-applicability {
+    .values {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 1px;
+
+      .value {
+        display: contents;
+
+        > * {
+          @include first(1) {
+            padding: 0.5rem 1rem;
+          }
+          @include last(1) {
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .group-field-full {
+      display: grid;
+
+    .field {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      @apply -mx-2 lg:mx-0;
+      * {
+        @include first(1) {
+          margin-top: 0;
+        }
+      }
+
+      * {
+        @include last(1) {
+          margin-bottom: 0;
+        }
+      }
+    }
+      > *, .field {
+          margin-bottom: 0;
+      }
+
+
+  .category {
+    .btn {
+      &.active {
+        @apply bg-color-1-m-secondary text-color-3-n;
+      }
+    }
+  }
+  }
+  .field-label-inline {
+    .label {
+      display: inline-block;
+    }
+  }
+
+  .field-label-above {
+    .label {
+      display: block;
+    }
+  }
+
+  .field-label-hidden {
+    .label {
+      display: none;
+    }
+  }
+
+
+  .group-field-text {
+    .field {
+      @include first(1) {
+        margin-top: 0;
+      }
+      @include last(1) {
+        margin-bottom: 0;
+      }
+      @include unique() {
+        margin: 0;
+      }
+    }
+  }
+
+  .group-field-variant-price {
+    @apply p-6 px-7 border-color-1-n-mm border;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    align-self: start;
+  }
+
+  .field-geo {
+
+    .value {
+      @apply text-xs text-color-1-n-m;
+    }
+  }
+
+  .field-text-short-desc, .field-applicability {
+    .label {
+      @apply text-color-1-n mb-4 font-semibold text-base;
+      line-height: 1.5;
+    }
+  }
+
+  .rouble {
+    font-family: Segoe UI, sans-serif;
+  }
+}
+.field-image {
+  position: relative;
+
+  a {
+    border-bottom: none;
+  }
+}

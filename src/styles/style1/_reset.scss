@@ -1,0 +1,25 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html {
+    box-sizing: border-box;
+    font-size: $font-size-html;
+}
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: $line-height-base;
+    color: $color-1-norma;
+    margin: 0;
+    padding: 0;
+    background-color: $color-1-bg;
+    min-height: 100vh;
+    min-width: $min-width-site;
+}
+blockquote, q {
+    quotes: none;
+}
+.clear {
+    clear: both;
+}

@@ -1,0 +1,300 @@
+style.
+    .algus-icon-catalog {
+        width: 280px;
+    }
+
+    .algus-icon-catalog.open .algus-icon-catalog__select-placeholder {
+        background-color: #fff1e0;
+    }
+
+    .algus-icon-catalog.open .algus-icon-catalog__select-options {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .algus-icon-catalog:hover .algus-icon-catalog__select-placeholder {
+        background-color: #fff1e0;
+    }
+
+    .algus-icon-catalog__select-placeholder {
+        height: 43px;
+        background-color: bisque;
+        display: flex;
+        align-items: center;
+        padding: 2px 40px 2px 10px;
+        border: 1px solid #3f435242;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .algus-icon-catalog__select-placeholder:after {
+        content: "\f078";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 25px;
+        font-weight: 400;
+        color: #333;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .algus-icon-catalog__select-name {
+        line-height: 1;
+    }
+
+    .algus-icon-catalog__select-options {
+        max-height: 250px;
+        overflow: auto;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff1e0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid #3f435242;
+        border-top: 0;
+        box-shadow: 0 0 5px 0 #ccc;
+    }
+
+    .algus-icon-catalog__select-option {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .algus-icon-catalog__select-option:hover {
+        background-color: bisque;
+    }
+
+    .algus-icon-catalog__select-img {
+        flex: 0 0 auto;
+        width: 50px;
+        margin-right: 15px;
+    }
+
+script.
+    $(document).ready(function () {
+
+        var list = [
+            {
+                name: "Дефолтные",
+                folder: "default",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 1",
+                folder: "type-01",
+                maxHeight: '89px',
+                count_file: '12'
+            },
+            {
+                name: "Коллекция 2",
+                folder: "type-02",
+                maxHeight: '89px',
+                count_file: '12'
+            },
+            {
+                name: "Коллекция 3",
+                folder: "type-03",
+                maxHeight: '89px',
+                count_file: '12'
+            },
+            {
+                name: "Коллекция 4",
+                folder: "type-04",
+                maxHeight: '89px',
+                count_file: '12'
+            },
+            {
+                name: "Коллекция 5",
+                folder: "type-05",
+                maxHeight: '89px',
+                count_file: '12'
+            },
+            {
+                name: "Коллекция 6 - faw",
+                folder: "type-06-faw",
+                maxHeight: '89px',
+                count_file: '5'
+            },
+            {
+                name: "Коллекция 7 - howo",
+                folder: "type-07-howo",
+                maxHeight: '89px',
+                count_file: '5'
+            },
+            {
+                name: "Коллекция 8 - isuzu",
+                folder: "type-08-isuzu",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 9 - iveco blue",
+                folder: "type-09-iveco_blue",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 10 - iveco red",
+                folder: "type-10-iveco_red",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 11 - kamaz",
+                folder: "type-11-kamaz",
+                maxHeight: '89px',
+                count_file: '15'
+            },
+            {
+                name: "Коллекция 12 - man",
+                folder: "type-12-man",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 13 - scania",
+                folder: "type-13-scania",
+                maxHeight: '89px',
+                count_file: '7'
+            },
+            {
+                name: "Коллекция 14",
+                folder: "type-14",
+                maxHeight: '89px',
+                count_file: '14'
+            },
+            {
+                name: "Коллекция 15 - blue",
+                folder: "type-15-blue",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 16 - red",
+                folder: "type-16-red",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 17 - yellow",
+                folder: "type-17-yellow",
+                maxHeight: '89px',
+                count_file: '11'
+            },
+            {
+                name: "Коллекция 18",
+                folder: "type-18",
+                maxHeight: '89px',
+                count_file: '17'
+            },
+            {
+                name: "Коллекция 19",
+                folder: "type-19",
+                maxHeight: '89px',
+                count_file: '12'
+            },
+        ];
+
+        var html = `
+            <div class="algus-icon-catalog">
+                <div class="algus-icon-catalog__select">
+                    <div class="algus-icon-catalog__select-placeholder"></div>
+                    <div class="algus-icon-catalog__select-options"></div>
+                </div>
+            </div>
+        `;
+
+        $('.setting[data-block="b-catalog-front"] .setting__list').append(html);
+        $('.setting[data-block="b-catalog-page"] .setting__list').append(html);
+        $('.setting[data-block="b-catalog-section"] .setting__list').append(html);
+        $('.setting[data-block="b-catalog-similar"] .setting__list').append(html);
+
+        // ЗАПОЛНЯЕМ СЕЛЕКТ
+        list.map(function (item, index) {
+            $('.algus-icon-catalog__select-options').append(`
+                <div class="algus-icon-catalog__select-option">
+                    <img class="algus-icon-catalog__select-img" src="img/temp/item-catalog/${item.folder}/00.png" alt="" />
+                    <div class="algus-icon-catalog__select-name">${item.name}</div>
+                </div>
+            `);
+        });
+
+        // фунция подмены иконок
+        function catalogIcons(block) {
+            var countItem = $(block).find('.item').length;
+            var countIcon = list[localStorage.getItem('selectedIconCatalogValue')].count_file;
+            var folder = list[localStorage.getItem('selectedIconCatalogValue')].folder;
+            if (countItem) {
+                var i = 0;
+                var j = 0;
+                for (i; i < countItem; i++) {
+                    if (j < 10) {
+                        var sas = '0' + j;
+                    }
+                    $(block).find('.item').eq(i).not('.item-catalog_more').find('.item__image img').attr('src', `img/temp/item-catalog/${folder}/${sas}.png`);
+                    j = j == countIcon - 1 ? 0 : j + 1;
+                }
+            }
+        }
+
+        // проверяем на наличие в локальном хранилище
+        // если нет, то выбираем первый пунтт из списка
+        if (localStorage.getItem('selectedIconCatalogValue') == null) {
+            $('.algus-icon-catalog__select-option').first().contents().clone().appendTo($('.algus-icon-catalog__select-placeholder'));
+            localStorage.setItem('selectedIconCatalogValue', 0);
+            localStorage.setItem('selectedIconCatalogName', $('.algus-icon-catalog__select-option').first().find('.algus-icon-catalog__select-name').text());
+        } else {
+            $('.algus-icon-catalog__select-option').eq(localStorage.getItem('selectedIconCatalogValue')).contents().clone().appendTo($('.algus-icon-catalog__select-placeholder'));
+        }
+
+        // клик по селекту
+        $('.algus-icon-catalog__select-placeholder').on('click', function () {
+            $('.algus-icon-catalog').toggleClass('open');
+        });
+
+        // клик по пунктам в селекте
+        $('.algus-icon-catalog__select-option').on('click', function () {
+            $('.algus-icon-catalog__select-placeholder').contents().remove();
+            $(this).contents().clone().appendTo($('.algus-icon-catalog__select-placeholder'));
+            localStorage.setItem('selectedIconCatalogValue', $(this).index());
+            localStorage.setItem('selectedIconCatalogName', $(this).find('.algus-icon-catalog__select-name').text());
+
+            catalogIcons('.b-catalog-front_layout-1');
+            catalogIcons('.b-catalog-front_layout-2');
+            catalogIcons('.b-catalog-front_layout-3');
+            catalogIcons('.b-catalog-page_layout-1');
+            catalogIcons('.b-catalog-page_layout-2');
+            catalogIcons('.b-catalog-section');
+            catalogIcons('.b-catalog-similar');
+
+        });
+
+        catalogIcons('.b-catalog-front_layout-1');
+        catalogIcons('.b-catalog-front_layout-2');
+        catalogIcons('.b-catalog-front_layout-3');
+        catalogIcons('.b-catalog-page_layout-1');
+        catalogIcons('.b-catalog-page_layout-2');
+        catalogIcons('.b-catalog-section');
+        catalogIcons('.b-catalog-similar');
+
+        $(document).click(function (event) {
+            if ($(event.target).closest(".algus-icon-catalog").length) return;
+            $(".algus-icon-catalog").removeClass("open");
+            event.stopPropagation();
+        });
+
+        $('.algus-icon-catalog__select-options').on('mouseleave', function (event) {
+            $(".algus-icon-catalog").removeClass("open");
+        });
+
+    });

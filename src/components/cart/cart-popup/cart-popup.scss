@@ -1,0 +1,22 @@
+@import "../../styles/helpers/_helpers";
+
+.cart-popup {
+    top: -41px;
+    margin-bottom: -41px;
+}
+.cart-popup__hd {
+    margin-bottom: 10px;
+}
+.cart-popup__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+}
+.cart-popup__cont {
+    margin-bottom: 15px;
+}
+.cart-popup__ft {
+    a {
+        color: white !important;
+    }
+}

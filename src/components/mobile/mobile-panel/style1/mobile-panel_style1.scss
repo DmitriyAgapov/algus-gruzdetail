@@ -1,0 +1,101 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.mobile-panel-menu {
+    &.open {
+        .mobile-panel__panel {
+            transform: translateX(0);
+            //@include screen(480px, 1199px) {
+            //}
+        }
+    }
+    //.mobile-panel__panel {
+    //    @include screen(480px, 991px) {
+    //        width: 300px;
+    //    }
+    //}
+    .mobile-panel__cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+}
+.mobile-panel-search {
+    .search-result {
+        position: relative;
+        box-shadow: none;
+    }
+}
+.mobile-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
+    &.open {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        .mobile-panel__overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-panel__panel {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    .close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}
+.mobile-panel__panel {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.25s ease-in-out;
+    z-index: 1000;
+}
+.mobile-panel__hd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: rem(60px);
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    //border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.mobile-panel__cont {
+    height: 100%;
+    padding-top: rem(60px);
+    padding-bottom: 1rem;
+}
+.mobile-panel__inner {
+    max-height: 100%;
+    overflow: auto;
+    padding: 1rem;
+}
+.mobile-panel__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $overlay;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: all 0.25s ease-in-out;
+}

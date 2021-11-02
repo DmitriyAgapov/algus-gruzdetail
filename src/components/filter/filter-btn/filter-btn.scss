@@ -1,0 +1,9 @@
+@import "../../../styles/helpers/helpers";
+
+.filter-btn {
+    display: none;
+    margin-bottom: 2rem;
+    @include max-screen(1199px) {
+        display: block;
+    }
+}

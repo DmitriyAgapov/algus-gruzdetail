@@ -1,0 +1,55 @@
+@import "../../../styles/helpers/_helpers";
+
+.cart-btn {
+    display: flex;
+    align-items: center;
+}
+.cart-btn__submit-checkout {
+    background-color: #000;
+    border: 1px solid #000;
+    color: white;
+    text-align: center;
+    padding: 18px 0;
+    width: 342px;
+    // font-family: $font;
+    // font-size: $normaPlus;
+    font-weight: bold;
+}
+.cart-btn__print {
+    margin-right: 27px;
+    a {
+        // font-size: $normaPlus;
+        border: none;
+        color: inherit;
+        span {
+            text-decoration: underline;
+            position: relative;
+            padding-left: 42px;
+            &:before {
+                content: '';
+                position: absolute;
+                top: -4px;
+                left: 0;
+                // @include sprite($print);
+            }
+        }
+        &:hover {
+            span {
+                text-decoration: none;
+            }
+        }
+    }
+}
+.cart-btn_checkout-form {
+    .complete-order {
+        background-color: #000;
+        border: 1px solid #000;
+        color: white;
+        text-align: center;
+        padding: 18px 0;
+        width: 100%;
+        // font-family: $font;
+        // font-size: $normaPlus;
+        font-weight: bold;
+    }
+}

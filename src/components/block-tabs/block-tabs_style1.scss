@@ -1,0 +1,86 @@
+@import "../../styles/style1/helpers/helpers";
+
+.tabs-container {
+    .tabs-container__links {
+        border-bottom: 1px solid transparent;
+        margin-bottom: 2rem;
+        .btn {
+            min-width: 10rem;
+            border: 0;
+            border-bottom: 1px solid #d9d9d9;
+            text-align: center;
+            margin-bottom: -1px;
+            margin-top: 1px;
+            @apply hover:text-color-1-m-primary font-semibold text-sm;
+            &.active {
+                border-bottom: 1px solid transparent;
+                @apply bg-white text-color-1-m-primary border-color-1-m-primary;
+            }
+        }
+        @apply border-color-1-n-mm;
+    }
+
+    .tabs-container__tab-content {
+        display: none;
+
+        z-index: 5;
+
+        &.active {
+            display: block;
+            z-index: 6;
+        }
+    }
+    [href="#catalog-groups"] {
+        &:before {
+            //@include svgsprite(cat-group);
+            content: "";
+            margin-bottom: -3px;
+            margin-right: 12px;
+        }
+        &:hover:before {
+            //@include svgsprite(cat-group-hover);
+        }
+        &.active:before {
+            //@include svgsprite(cat-group-hover);
+        }
+    }
+    [href="#catalog-alphabet"] {
+      &:before {
+        //@include svgsprite(alphabet-catalog);
+        content: "";
+        margin-bottom: -2px;
+        margin-right: 12px;
+      }
+      &:hover:before {
+        //@include svgsprite(alphabet-catalog-hover);
+      }
+      &.active:before {
+        //@include svgsprite(alphabet-catalog-hover);
+      }
+    }
+    [href="#catalog-visual"] {
+        &:before {
+            //@include svgsprite(vis-catalog);
+            content: "";
+            margin-bottom: -3px;
+            margin-right: 12px;
+        }
+        &:hover:before {
+            //@include svgsprite(vis-catalog-hover);
+        }
+        &.active:before {
+            //@include svgsprite(vis-catalog-hover);
+        }
+    }
+
+    ///////Мобильный вид////
+    .tabs-container {
+        @include max-screen(767px) {
+            //display: ;
+            .tabs-container__links {
+                display: contents;
+            }
+        }
+    }
+
+}

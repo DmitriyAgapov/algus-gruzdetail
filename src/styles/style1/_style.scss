@@ -1,0 +1,68 @@
+@tailwind components;
+
+@layer components {
+    .container {
+		width: 100%;
+		padding: 0 16px;
+		@screen sm {
+			max-width: 100%;
+		}
+		@screen md {
+			max-width: 100%;
+		}
+		@screen lg {
+			max-width: 960px;
+			padding: 0;
+		}
+		@screen xl {
+			max-width: 1200px;
+		}
+    }
+	.wrapper {
+		overflow: hidden;
+	}
+	.more__link {
+		cursor: pointer;
+		//display: none;
+		&.collapsed {
+			span {
+				&:before {
+					@include fontAwesome("\f107", 1em, 100);
+					position: absolute;
+					top: 0.1rem;
+					right: 0;
+					transition: all 0.15s ease-in-out;
+				}
+			}
+		}
+		span {
+			position: relative;
+			padding-right: 0.875rem;
+			border-bottom: 1px dashed transparent;
+			@apply border-links text-links;
+			&:before {
+				@include fontAwesome("\f106", 1em, 100);
+				position: absolute;
+				top: 0.1rem;
+				right: 0;
+				transition: all 0.15s ease-in-out;
+			}
+
+
+			&:hover {
+
+			}
+		}
+		&.active {
+			span {
+				&:before {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+	.more__wrapper {
+		display: grid;
+		gap: 0.5rem;
+	}
+}

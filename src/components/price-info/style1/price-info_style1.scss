@@ -1,0 +1,32 @@
+@import "../../../styles/helpers/helpers";
+
+.price-info {
+    @apply my-4 text-xs;
+    @apply col-span-9;
+
+    //border-right: 1px solid $border-lightgray;
+}
+
+.price-info__icon {
+    //@include sprite($attention);
+    //margin-right: 10px;
+}
+
+.price-info__info, .price-info__updated {
+    font-size: 0.75rem;
+    line-height: 1.75;
+
+
+}
+
+.price-info__bold {
+
+    font-weight: 700;
+    margin-right: 0.25rem;
+    color: #000;
+}
+
+.price-info__time {
+    margin-right: 10px;
+    @apply text-color-1-n;
+}

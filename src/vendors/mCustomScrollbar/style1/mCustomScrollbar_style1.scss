@@ -1,0 +1,50 @@
+@import "../../../styles/style1/helpers/helpers";
+
+.mCustomScrollbar {
+    //padding-bottom: rem(44px);
+}
+.mCSB_scrollTools {
+    opacity: 1 !important;
+}
+.mCSB_dragger {
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+}
+.mCSB_dragger_bar {
+    border-radius: $border-radius-sm !important;
+    z-index: 1;
+    background-color: $color-1-main !important;
+}
+.mCSB_draggerRail {
+    border-radius: $border-radius-sm !important;
+    background-color: $color-1-norma-light-thin !important;
+}
+.mCSB_scrollTools_horizontal {
+    bottom: 0 !important;
+    height: 16px !important;
+    .mCSB_dragger_bar {
+        height: 8px !important;
+        margin: 0 !important;
+    }
+    .mCSB_dragger {
+        display: flex !important;
+        align-items: center !important;
+    }
+    .mCSB_draggerRail {
+        width: 100%;
+        height: 8px !important;
+        margin: 4px 0 0 !important;
+    }
+}
+.mCSB_scrollTools_vertical {
+    width: 16px !important;
+    .mCSB_dragger_bar {
+        width: 8px !important;
+    }
+    .mCSB_draggerRail {
+        width: 6px !important;
+        height: 100%;
+        margin: 0 0 0 6px !important;
+    }
+}

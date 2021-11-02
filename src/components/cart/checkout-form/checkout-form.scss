@@ -1,0 +1,211 @@
+@import "../../styles/helpers/_helpers";
+
+.checkout-form {
+    background-color: white;
+    border: 1px solid #000;
+    padding: 21px 23px 23px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05), 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 4px 4px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.05), 0px 16px 16px rgba(0, 0, 0, 0.05), 0px 32px 32px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    .form-actions {
+        display: none;
+    }
+    .cart-btn_checkout-form {
+        width: 350px;
+        position: absolute;
+        top: 252px;
+        z-index: 1;
+        left: 762px;
+        @include max-screen(1199px) {
+            width: 294px;
+            left: 650px;
+        }
+    }
+}
+.checkout-form__title {
+    color: #000;
+    font-weight: 700;
+    line-height: 39px;
+    margin: 0 0 8px;
+}
+.checkout-form__markup {
+    margin-bottom: 21px;
+    p {
+        // font-size: $normaPlus;
+        margin: 0;
+    }
+}
+.checkout-form__form {
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    legend {
+        display: none;
+    }
+    label {
+        display: none;
+    }
+    .fieldset-wrapper {
+        > .form-wrapper {
+            position: relative;
+            height: 200px;
+            > div {
+                position: absolute;
+            }
+        }
+    }
+    .form-item {
+        margin-bottom: 10px;
+    }
+    .field--name-field-phone {
+        width: 165px;
+        top: 139px;
+        left: 0;
+        @include max-screen(1199px) {
+            width: 137px;
+        }
+    }
+    #edit-contact-information {
+        height: 0;
+    }
+    // .form-item-contact-information-email {
+    //     position: absolute;
+    //     top: 149px;
+    //     left: 185px;
+    //     width: 165px;
+    //     z-index: 1;
+    //     @include max-screen(1199px) {
+    //         width: 137px;
+    //         left: 156px;
+    //     }
+    // }
+    .form-type-email {
+        width: 165px;
+        top: 139px;
+        left: 184px;
+        z-index: 1;
+        @include max-screen(1199px) {
+            width: 137px;
+            left: 156px;
+        }
+    }
+    .field--name-field-file {
+        width: 350px;
+        top: 70px;
+        left: 369px;
+        @include max-screen(1199px) {
+            width: 294px;
+            left: 313px;
+        }
+    }
+    // .field--name-field-privacy-policy {
+    //     top: 144px;
+    //     left: 370px;
+    //     width: 350px;
+    //     z-index: 1;
+    //     @include max-screen(1199px) {
+    //         width: 137px;
+    //         left: 156px;
+    //     }
+    // }
+    .form-managed-file {
+        input[type="submit"] {
+            border: none;
+            color: #ffffff;
+            line-height: 14px;
+            padding: 9px 19px;
+            &:hover {
+                color: #ffffff;
+            }
+            &:focus {
+                color: #ffffff;
+            }
+        }
+        // input[name="payment_information_billing_information_field_file_0_remove_button"] {
+        //     border: none;
+        //     text-indent: -999999px;
+        //     display: inline-block;
+        //     padding: 0;
+        //     background-color: transparent;
+        //     @include sprite($close);
+        // }
+    }
+    .description {
+        display: none;
+    }
+    .field--name-field-contact-face {
+        width: 350px;
+        top: 0;
+        left: 0;
+        @include max-screen(1199px) {
+            width: 294px;
+        }
+    }
+    .field--name-field-company {
+        width: 350px;
+        top: 70px;
+        left: 0;
+        @include max-screen(1199px) {
+            width: 294px;
+        }
+    }
+    .field--name-field-city {
+        width: 350px;
+        top: 0;
+        left: 369px;
+        @include max-screen(1199px) {
+            width: 294px;
+            left: 313px;
+        }
+    }
+    .field--name-field-comment {
+        width: 350px;
+        top: 0;
+        left: 739px;
+        @include max-screen(1199px) {
+            width: 294px;
+            left: 626px;
+        }
+        textarea {
+            height: 120px;
+        }
+    }
+}
+.checkout-form__privacy-policy {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    margin-bottom: 12px;
+    width: 350px;
+    position: absolute;
+    top: 254px;
+    z-index: 1;
+    left: 391px;
+    @include max-screen(1199px) {
+        width: 294px;
+        left: 335px;
+    }
+    p {
+        margin: 0;
+    }
+    a {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 15px;
+        color: $color2;
+        border-bottom: 1px solid rgba(34, 35, 37, 0.1);
+        &:hover {
+            border-color: transparent;
+        }
+    }
+    input[type="checkbox"].error + label {
+        color: red;
+        a {
+            color: red;
+        }
+    }
+    input[type="checkbox"].error + label:before {
+        border: 1px solid red !important;
+    }
+}

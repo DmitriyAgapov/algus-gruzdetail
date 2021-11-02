@@ -1,0 +1,11 @@
+//newstyle1: cssfile[catalog_style1] scriptfile[]
+
+// catalog
++b.catalog
+        include ../aside/aside
+        +e.content
+                include ../component/node/node-product/node-full
+                include ../blocks/block-recently-viewed/block-recently-viewed
+                .ajax-progress.ajax-progress-throbber(style="display: none;")
+                    .throbber &nbsp;
+// КОНЕЦ: catalog

@@ -1,0 +1,26 @@
+@import "../../styles/style1/helpers/helpers";
+
+
+aside {
+  @apply hidden lg:block;
+
+  > .block {
+    @apply my-8;
+    & {
+      @include first(1) {
+        margin-top: 0;
+      }
+      @include last(1) {
+        margin-bottom: 0;
+      }
+      @include unique {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+    .block__title {
+
+    }
+
+  }
+}

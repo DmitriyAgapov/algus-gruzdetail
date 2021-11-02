@@ -1,0 +1,67 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.cart-block {
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    grid-template: auto auto/1.5em auto;
+    gap: 0 0.75rem;
+    min-width: max-content;
+    align-items: center;
+}
+
+.cart-block__icon {
+    position: relative;
+    &:before {
+        @include fontAwesome("\f07a", 1.5em, 400);
+        grid-row: 1/3;
+        @apply text-color-1-m-secondary;
+        align-self: center;
+        left: 0;
+        margin-right: 0;
+    }
+}
+.cart-block__count {
+    position: absolute;
+    display: block;
+    top: -1em;
+    font-weight: 700;
+    right: -1em;
+    padding: 4px 3px 3px 3px;
+    line-height: 1;
+    @apply bg-label-discount text-color-1-n-p;
+    border-radius: 50px;
+    font-size: 11px;
+    min-width: 18px;
+    text-align: center;
+}
+.cart-block__ico {
+    margin-right: 12px;
+    position: relative;
+    span {
+        line-height: 12px;
+        font-size: 8.8px;
+        color: #FFFFFF;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        position: absolute;
+        top: -6px;
+        right: -7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.cart-block__name {
+    font-weight: 600;
+    line-height: 1;
+    @apply text-color-1-n-p;
+    display: block;
+    margin-bottom: 2px;
+}
+.cart-block__price {
+    font-weight: 400;
+    line-height: 1;
+    display: block;
+}

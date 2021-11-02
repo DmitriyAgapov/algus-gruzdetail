@@ -1,0 +1,45 @@
+@import "../../styles/helpers/_helpers";
+
+.checkout-details {
+    background-color: white;
+    border: 1px solid #000;
+    padding: 15px 20px 12px;
+    margin-bottom: 20px;
+}
+.checkout-details__hd {
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    margin-bottom: 10px;
+}
+.checkout-details__title {
+    font-weight: 500;
+}
+.checkout-details__view-cart {
+    a {
+        font-size: 12px;
+    }
+}
+.checkout-details__cont {
+    font-size: 12px;
+}
+.checkout-details__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    @include last(1) {
+        margin-bottom: 0;
+    }
+}
+.checkout-details__row_count {}
+.checkout-details__row_total-price {
+    .checkout-details__value {
+        font-weight: 700;
+    }
+}
+.checkout-details__label {}
+.checkout-details__value {
+    font-weight: 500;
+    color: #000;
+}

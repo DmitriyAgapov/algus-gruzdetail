@@ -1,0 +1,82 @@
+style.
+    .algus-slogan-setting {
+        border: 1px solid #ccc;
+        background-color: #fff;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 3;
+        margin-left: 3px;
+        flex: 0 0 auto;
+        position: relative;
+    }
+
+    .algus-slogan-setting::before {
+        content: "\f044";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 13px;
+        font-weight: 100;
+        color: #333;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 1px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .algus-slogan-setting.edit::before {
+        content: "\f0c7";
+    }
+
+script.
+    $(document).ready(function () {
+        // -----------------------------------------------
+
+        // ПРОВЕРЯЕМ НА НАЛИЧИЕ ДАННЫХ В ХРАНИЛИЩЕ
+        if (localStorage.getItem('custom-slogan')) {
+            // $('.custom-slogan__input').val(localStorage.getItem('custom-slogan'));
+            $('.slogan').html(localStorage.getItem('custom-slogan'));
+        } else {
+            localStorage.setItem('custom-slogan', $('.hd[style="display: block;"] .slogan').text());
+            $('.slogan').html(localStorage.getItem('custom-slogan'));
+        }
+
+        $('.slogan').wrapInner('<span style="position: relative;"></span>').css({
+            'display': 'flex',
+            'align-items': 'center'
+        });
+        $('.slogan').append(`
+            <div class="algus-slogan-setting"></div>
+        `);
+
+        $(".algus-slogan-setting").on('click', function () {
+            if (!$(this).hasClass('edit')) {
+                $('.slogan span').html(`<input type="text" value="${localStorage.getItem('custom-slogan')}" style="border: 1px solid gray; padding: 3px 5px;" />`);
+                $(this).addClass('edit');
+            } else {
+                localStorage.setItem('custom-slogan', $('.hd[style="display: block;"] .slogan input').val());
+                $('.slogan span').html($('.hd[style="display: block;"] .slogan input').val());
+                $(this).removeClass('edit');
+            }
+        });
+
+        $(document).on('keypress', '.slogan input', function (e) {
+            let btnEdit = $(this).parents('.slogan').find('.algus-slogan-setting');
+            if (e.which == 13) {
+                localStorage.setItem('custom-slogan', $('.hd[style="display: block;"] .slogan input').val());
+                btnEdit.removeClass('edit');
+                $('.slogan span').html($('.hd[style="display: block;"] .slogan input').val());
+            }
+        });
+
+        $(".logo__link").on('click', function (e) {
+            e.preventDefault();
+        });
+
+        // -----------------------------------------------
+    });

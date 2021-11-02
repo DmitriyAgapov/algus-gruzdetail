@@ -1,0 +1,85 @@
+extends default
+
+block variables
+    - const title = "Главная";
+    - const description = '';
+    - const keywords = '';
+    - const pageClass = 'front uikit';
+
+block styles
+
+    +style("http://uralval.algus.net/libraries/jquery.intl-tel-input/build/css/intlTelInput.min.css")
+block scripts
+
+block content
+    .wrapper
+        .container
+            include ../components/header/header/1/header_1
+            .region.region-system
+                .page-breadcrumbs-heading
+                    h1 Запчасти КАМАЗ
+                    include ../components/breadcrumb/breadcrumb
+                    include ../components/mobile/mobile-breadcrumb/mobile-breadcrumb
+            section
+                .block.block-html.block-special
+                    .block__header
+                        h2.block__title Формы
+                    .block__content
+
+
+                        include ../components/component/for dev/forms
+
+
+
+                    .block__footer
+                        a.btn.btn-primary(href="#") Ссылка блока футер
+                .block.block-html.block-special
+                    .block__header
+                        h2.block__title Заголовок H2 BLOCK
+                    .block__content
+                        p Разноцветные почтовые ящики способны подчеркнуть индивидуальность вашего дома, поднять настроение, поддержать корпоративный стиль предприятия. По сути, отличаются они от обычных металлических почтовых ящиков только цветом. Материалы и габариты все идентичные. В производстве применяется листовая сталь стандартной толщины.
+                        p Разноцветные почтовые ящики способны подчеркнуть индивидуальность вашего дома, поднять настроение, поддержать корпоративный стиль предприятия. По сути, отличаются они от обычных металлических почтовых ящиков только цветом. Материалы и габариты все идентичные. В производстве применяется листовая сталь стандартной толщины.
+                    .block__footer
+                        a.btn.btn-primary(href="#") Ссылка блока футер
+                .block.block-html.block-section
+                    .block__header
+                        h2.block__title Заголовок H2 BLOCK
+                    .block__content
+                        .block-flex
+                            .col
+                                p Разноцветные почтовые ящики способны подчеркнуть индивидуальность вашего дома, поднять настроение, поддержать корпоративный стиль предприятия. По сути, отличаются они от обычных металлических почтовых ящиков только цветом. Материалы и габариты все идентичные. В производстве применяется листовая сталь стандартной толщины.
+                            .col
+                                h3 Fields
+                                include ../components/fields/field-field-price-old
+                                include ../components/fields/field-field-price
+                                include ../components/fields/field-field-short-body
+                                include ../components/fields/field-offers
+                                include ../components/fields/field-quanity
+                                include ../components/fields/field-string-cat-num-label
+                                include ../components/fields/field-string-cat-num
+                                include ../components/fields/field-string-title
+
+
+
+
+
+
+
+
+
+                    .block__footer
+                        a.btn.btn-primary(href="#") Ссылка блока футер
+
+            main.is-sidebar
+                .region.region-sidebar
+                    include ../components/aside/aside
+
+                .region.region-content
+                    include ../components/tags/tags
+                    include ../components/price-info/price-info
+                    include ../components/catalog/catalog-aside
+                    include ../components/tempPages/text
+
+
+
+        include ../components/footer/footer/1/footer

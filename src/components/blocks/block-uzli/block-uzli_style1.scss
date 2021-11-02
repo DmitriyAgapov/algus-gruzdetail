@@ -1,0 +1,7 @@
+.block-uzli {
+  .block__content {
+    display: grid;
+    gap: 24px;
+    @apply  grid-cols-2 md:grid-cols-4 lg:grid-cols-5;
+  }
+}

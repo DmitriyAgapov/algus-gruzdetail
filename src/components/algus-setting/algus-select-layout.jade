@@ -1,0 +1,116 @@
++b.algus-select-layout
+    +e.placeholder
+    +e.options
+        +e.option(data-value="1") Стиль 1
+        +e.option(data-value="2") Стиль 2
+
+style.
+    .algus-select-layout {
+        width: 150px;
+    }
+    .algus-select-layout.open .algus-select-layout__placeholder {
+        background-color: #fff1e0;
+    }
+    .algus-select-layout.open .algus-select-layout__options {
+        opacity: 1;
+        visibility: visible;
+    }
+    .algus-select-layout:hover .algus-select-layout__placeholder {
+        background-color: #fff1e0;
+    }
+    .algus-select-layout__placeholder {
+        height: 43px;
+        background-color: bisque;
+        display: flex;
+        align-items: center;
+        padding: 2px 40px 2px 10px;
+        border: 1px solid #3f435242;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        position: relative;
+    }
+    .algus-select-layout__placeholder:after {
+        content: "\f078";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 25px;
+        font-weight: 400;
+        color: #333;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+    .algus-select-layout__options {
+        max-height: 250px;
+        overflow: auto;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff1e0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid #3f435242;
+        border-top: 0;
+        box-shadow: 0 0 5px 0 #ccc;
+    }
+    .algus-select-layout__option {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .algus-select-layout__option:hover {
+        background-color: bisque;
+    }
+    .algus-select-layout__select-img {
+        flex: 0 0 auto;
+        width: 50px;
+        margin-right: 15px;
+    }
+
+script.
+    $(document).ready(function () {
+
+        // проверяем на наличие в локальном хранилище
+        // если нет, то выбираем первый пунтт из списка
+        // if (localStorage.getItem('algus-select-layout-value') == null) {
+        //     var defaultLayout = 2;
+        //     $('.algus-select-layout__option[data-value="' + defaultLayout + '"]').contents().clone().appendTo($('.algus-select-layout__placeholder'));
+        //     localStorage.setItem( 'algus-select-layout-value', defaultLayout );
+        //     localStorage.setItem( 'algus-select-layout-name', $('.algus-select-layout__option[data-value="' + defaultLayout + '"]').text() );
+        // } else {
+        $('.algus-select-layout__option[data-value="' + localStorage.getItem('algus-select-layout-value') + '"]').contents().clone().appendTo($('.algus-select-layout__placeholder'));
+        // }
+
+        // клик по селекту
+        $('.algus-select-layout__placeholder').on('click', function () {
+            $('.algus-select-layout').toggleClass('open');
+        });
+
+        /*
+        // клик по пунктам в селекте
+        $('.algus-select-layout__option').on('click', function () {
+            $('.algus-select-layout__placeholder').contents().remove();
+            $(this).contents().clone().appendTo($('.algus-select-layout__placeholder'));
+            localStorage.setItem('algus-select-layout-value', $(this).data('value'));
+            localStorage.setItem('algus-select-layout-name', $(this).text());
+            printListColors();
+        });
+        */
+
+        $(document).click(function (event) {
+            if ($(event.target).closest(".algus-select-layout").length) return;
+            $(".algus-select-layout").removeClass("open");
+            event.stopPropagation();
+        });
+
+        $('.algus-select-layout__options').on('mouseleave', function (event) {
+            $(".algus-select-layout").removeClass("open");
+        });
+
+    });

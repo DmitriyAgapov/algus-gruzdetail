@@ -1,0 +1,43 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+.card-features-teaser-1 {
+    display: flex;
+    .card__image {
+        //border-top-left-radius: $border-radius-base;
+        //border-top-right-radius: $border-radius-base;
+        width: 3rem;
+        margin-right: .5rem;
+        svg {
+          height: 2rem;
+        }
+        img {
+            height: 2rem;
+            display: block;
+        }
+    }
+    .card__info {
+        position: relative;
+        padding-left: 1rem;
+        &::before {
+            content: '';
+            width: 1px;
+            height: 48px;
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 30%;
+            @apply bg-color-1-n-mm;
+        }
+    }
+    .card__name {
+        @apply text-color-1-n-p text-base;
+        margin-bottom: rem(8px);
+        font-weight: 600;
+        position: relative;
+    }
+    .card__body {
+        p {
+            margin: 0;
+        }
+    }
+}

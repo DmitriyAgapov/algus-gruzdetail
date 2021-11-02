@@ -1,0 +1,79 @@
+@import "../../styles/helpers/_helpers";
+
+.cart-complete {
+    margin-top: 24px;
+    border: 5px solid $color3;
+    background-color: white;
+    font-size: $normaPlus;
+    padding: 49px 30px 30px 110px;
+    display: flex;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 35px;
+        left: 34px;
+        @include sprite($ok);
+    }
+}
+.cart-complete__col-1 {
+    width: 508px;
+    flex: 0 0 auto;
+    padding-right: 62px;
+    @include max-screen(1199px) {
+        width: 380px;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 1px;
+        height: 158px;
+        background-color: $color3;
+        margin: auto;
+    }
+}
+.cart-complete__title {
+    font-size: 30px;
+    color: $color1;
+    font-weight: 700;
+    margin-top: -10px;
+    margin-bottom: 3px;
+    line-height: 42px;
+}
+.cart-complete__number {
+    margin-bottom: 9px;
+    span {
+        font-weight: 700;
+        color: $color1;
+    }
+}
+.cart-complete__help {
+    margin-bottom: 10px;
+}
+.cart-complete__phone {
+    a {
+        font-size: 24px;
+        font-weight: 700;
+        border: none;
+    }
+}
+.cart-complete__col-2 {
+    padding: 0 0 0 67px;
+    flex: 1;
+}
+.cart-complete__text {
+    padding-left: 24px;
+    margin-bottom: 18px;
+    @include last(1) {
+        margin-bottom: 0;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 0;
+        @include sprite($i);
+    }
+}

@@ -1,0 +1,167 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+form {
+    &.webform-submission-form {
+        label {
+            display: initial;
+        }
+    }
+    .error {
+        border-color: $color-error !important;
+        @include placeholder() {
+            color: $color-error !important;
+        }
+        .cs-placeholder,
+        .cs-options {
+            border-color: $color-error !important;
+        }
+        .cs-placeholder {
+            color: $color-error !important;
+        }
+    }
+    .success {
+        border-color: $color-success;
+    }
+    label {
+        display: block;
+        font-size: $input-label;
+        margin-bottom: 0.25rem;
+    }
+    .form-item {
+        //margin: $form-item-margin-y 0;
+    }
+    .description {
+        color: $color-1-norma-light;
+        font-size: $font-size-sm;
+        margin-top: 0.25rem;
+    }
+    .form-item-markup {
+        p {
+            //margin: 0;
+        }
+    }
+    .form-item-upload {
+        .description {
+            //display: none;
+        }
+    }
+    .form-wrapper {
+        .form-item {
+            @include first(1) {
+                margin-top: 0;
+            }
+            @include last(1) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .webform-flexbox {
+        display: flex;
+        margin-top: $form-item-margin-y;
+        margin-bottom: $form-item-margin-y;
+        margin-left: -$form-item-margin-x;
+        margin-right: -$form-item-margin-x;
+        @include max-screen(991px) {
+            flex-direction: column;
+        }
+        .webform-flexbox {
+            @include max-screen(991px) {
+                flex-direction: column;
+            }
+        }
+        .webform-flex {
+            @include max-screen(991px) {
+                margin-bottom: 1rem;
+                @include last(1) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .webform-flex--container {
+        //margin: 0 $form-item-margin-x;
+        > .form-item {
+            //margin: 0;
+        }
+        .form-wrapper {
+            .webform-flexbox {
+                @include first(1) {
+                    margin-top: 0;
+                }
+                @include last(1) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .form-actions {
+            //margin: 0;
+            input {
+                @include min-screen(992px) {
+                    width: 100%;
+                }
+                @include max-screen(479px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    @for $i from 1 through 16 {
+        .webform-flex--#{$i} {
+            flex: $i;
+        }
+    }
+    .privacy-policy {
+        color: $color-1-norma-light;
+        font-size: $font-size-sm;
+        margin: $form-item-margin-y 0;
+        a {
+            color: $color-1-norma-light;
+            font-size: $font-size-sm;
+            border-color: $color-1-norma-light;
+            &:hover {
+                border-color: transparent;
+            }
+        }
+    }
+    .form-actions {
+        margin: $form-item-margin-y 0;
+
+    }
+    .form-submit {
+        //@include button-variant(map_get($theme-colors, "primary"), $color-primary);
+        //border-radius: $border-radius;
+    }
+    & > *:last-child {
+        margin: $form-item-margin-y 0 0;
+    }
+}
+
+.user-login-form,
+.user-pass {
+    max-width: 500px;
+}
+
+.iti {
+    display: block;
+}
+.js-form-type-webform-document-file {
+    .sfi-trigger {
+        display: none;
+    }
+    .webform-document-file {
+        display: flex;
+        align-items: center;
+    }
+    [name="prikrepite_zayavku_upload_button"] {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    .webform-document-file {
+        position: relative;
+    }
+    .webform-file-button {
+        display: none;
+    }
+}

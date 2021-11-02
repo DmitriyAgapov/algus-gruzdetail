@@ -1,0 +1,58 @@
+@tailwind base;
+
+@layer base {
+
+
+
+
+  body {
+	  @apply bg-color-1-bg text-color-1-n font-Segoe text-sm antialiased font-normal;
+	  letter-spacing: 0.005em;
+      line-height: 1.428571428571429;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      @apply text-color-1-n mt-12 mb-4 font-semibold;
+      line-height: 1.5;
+    }
+    h1 {
+	  font-size: 1.875rem;
+      margin: 0 0 32px;
+    }
+    h2 {
+	  @apply text-2xl;
+    }
+    h3 {
+      @apply text-xl;
+      line-height: 1.4;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    p, ul, ol, table {
+	  @apply my-4;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 1rem;
+    }
+    ol {
+      list-style: decimal;
+      padding-left: 1rem;
+    }
+    li {
+	  @apply my-2;
+    }
+    a:not([class]) {
+      @apply text-links;
+      border-bottom: 1px dashed currentColor;
+        &:hover {
+          color: #00398E;
+      }
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+}

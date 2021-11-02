@@ -1,0 +1,247 @@
+@import "../../../styles/style1/helpers/_helpers";
+@import "../../../styles/style1/buttons";
+
+@layer components {
+    .to-basket {
+
+        .form-item {
+            max-width: min-content;
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+            @apply p-1 bg-button;
+            label {
+                display: none;
+            }
+        }
+        .to-basket_icon {
+            .form-item, .form-actions {
+                margin: 0;
+            }
+        }
+        &.to-basket_icon {
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                //display: flex;
+                //flex-flow: row nowrap;
+                justify-items: stretch;
+                align-items: center;
+                //overflow: hidden;
+                //gap: 1.25rem;
+                > * {
+                    margin: 0;
+                }
+                .form-item {
+
+                }
+            }
+            .form-item {
+                grid-column: 1/-1;
+                grid-row: 1;
+                max-width: initial;
+            }
+            .form-actions {
+                flex: 1;
+                grid-column: 1/-1;
+                grid-row: 1;
+                z-index: 2;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                @apply p-2;
+                &:before {
+                    margin-right: 0;
+                }
+                .form-submit {
+                    font-size: 0;
+                }
+            }
+        }
+        .form-text {
+            @apply text-black font-bold m-0 border-none bg-transparent;
+            order: 1;
+            width: 3ch;
+            padding: initial;
+            text-align: center;
+            //border: $cart-form-text-border;
+            &:focus {
+                box-shadow: none;
+            }
+            &:hover {
+                border-color: $border-color-base;
+            }
+        }
+        .qty-up,
+        .qty-down {
+            line-height: 1;
+            cursor: pointer;
+            padding: 0.5rem 0.625rem;
+            //border: $border-width-base solid $border-color-base;
+            background-color: #fff;
+            //border-radius: $cart-qty-radius;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            @apply text-color-1-n-p hover:text-color-1-m-secondary rounded-sm;
+            &:before {
+                font-size: 1.25em;
+
+            }
+        }
+
+        .qty-down:not(.disabled) {
+            @apply text-color-1-n hover:text-color-3-n-p;
+        }
+        .qty-up {
+            order: -1;
+            &:before {
+                @include fontAwesome("\f067", 1em, 400);
+            }
+            //&:hover {
+            //    background-color: $color-1-main;
+            //    border-color: $color-1-main;
+            //}
+        }
+        .qty-down {
+            order: 2;
+            &.disabled {
+                cursor: default;
+                opacity: 0.75;
+                @apply text-color-1-n-m bg-transparent;
+            }
+            &:before {
+                @include fontAwesome("\f068", 1em, 100);
+            }
+            &:hover:not(.disabled) {
+                background-color: #fff;
+                border-color: transparent;
+
+            }
+        }
+        .form-actions {
+            @apply btn btn-primary btn-icon btn-icon-hamburger btn-icon-only;
+
+            //position: relative;
+            //
+            //transition: all 0.2s ease-in-out;
+            //
+            //display: flex;
+            //margin: 0;
+            //max-width: max-content;
+
+            //@include button-variant(map_get($theme-colors, "primary"), $color-1-main);
+        }
+        .form-submit {
+            background-color: transparent !important;
+            color: inherit;
+            border: none;
+            padding: 0;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        &.to-basket_short {
+            .form-actions {
+                @apply bg-color-1-m-secondary text-color-3-n hover:bg-black hover:border-label-discount-text text-base p-2;
+                //width: 39px;
+                //height: 39px;
+            }
+        }
+    }
+    .to-basket_icon {
+        .form-actions {
+          @apply p-2;
+            &::before {
+                @include fontAwesome("\f07a", 1rem, 400);
+                margin-right: 0.5rem;
+
+            }
+        }
+    }
+    .to-basket_lg {
+        .form-actions {
+            //padding: $btn-lg-padding-y $btn-lg-padding-x;
+        }
+        .form-submit {
+            //font-size: $btn-lg-font-size;
+        }
+        &.to-basket_icon {
+            .form-actions {
+               // font-size: $btn-lg-font-size;
+               // padding-left: $cart-btn-lg-padding-left;
+                &:before {
+                   // font-size: $btn-icon-size;
+                    margin: 0;
+                    padding: 0.75em;
+                }
+            }
+        }
+        &.to-basket_short {
+            .form-actions {
+                //width: 45px;
+                //height: 45px;
+            }
+        }
+    }
+    .to-basket_sm {
+        .form-actions {
+            //padding: $btn-sm-padding-y $btn-sm-padding-x;
+        }
+        .form-submit {
+            font-size: $btn-sm-font-size;
+        }
+        &.to-basket_icon {
+            .form-actions {
+                font-size: $btn-sm-font-size;
+               // padding-left: $cart-btn-sm-padding-left;
+                &:before {
+                    font-size: $btn-icon-size;
+                }
+            }
+        }
+        &.to-basket_short {
+            .form-actions {
+                width: 31px;
+                height: 31px;
+            }
+        }
+    }
+    .to-basket_short {
+        form {
+            display: grid;
+            grid-template-columns: 1fr 3rem;
+            align-items: center;
+            justify-content: center;
+            .form-item, .form-actions {
+                margin: 0;
+            }
+        }
+        .form-actions {
+            //padding: 0 !important;
+            //&::before {
+            //    left: 0 !important;
+            //    right: 0 !important;
+            //    justify-content: center;
+            //}
+        }
+        .form-submit {
+            font-size: 0;
+        }
+    }
+
+    .to-basket_only-counter {
+        .form-actions {
+            display: none;
+        }
+    }
+    .to-basket_only-btn {
+        .form-item {
+            display: none;
+        }
+    }
+
+}

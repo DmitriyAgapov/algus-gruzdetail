@@ -1,0 +1,97 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.pager {
+    text-align: center;
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        &:before {
+            display: none;
+        }
+    }
+}
+.pager__load-more {
+    margin: 1rem 0;
+}
+.pager__list {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 0;
+    padding: 0;
+}
+
+.pager__item {
+    a {
+        text-decoration: none;
+    }
+    &:hover, &:focus {
+        a {
+            text-decoration: none;
+
+        }
+    }
+}
+
+.pager__current,
+.pager__link {
+    @apply border-color-1-n-mm hover:border-color-1-m-primary hover:text-color-1-m-primary border;
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+    &:hover, &:focus {
+        cursor: pointer;
+    }
+}
+.pager__current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default !important;
+}
+.pager__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.pager__arrow {
+    display: none !important;
+}
+.pager__first,
+.pager__last {
+    font-size: 0;
+}
+.pager__first {
+    a {
+        &:before {
+            @include fontAwesome("\f323", 0.75rem, $pager-weight);
+        }
+    }
+}
+.pager__last {
+    a {
+        &:before {
+            @include fontAwesome("\f324", 0.75rem, $pager-weight);
+        }
+    }
+}
+
+.pager__previous,
+.pager__next {}
+.pager__previous {}
+.pager__next {}
+
+
+.pager__ellipsis {
+    @apply border-color-1-n-mm hover:border-color-1-m-primary hover:text-color-1-m-primary border;
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+    border: 1px solid;
+    border-color: rgba(217, 217, 217, 1);
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}

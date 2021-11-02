@@ -1,0 +1,15 @@
+.block-banner-bottom {
+    overflow: hidden;
+    img {
+        height: 273px;
+        object-fit: none;
+
+        @screen md {
+            height: initial;
+            object-fit: initial;
+        }
+    }
+    .block__content {
+        display: flex;
+    }
+}

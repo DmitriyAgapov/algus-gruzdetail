@@ -1,0 +1,548 @@
+input[type="tel"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    background-clip: padding-box;
+    border: 1px solid;
+    @apply  text-color-1-n text-sm bg-color-1-bg border-color-1-n-mm hover:border-color-1-n-m  w-full focus:border-color-1-n focus:bg-white focus:ring-0;
+
+   	padding: 9px 1rem;
+    outline: none;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+    @include placeholder() {
+		opacity: 1;
+		@apply text-color-1-n-mm;
+    }
+    &:hover {
+		@apply text-color-1-n-m;
+    }
+    &:focus {
+		outline: 0;
+		@apply text-color-1-n-m;
+    }
+    &:disabled,
+    &[readonly] {
+		background-color: #e9ecef;
+		// iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+		opacity: 1;
+    }
+}
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+// текстовые поля находящиеся в блоках-секции
+.block-section {
+    input[type="tel"],
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+
+
+    }
+}
+
+textarea {
+    resize: none;
+}
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+    &.form-control {
+	appearance: none; // Fix appearance for date inputs in Safari
+    }
+}
+input[type="submit"] {
+    outline: none;
+}
+
+// убрать дефолтные стили в ios
+input, button {
+    -webkit-appearance: none;
+}
+
+input:-internal-autofill-selected {
+    box-shadow: inset 0 0 0 1000px #fff !important;
+    -webkit-box-shadow: inset 0 0 0 50px #fff;
+    -webkit-text-fill-color: #000;
+}
+
+// КНОПКИ В ФОРМЕ
+.search .form-actions,
+.to-basket .form-actions,
+.form-submit,
+.edit-submit,
+.ui-dialog-buttonpane button {
+    @apply btn btn-primary bg-color-1-bg;
+    //display: inline-flex;
+    //align-items: center;
+    //justify-content: center;
+    //cursor: pointer;
+    //font-family: "Open Sans", sans-serif;
+    //font-size: rem(14px);
+    //font-weight: 400;
+    //line-height: 1.4285;
+    //text-align: center;
+    //padding: rem(8px) rem(32px);
+    //border-radius: rem(28px);
+    //text-decoration: none;
+    //position: relative;
+    //outline: none;
+    //user-select: none;
+    //transition: all 0.2s ease-in-out;
+    //color: #fff;
+    //background-color: $color-1-main;
+    //border: 1px solid $color-1-main;
+    //&:hover {
+	//color: #fff;
+	//background-color: $color-1-main-minus;
+	//border-color: $color-1-main-minus;
+	//text-decoration: none;
+    //}
+    //&:focus,
+    //&.focus {
+	//color: #fff;
+	//background-color: $color-1-main;
+	//border-color: transparent;
+	//box-shadow: 0 0 0 3px rgba($color-1-main, .5);
+	//text-decoration: none;
+    //}
+    //&.disabled,
+    //&:disabled {
+	//cursor: default;
+	//color: #ffffff;
+	//background-color: mix($color-1-main, #fff, 60%);
+	//border-color: mix($color-1-main, #fff, 60%);
+	//box-shadow: none;
+    //}
+}
+
+.edit-clear {
+    @apply btn;
+    //display: inline-flex;
+    //align-items: center;
+    //justify-content: center;
+    //cursor: pointer;
+    //font-family: "Open Sans", sans-serif;
+    //font-size: rem(14px);
+    //font-weight: 400;
+    //line-height: 1.4285;
+    //text-align: center;
+    //padding: rem(8px) rem(32px);
+    //border-radius: rem(28px);
+    //text-decoration: none;
+    //position: relative;
+    //outline: none;
+    //user-select: none;
+    //transition: all 0.2s ease-in-out;
+    //color: $color-1-main;
+    //background-color: transparent;
+    //border: 1px solid $color-1-main;
+    //&:hover {
+	//color: #fff;
+	//background-color: $color-1-main;
+	//border-color: $color-1-main;
+    //}
+    //&:focus,
+    //&.focus {
+	//color: #fff;
+	//background-color: $color-1-main;
+	//border-color: $color-1-main;
+	//box-shadow: 0 0 0 3px rgba($color-1-main, .5);
+    //}
+    //&.disabled,
+    //&:disabled {
+	//cursor: default;
+	//color: $color-1-main;
+	//background-color: transparent;
+	//border-color: mix($color-1-main, #fff, 60%);
+	//box-shadow: none;
+	//&:hover {
+	//    color: $color-1-main;
+	//}
+    //}
+}
+
+// ФОРМА "АВТОРИЗАЦИЯ НА САЙТЕ"
+form#user-login-form {
+    label {
+	@apply text-color-1-n #{!important};
+	top: 1rem !important;
+	font-size: 1rem !important;
+	background-color: #fff !important;
+    }
+}
+
+// ВСЕ ФОРМЫ, кроме формы с фильтром
+form {
+    // скрываем у поля телефона:
+    // — сообщение об ошибке
+    // — label
+    .js-form-type-tel {
+	label {
+	    //display: none !important;
+	}
+	.form-item--error-message {
+	    display: none !important;
+	}
+    }
+
+    // скрываем label у поля загрузки файла
+    .js-form-type-webform-document-file {
+	label {
+	    display: none !important;
+	}
+    }
+
+    // кастомим label в селекта
+    // делаем его над полем и скрывам
+    // и отображаем его при изменении селекта
+    //.js-form-type-select {
+	//label {
+	//    display: none;
+	//    @apply text-color-1-n #{!important};
+	//    top: 1rem;
+	//    font-size: rem(12px);
+	//    background-color: #fff;
+	//}
+    //}
+
+    .error {
+	border-color: #d93026 !important;
+	color: #d93026 !important;
+	@include placeholder() {
+	    color: #d93026 !important;
+	}
+	.cs-placeholder,
+	.cs-options {
+	    border-color: #d93026 !important;
+	}
+	.cs-placeholder {
+	    color: #d93026 !important;
+	}
+    }
+    .success {
+	border-color: #1e8e3e;
+    }
+    label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-size: inherit;
+	@apply text-color-1-n-m #{!important};
+	//position: absolute;
+	//top: 1rem;
+	//left: 1rem;
+	//padding: 0 rem(8px);
+	transition: top .15s cubic-bezier(.4,0,.2,1), font-size .15s cubic-bezier(.4,0,.2,1);
+	z-index: 1262;
+	&.focus {
+	    @apply text-color-1-n #{!important};
+	    //top: 1rem;
+	    font-size: 1rem;
+	    background-color: #fff;
+	}
+    }
+    .form-item {
+	margin: 1rem 0;
+	position: relative;
+    }
+    .description {
+	@apply text-color-1-n-m #{!important};
+	font-size: 1rem;
+	margin-top: 0.25rem;
+    }
+    .form-item-markup {
+	p {
+	    margin: 0;
+	}
+    }
+    .form-item-upload {
+	.description {
+	    //display: none;
+	}
+    }
+    .form-wrapper {
+	.form-item {
+	    @include first(1) {
+		margin-top: 0;
+	    }
+	    @include last(1) {
+		margin-bottom: 0;
+	    }
+	}
+    }
+    .webform-flexbox {
+	display: flex;
+	margin: 1rem;
+	@include max-screen(991px) {
+	    flex-direction: column;
+	}
+	.webform-flexbox {
+	    @include max-screen(991px) {
+		flex-direction: column;
+	    }
+	}
+	.webform-flex {
+	    @include max-screen(991px) {
+		margin-bottom: rem(16px);
+		@include last(1) {
+		    margin-bottom: 0;
+		}
+	    }
+	}
+    }
+    .webform-flex--container {
+	margin: 0 1rem;
+	> .form-item {
+	    margin: 0;
+	}
+	.form-wrapper {
+	    .webform-flexbox {
+		@include first(1) {
+		    margin-top: 0;
+		}
+		@include last(1) {
+		    margin-bottom: 0;
+		}
+	    }
+	}
+	.form-actions {
+	    margin: 0;
+	    input {
+		@include min-screen(992px) {
+		    width: 100%;
+		}
+		@include max-screen(479px) {
+		    width: 100%;
+		}
+	    }
+	}
+    }
+    @for $i from 1 through 16 {
+	.webform-flex--#{$i} {
+	    flex: $i;
+	}
+    }
+    .privacy-policy {
+	@apply text-color-1-n-m #{!important};
+	font-size: 1rem;
+	margin: 1rem 0;
+	a {
+	    @apply text-color-1-n-m #{!important} border-color-1-n-m;
+	    font-size: 1rem;
+
+	    &:hover {
+		border-color: transparent;
+	    }
+	}
+    }
+    .form-actions {
+	margin: 1rem 0;
+    }
+    .form-submit {
+	//@include button-variant(map_get($theme-colors, "primary"), $color-primary);
+	//border-radius: $border-radius;
+    }
+}
+
+.user-login-form,
+.user-pass {
+    max-width: 500px;
+}
+
+.iti {
+    display: block;
+}
+
+//.block-section {
+//    label {
+//	&.focus {
+//	    background: linear-gradient(to bottom, $color-2-bg 50%, #fff 0%) !important;
+//	}
+//    }
+//}
+//
+//// СЕЛЕКТ
+//.select2-container--default {
+//    .select2-selection--single {
+//	border-radius: 10px;
+//	border: 1px solid $color-1-norma-minus-minus;
+//	height: auto;
+//	outline: none !important;
+//	box-shadow: none !important;
+//	.select2-selection__rendered {
+//	    padding: 0.5rem 1rem;
+//	    line-height: inherit;
+//	    color: $color-1-norma-minus;
+//	}
+//	.select2-selection__arrow {
+//	    height: 100%;
+//	    top: 0;
+//	    right: 0;
+//	}
+//    }
+//}
+//.select2-dropdown {
+//    border: 1px solid $color-1-norma-minus-minus;
+//    border-radius: 10px;
+//}
+
+// ЧЕКБОКС CHECKBOX
+input[type='checkbox'] {
+    vertical-align: top;
+    margin: 0 0 0 0;
+    width: 0;
+    height: 0;
+    + label {
+	cursor: pointer;
+	margin: 0 1rem 0 0;
+    }
+    &:not(checked) {
+	position: absolute;
+	opacity: 0;
+	+ label {
+	    position: relative;
+	    padding: 0 0 0 2em;
+	    &:before {
+		content: '';
+		position: absolute;
+		top: 2px;
+		left: 4px;
+		width: 16px;
+		height: 16px;
+		border: 1px solid;
+		@apply border-color-1-n-mm ;
+		box-sizing: border-box;
+		border-radius: 2px;
+	    }
+	}
+    }
+    &:checked {
+	+ label {
+	    &:before {
+		@apply border-color-1-m-primary bg-color-1-m-primary;
+
+	    }
+	    &:after {
+			@include fontAwesome("\f00c", 1rem, 400);
+			@apply text-white;
+			position: absolute;
+			font-size: 14px;
+			top: 3px;
+			left: 6px;
+			width: 14px;
+			height: 14px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+	    }
+	}
+    }
+}
+
+
+// FILE UPLOAD — ФОРМА ЗАГРУЗКИ ФАЙЛА
+.sfi-wrapper {
+    width: 100% !important;
+    outline: none !important;
+    display: flex;
+}
+.sfi-filename {
+    display: block;
+    margin-right: 15px;
+}
+.sfi-filename.empty {
+    cursor: pointer;
+    &:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60px;
+	height: 100%;
+	// background-color: $color1;
+    }
+    &:after {
+	content: '';
+	position: absolute;
+	top: 17px;
+	right: 22px;
+	// @include sprite($attach);
+    }
+}
+.sfi-trigger {}
+// .form-type-managed-file {
+//     display: none;
+// }
+.form-managed-file {
+    .description {
+	display: none;
+    }
+     .close {
+         cursor: pointer;
+         display: inline-block;
+         position: relative;
+         top: 1px;
+         margin-left: 10px;
+
+     }
+    .file--image {
+	display: flex;
+	align-items: center;
+	a {
+	    color: #000000;
+	    border: none;
+	    position: relative;
+	    white-space: nowrap;
+	    max-width: calc(100% - 20px);
+	    overflow: hidden;
+	}
+    }
+    .form-action {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+    }
+    input[value="Удалить"] {
+	border: none;
+	text-indent: -999999px;
+	display: inline-block;
+	padding: 0;
+	background-color: transparent;
+	// @include sprite($close);
+    }
+}
+
+input[name="upload_upload_button"],
+input[type="file"] {
+    display: none !important;
+}
+.form-managed-file {
+    display: flex;
+    align-items: center;
+    .file {
+	margin-left: rem(8px);
+	order: 2;
+	a {
+	    pointer-events: none;
+	    border: none;
+	}
+    }
+    [name="upload_remove_button"] {
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	order: 1;
+	color: $color-1-norma;
+    }
+}

@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@mixin font-mixin ($style, $main-path, $family, $map) {
+    $dir-name: $family + "/"; // Генерируем название директории, в которой находится шрифт
+    @each $weight, $path in $map {
+	@font-face {
+	    font-display: swap;
+	    font-family: $family;
+	    src: url("#{$main-path + $dir-name + $style + $path}.eot");
+	    src: url("#{$main-path + $dir-name + $style + $path}.eot?#iefix") format("embedded-opentype"),
+	    url("#{$main-path + $dir-name + $style + $path}.woff2") format("woff2"),
+	    url("#{$main-path + $dir-name + $style + $path}.woff") format("woff"),
+	    url("#{$main-path + $dir-name + $style + $path}.ttf")  format("truetype"),
+	    url("#{$main-path + $dir-name + $style + $path}.svg##{$family}")  format("svg");
+	    font-style: $style;
+	    font-weight: $weight;
+	}
+    }
+}
+
+// Создаем переменную, с указанием пути до корневой папки.
+// Путь указывается относительно файла css.
+// Например: $EXAMPLE-path: '../fonts/';
+
+// Создаем переменную с названием шрифта. Значение должно соответствовать названию
+// директории в которой будет лежать шрифт относительно корневой папки
+// Например: $EXAMPLE-name: 'Helvetica';
+
+// Создаем мап с парами 'жирность : название файла' относительно папки с шрифтом
+// Например:
+// $EXAMPLE-map: (
+//   100:'/HelveticaLight',
+//   400:'/HelveticaBold',
+//   700:'/HelveticaExtraBold'
+// );
+//
+// вызываем: @include font-mixin(normal, $EXAMPLE-path,  $EXAMPLE-name, $EXAMPLE-map)
+//
+// вместо $EXAMPLE пишем свое название переменной
+// в итоге путь самого шрифта должен быть такой:
+// '../fonts/НАЗВАНИ_ШРИФТА/normal/НАЗВАНИЕ_ФАЙЛА_ШРИФТА'
+// или
+// '../fonts/НАЗВАНИ_ШРИФТА/italic/НАЗВАНИЕ_ФАЙЛА_ШРИФТА'
+
+$rouble-path: "../../fonts/";
+$rouble-name: "rouble";
+$rouble-map: (
+	400:"/rouble"
+);
+@include font-mixin(normal, $rouble-path,  $rouble-name, $rouble-map);
+
+//$lato-path: "../../fonts/";
+//$lato-name: "lato";
+//$lato-map: (
+//	400:"/regular",
+//	700:"/bold",
+//);
+//
+//@include font-mixin(normal, $lato-path,  $lato-name, $lato-map);
+
+$segoeui-path: "../../fonts/";
+$segoeui-name: "segoeui";
+$segoeui-map: (
+				400:"/regular",
+				600:"/semibold",
+				700:"/bold",
+);
+@font-face {
+	font-family: 'icomoon';
+	src:  url('../../../fonts/icomoon/icomoon.eot?ntahn4');
+	src:  url('../../../fonts/icomoon/icomoon.eot?ntahn4#iefix') format('embedded-opentype'),
+	url('../../../fonts/icomoon/icomoon.ttf?ntahn4') format('truetype'),
+	url('../../../fonts/icomoon/icomoon.woff?ntahn4') format('woff'),
+	url('../../../fonts/icomoon/icomoon.svg?ntahn4#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+[class^="icon-"], [class*=" icon-"] {
+
+	font-family: 'icomoon' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-arrow-left:before {
+	content: "\e921";
+}
+.icon-arrow-right:before {
+	content: "\e922";
+}
+.icon-bell:before {
+	content: "\e92f";
+}
+.icon-down:before {
+	content: "\e984";
+}
+.icon-download:before {
+	content: "\e986";
+}
+.icon-environment:before {
+	content: "\e98f";
+}
+.icon-eye:before {
+	content: "\e999";
+}
+.icon-file-done:before {
+	content: "\e9a5";
+}
+.icon-import:before {
+	content: "\e9de";
+}
+.icon-left:before {
+	content: "\e9ee";
+}
+.icon-menu:before {
+	content: "\ea03";
+}
+.icon-menu.open:before {
+	content: "\ea24";
+	transform: rotate(45deg);
+}
+.icon-minus:before {
+	content: "\ea08";
+}
+.icon-plus:before {
+	content: "\ea24";
+}
+.icon-profile:before {
+	content: "\ea2b";
+}
+.icon-right:before {
+	content: "\ea42";
+}
+.icon-search:before {
+	content: "\ea51";
+}
+.icon-setting:before {
+	content: "\ea55";
+}
+.icon-shopping-cart:before {
+	content: "\ea5a";
+}
+.icon-user:before {
+	content: "\ea91";
+}
+.icon-zoom-in:before {
+	content: "\eaad";
+}
+.icon-zoom-out:before {
+	content: "\eaae";
+}
+
+@include font-mixin(normal, $segoeui-path,  $segoeui-name, $segoeui-map);

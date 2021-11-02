@@ -1,0 +1,90 @@
+style.
+    .algus-logo-setting {
+        position: absolute;
+        top: -7px;
+        left: -20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    .algus-logo-setting__upload-input {
+        display: none;
+    }
+
+    .algus-logo-setting-hover::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        right: -7px;
+        bottom: -7px;
+        left: -7px;
+        border: 1px dashed #000;
+        z-index: 3;
+    }
+
+    .algus-logo-setting__upload-input + .algus-logo-setting__label {
+        cursor: pointer;
+    }
+
+    .algus-logo-setting__upload-input + .algus-logo-setting__label::before {
+        content: "\f044";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 13px;
+        font-weight: 100;
+        color: #333;
+        line-height: 1;
+        position: absolute;
+        top: -1px;
+        bottom: 0;
+        left: 3px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+script.
+    $(document).ready(function () {
+        // -----------------------------------------------
+
+        $('.logo__link').append(`
+            <div class="algus-logo-setting">
+                <input type="file" name="file" id="file" class="algus-logo-setting__upload-input">
+                <label for="file" class="algus-logo-setting__label"></label>
+            </div>
+        `);
+
+        $('.algus-logo-setting').hover(function () {
+            $(this).parents('.logo').addClass('algus-logo-setting-hover');
+        }, function () {
+            $(this).parents('.logo').removeClass('algus-logo-setting-hover');
+        });
+
+        // ПРОВЕРЯЕМ НА НАЛИЧИЕ ДАННЫХ В ХРАНИЛИЩЕ
+        if (localStorage.getItem('custom-logo')) {
+            $('.logo__link img').attr('src', localStorage.getItem('custom-logo'));
+        }
+
+        function imageIsLoaded(e) {
+            $('.logo__link img').remove();
+            $('.logo__link').prepend(`<img src="${e.target.result}" />`);
+            localStorage.setItem('custom-logo', e.target.result);
+        };
+
+        // СОБЫТИЕ ИЗМЕНЕНИЯ ПОЛЯ ЗАГРУЗКИ ИЗОБРАЖЕНИЯ
+        $(".algus-logo-setting__upload-input").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        // -----------------------------------------------
+    });

@@ -1,0 +1,15 @@
+@import "../../styles/helpers/_helpers";
+
+.cart {}
+.cart__cont {
+    .item-unit3 {
+        margin-bottom: -1px;
+    }
+}
+.cart__ft {
+    display: flex;
+    align-items: center;
+    .return-back {
+        flex: 1;
+    }
+}

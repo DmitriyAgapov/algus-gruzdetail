@@ -1,0 +1,133 @@
+@layer components {
+    .system-tabs {
+        display: flex;
+        margin: 0;
+        border-bottom: 1px solid transparent;
+        @apply border-color-1-n-mm;
+
+        ul {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+            border-bottom: none;
+            @apply bg-white border-b border-color-1-n-mm;
+            li {
+                // margin: 0 1px 1px 0;
+                min-width: 10rem;
+                text-align: center;
+                margin: 0;
+                padding: 0 !important;
+                list-style: none;
+                background: none !important;
+                margin-bottom: -1px;
+                &:before {
+                    display: none;
+                }
+                &.hidden {
+                    display: none;
+                }
+                a {
+                    display: block;
+                    margin: 0;
+                    // border-radius: 5px;
+                    border: none;
+                    // padding: 6px 30px;
+                    padding: 14px 20px 12px;
+                    transition: all 0.25s ease-in-out;
+                    white-space: nowrap;
+                    text-decoration: none;
+                    line-height: 1;
+                    @apply text-color-1-n;
+                    @apply hover:text-color-1-m-primary;
+
+                    &.is-active {
+                        padding: 16px 20px 15px;
+                        margin-top: -5px;
+                        font-weight: 600;
+                        border-bottom: 1px solid red;
+                        @apply text-color-1-m-primary ;
+                    }
+                }
+            }
+        }
+    }
+
+    .system-tabs__expanded {
+        position: relative;
+        &:hover {
+            .system-tabs__burger {
+                //background-color: map-get($system-tabs, burger-bg-hover);
+                //&:after {
+                //  background-color: map-get($system-tabs, burger-bg-hover);
+                //}
+            }
+            .system-tabs__mn {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    .system-tabs__burger {
+        flex: 0 0 auto;
+        //background-color: map-get($system-tabs, burger-bg);
+        //border-bottom: 2px solid map-get($system-tabs, bg-active);
+        z-index: 1;
+        width: 44px;
+        height: 44px;
+        transition: all 0.25s ease-in-out;
+        &:before {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //@include fontAwesome("\f0c9", 1.25rem, 400);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: all 0.25s ease-in-out;
+            @apply text-color-1-n;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            bottom: -2px;
+            left: 0;
+            height: 2px;
+        }
+    }
+    .system-tabs__mn {
+        position: absolute;
+        z-index: 1000;
+        top: 100%;
+        right: 0;
+        transition: all 0.25s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+        li {
+            list-style: none;
+            &.hidden {
+                display: none;
+            }
+            a {
+                display: block;
+                //background-color: map-get($system-tabs, submenu-bg);
+                padding: 5px 10px;
+                text-decoration: none;
+                //color: map-get($system-tabs, submenu-item-text);
+                @apply hover:text-color-1-m-primary;
+            }
+            &.is-active {
+                a {
+                    //background-color: map-get($system-tabs, submenu-item-bg-active);
+                    //color: map-get($system-tabs, submenu-item-text-active);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

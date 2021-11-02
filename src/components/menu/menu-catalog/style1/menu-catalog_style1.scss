@@ -1,0 +1,122 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.menu-catalog-wrapper {
+    grid-area: mc;
+    .btn-catalog {
+        width: 100%;
+        display: none;
+        @screen md {
+            display: block;
+        }
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 14px;
+        line-height: 20px;
+        svg {
+            margin-right: 16px;
+        }
+    }
+
+    @screen md {
+        position: relative;
+        align-self: start;
+
+        .btn-catalog :hover + ul {
+            display: grid;
+            grid-column: 1/-1;
+            z-index: 10;
+
+        }
+    }
+    &:after {
+        content: '';
+        top: 0;
+        right: 0;
+        //position: absolute;
+        z-index: 1;
+        background: transparent;
+        display: block;
+        left: 0;
+        bottom: 0;
+
+    }
+
+}
+.menu-catalog {
+    @apply p-0 m-0 border-none border-color-1-n-mm border rounded-md;
+    z-index: 2;
+    position: relative;
+    .menu__item {
+
+        margin: 0.5rem 0;
+        @apply text-color-2-n text-lg;
+        border: 2px solid transparent;
+         @include first(1) {
+             border-top-left-radius: 0.25rem;
+             border-top-right-radius: 0.25rem;
+         }
+        @include last(1) {
+            border-bottom-left-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+
+        &::before {
+            display: none;
+        }
+        &:last-child {
+            border-right: 0px solid rgba(#fff, .1);
+        }
+        background: #fff;
+        @screen lg {
+            padding: 0 0 0 1rem;
+        }
+
+        display: flex;
+        align-items: center;
+        list-style: none;
+
+    }
+    &.menu-level-0 {
+        @screen md {
+            display: none;
+            &.active {
+            display: grid;
+            border: 2px solid;
+            @apply border-color-1-n-mm;
+            margin-top: 0.5rem;
+            grid-template: 3rem 3rem 3rem 3rem/auto;
+            gap: 1px;
+                position: relative;
+                z-index: 2;
+                background: #E4E4E4;
+            }
+        }
+        .menu__item {
+            > a {
+                @apply text-color-1-n-p hover:text-color-1-m-secondary text-sm relative;
+                z-index: 2;
+                position: relative;
+                &::before {
+                    content: "";
+                    @include fontAwesome("\f30b", 1em, 400);
+                    position: relative;
+                    display: inline-flex;
+                    justify-content: center;
+                    z-index: 2;
+                    margin-right: 1rem;
+                    width: 2rem;
+                    margin-right: 1rem;
+
+                    @screen md {
+                        margin-right: 0.675rem;
+                    }
+                }
+            }
+        }
+
+    }
+    .menu__item_collapsed {}
+    .menu__item_active {}
+
+}

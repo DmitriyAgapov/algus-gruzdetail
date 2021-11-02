@@ -1,0 +1,139 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.ui-widget-overlay {
+    background-color: rgba(0,0,0,0.5);
+    background-image: none;
+    opacity: 1;
+}
+.ui-dialog-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.ui-dialog {
+    box-sizing: border-box;
+    position: fixed !important;
+    z-index: 1000;
+    top: auto !important;
+    left: auto !important;
+    border: none !important;
+    //padding: $modal-padding-y $modal-padding-x;
+    font-size: inherit;
+    font-family: inherit;
+    //border-radius: $modal-border-radius;
+    //background: $modal-bg !important;
+    max-height: 100%;
+    overflow: auto;
+    @include max-screen(1199px) {
+        width: 100% !important;
+        height: 100% !important;
+        overflow: auto;
+    }
+    @include max-screen(767px) {
+        padding: 1rem;
+    }
+    .ui-dialog-content {
+        overflow: initial;
+    }
+    .card-unit-teaser-3	 {
+        @include max-screen(991px) {
+            display: none;
+        }
+    }
+    .container {
+        width: auto;
+    }
+    .webform-confirmation {
+        background-color: #fff;
+        padding: 30px;
+        margin: 12px 0 34px;
+        @include max-screen(767px) {
+            margin-bottom: 15px;
+        }
+        > div {
+            margin: 0;
+        }
+    }
+}
+.ui-dialog-titlebar {
+    background: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+}
+.ui-dialog-title {
+    margin: 0 !important;
+    //font-size: $font-size-lg !important;
+}
+.ui-dialog-titlebar-close {
+    //top: -$modal-padding-y !important;
+    //right: -$modal-padding-x !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+    outline: none !important;
+    @include max-screen(767px) {
+        //top: -$modal-padding-y-mobile !important;
+        //right: -$modal-padding-x-mobile !important;
+    }
+    span {
+        display: none;
+    }
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        //background-color: $color-1-norma-light;
+        height: 2px;
+        width: 1.375em;
+        margin: auto;
+        transition: all 0.25s ease-in-out;
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+    &:hover {
+        &::before,
+        &::after {
+            //background-color: $color-1-norma;
+        }
+    }
+}
+.ui-dialog-content {
+    padding: 0 !important;
+}
+.ui-dialog-buttonpane {
+    margin: 0 !important;
+    //background: $modal-bg;
+    border: none !important;
+    padding: 0 !important;
+    button {
+        margin: 0 !important;
+    }
+    .ui-dialog-buttonset {
+        float: none !important;
+    }
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    //font-family: $font-family-base;
+}

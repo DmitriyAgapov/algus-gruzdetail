@@ -1,0 +1,11 @@
+//newstyle1: cssfile[search_style1] scriptfile[search_style1]
+
+// search (css)
++b.search
+    form(method="get", action="/search", accept-charset="UTF-8")
+        .form-item
+            input.form-text(type="text", placeholder="Введите название техники", id="edit-keys" name="key", autocomplete="off", v-model="keywords")
+        .form-actions
+            input.form-submit(type="submit", value="Найти", id="edit-submit-search" name="op")
+    include ../search-result/search-result
+// КОНЕЦ: search (css)

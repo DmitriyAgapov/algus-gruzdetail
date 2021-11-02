@@ -1,0 +1,73 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.header-login {
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    grid-template: 20px 20px/auto;
+    gap: 0 0.75rem;
+    min-width: max-content;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+    .icon {
+        position: relative;
+        display: flex;
+        width: 20px;
+        height: 20px;
+    }
+    .count {
+        position: absolute;
+        display: block;
+        top: -0.75em;
+        font-weight: 700;
+        right:  -1.25em;
+        padding: 5px 4px 3px 4px;
+        line-height: 1;
+        @apply bg-label-cart text-color-1-bg border-2 border-color-3-bg;
+        border-radius: 50px;
+        font-size: 14px;
+        min-width: 18px;
+        text-align: center;
+    }
+    .info {
+        display: flex;
+        flex-flow: column;
+
+        .ico {
+            margin-right: 12px;
+            position: relative;
+
+            span {
+                line-height: 12px;
+                font-size: 8.8px;
+                color: #FFFFFF;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                position: absolute;
+                top: -6px;
+                right: -7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .name {
+            font-weight: 400;
+            line-height: 1;
+            @apply text-color-3-n-p text-base;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .price {
+            font-weight: 400;
+            line-height: 1;
+            display: block;
+        }
+    }
+}
+

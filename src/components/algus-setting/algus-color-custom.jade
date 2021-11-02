@@ -1,0 +1,370 @@
+//+style("css/algus-color-custom.css")
+
++b.algus-color-custom(style='opacity: 0; visibility: hidden;')
+    +e.cont
+        fieldset
+            legend основное
+            +e.row(data-class='custom-color-1')
+                +e.SPAN.name цвет 1
+                +e.input.INPUT(type='text', name='', value='dc4e50', data-position="bottom right")
+                //input(type="text", value="#ff6161", data-position="bottom right", data-format="hex", data-swatches="#ef9a9a|#90caf9|#a5d6a7|#fff59d|#ffcc80|#bcaaa4|#eeeeee|#f44336|#2196f3|#4caf50|#ffeb3b|#ff9800|#795548|#9e9e9e")
+                +e.description
+                    ul
+                        li - стрелочка у ссылки "смотреть все"
+                        li - фон у пункта в результатах поиска
+                        li - фон активного чекбокса
+                        li - фон активного радиобаттона
+                        li - фон активной точки слайдера
+                        li - фон стрелок слайдлера
+                        li - разделитель хлебных крошек
+                        li - фон полосы прокрутки
+                        li - цвет иконок(phone, email, location, time)
+                        li - цвет рамки у пагинации
+                        li - фон кнопки поиска в мобильной шапке
+            +e.row(data-class='custom-color-2')
+                +e.SPAN.name цвет 2
+                +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+                +e.description
+                    ul
+                        li - фон точек слайдера при наведении
+                        li - прелоадер
+            +e.row(data-class='custom-color-page')
+                +e.SPAN.name фон страницы
+                +e.input.INPUT(type='text', name='', value='f7f7f7', data-position="bottom right")
+            +e.row(data-class='custom-color-text')
+                +e.SPAN.name цвет текста
+                +e.input.INPUT(type='text', name='', value='101010', data-position="bottom right")
+            +e.row(data-class='custom-color-link')
+                +e.SPAN.name цвет ссылок
+                //+e.SPAN.lock
+                //    +b.SPAN.lock-setting
+                //        +e.LABEL.label(for='item-1')
+                //            +e.INPUT.input._1#item-1(type='radio', name='group')
+                //            | цвет 1
+                //        +e.LABEL.label(for='item-2')
+                //            +e.INPUT.input._2#item-2(type='radio', name='group')
+                //            | цвет 2
+                +e.input.INPUT(type='text', name='', value='dc4e50', data-position="bottom right")
+                +e.description
+                    ul
+                        li - ссылки по дефолту
+                        li - ссылки в подвале (email, контакты)
+            +e.row(data-class='custom-color-link-hover')
+                +e.SPAN.name цвет ссылок. при наведении
+                +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+                +e.description
+                    ul
+                        li - ссылки по дефолту
+                        li - все ссылки в подвале
+            +e.row(data-class='custom-color-bg-blocks')
+                +e.SPAN.name фон блоков
+                +e.input.INPUT(type='text', name='', value='eaeaea', data-position="bottom right")
+        fieldset
+            legend шапка
+            +e.row(data-class='custom-color-header-top')
+                +e.SPAN.name фон верхней части
+                +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+            +e.row(data-class='custom-color-header-bottom')
+                +e.SPAN.name фон нижней части
+                +e.input.INPUT(type='text', name='', value='101010', data-position="bottom right")
+            +e.row(data-class='custom-color-header-link-top')
+                +e.SPAN.name цвет ссылок в верхней части
+                +e.input.INPUT(type='text', name='', value='101010', data-position="bottom right")
+                +e.description
+                    | Параметр нужен для того чтобы индивидуально настроить цвет текста у ссылок,
+                    | т.к. фон может быть темным. Иначе, цвет должен совпадать с цветом обычного текста.
+            +e.row(data-class='custom-color-slogan')
+                +e.SPAN.name цвет слогана
+                +e.input.INPUT(type='text', name='', value='101010', data-position="bottom right")
+        fieldset
+            legend подвал
+            +e.row(data-class='custom-color-footer-bg')
+                +e.SPAN.name фон
+                +e.input.INPUT(type='text', name='', value='eaeaea', data-position="bottom right")
+            +e.row(data-class='custom-color-footer-title')
+                +e.SPAN.name заголовки
+                +e.input.INPUT(type='text', name='', value='eaeaea', data-position="bottom right")
+            +e.row(data-class='custom-color-footer-text')
+                +e.SPAN.name текст
+                +e.input.INPUT(type='text', name='', value='393939', data-position="bottom right")
+            +e.row(data-class='custom-color-footer-link')
+                +e.SPAN.name ссылки
+                +e.input.INPUT(type='text', name='', value='393939', data-position="bottom right")
+            //+e.row(data-class='custom-color-footer-link-unique')
+            //    +e.SPAN.name ссылки, уникальные
+            //    //    +e.input.INPUT(type='text', value='dc4e50', name='', data-position="bottom right")
+            //+e.row(data-class='custom-color-footer-link-hover')
+            //    +e.SPAN.name ссылки при наведении
+            //    //    +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+            +e.row(data-class='custom-color-footer-hr')
+                +e.SPAN.name разделитель
+                +e.input.INPUT(type='text', name='', value='d2d2d2', data-position="bottom right")
+        fieldset
+            legend главное меню
+            +e.row(data-class='custom-color-link-main-menu')
+                +e.SPAN.name цвет ссылок
+                +e.input.INPUT(type='text', name='', value='adadad', data-position="bottom right")
+            +e.row(data-class='custom-color-link-main-menu-hover')
+                +e.SPAN.name цвет ссылки при наведении
+                +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+            +e.row(data-class='custom-color-border-link-main-menu-hover')
+                +e.SPAN.name цвет подчеркивания при наведении
+                +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+        fieldset
+            legend кнопка. главная
+            +e.description
+                ul
+                    li - кнопка в фильтре "Подобрать"
+                    li - кнопка "Запросить КП"
+                    li - кнопка в вебформе "Отправить"
+                    li - кнопка в форма "вход и восстановление пароля"
+            fieldset
+                legend обычное состояние
+                +e.row(data-class='custom-color-btn-primary-text')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-primary-border')
+                    +e.SPAN.name бордер
+                    +e.input.INPUT(type='text', name='', value='f63d41', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-primary-bg')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='f63d41', data-position="bottom right")
+            fieldset
+                legend при наведении
+                +e.row(data-class='custom-color-btn-primary-text-hover')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-primary-border-hover')
+                    +e.SPAN.name бордер
+                    +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-primary-bg-hover')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+        fieldset
+            legend кнопка. основная
+            +e.description
+                ul
+                    li - обычные кнопки на сайте
+                    li - кнопка в фильтре "Сбросить"
+            fieldset
+                legend обычное состояние
+                +e.row(data-class='custom-color-btn-secondary-text')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='f63d41', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-secondary-border')
+                    +e.SPAN.name бордер
+                    +e.input.INPUT(type='text', name='', value='f63d41', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-secondary-bg')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+            fieldset
+                legend при наведении
+                +e.row(data-class='custom-color-btn-secondary-text-hover')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-secondary-border-hover')
+                    +e.SPAN.name бордер
+                    +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-secondary-bg-hover')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+        fieldset
+            legend кнопка. не основная и не главная
+            +e.description
+                ul
+                    li - кнопка "Купить в лизинг"
+            fieldset
+                legend обычное состояние
+                +e.row(data-class='custom-color-btn-three-text')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-three-border')
+                    +e.SPAN.name бордер
+                    +e.input.INPUT(type='text', name='', value='242424', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-three-bg')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='242424', data-position="bottom right")
+            fieldset
+                legend при наведении
+                +e.row(data-class='custom-color-btn-three-text-hover')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-three-border-hover')
+                    +e.SPAN.name бордер
+                    +e.input.INPUT(type='text', name='', value='555555', data-position="bottom right")
+                +e.row(data-class='custom-color-btn-three-bg-hover')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='555555', data-position="bottom right")
+        fieldset
+            legend поиск
+            +e.description
+                ul
+                    li - в шапке
+                    li - в мобильной шапке
+                    li - на странцие поиска
+            +e.row(data-class='custom-color-search-field-bg')
+                +e.SPAN.name фон поля
+                +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+            +e.row(data-class='custom-color-search-field-border')
+                +e.SPAN.name цвет бордера поля
+                +e.input.INPUT(type='text', name='', value='e6e6e6', data-position="bottom right")
+            +e.row(data-class='custom-color-search-submit-bg')
+                +e.SPAN.name фон кнопки
+                +e.input.INPUT(type='text', name='', value='f63d41', data-position="bottom right")
+                +e.description цвет может оказаться белым и сливаться с фоном нижней части шапки
+            +e.row(data-class='custom-color-search-submit-bg-hover')
+                +e.SPAN.name фон кнопки при наведении
+                +e.input.INPUT(type='text', name='', value='d60e12', data-position="bottom right")
+        fieldset
+            legend ярлыки, статусы
+            fieldset
+                legend в наличии
+                +e.row(data-class='custom-color-presence-in')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='545454', data-position="bottom right")
+                +e.row(data-class='custom-color-presence-in-icon')
+                    +e.SPAN.name иконка
+                    +e.input.INPUT(type='text', name='', value='2dea73', data-position="bottom right")
+            fieldset
+                legend под заказ
+                +e.row(data-class='custom-color-presence-none')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='545454', data-position="bottom right")
+            fieldset
+                legend распродажа
+                +e.row(data-class='custom-color-label-sale-bg')
+                    +e.SPAN.name фон
+                    +e.input.INPUT(type='text', name='', value='f07923', data-position="bottom right")
+                +e.row(data-class='custom-color-label-sale-text')
+                    +e.SPAN.name текст
+                    +e.input.INPUT(type='text', name='', value='ffffff', data-position="bottom right")
+        fieldset
+            legend иконки
+            +e.row(data-class='custom-color-icons')
+                +e.SPAN.name избранное, сравнение, print, pdf
+                +e.input.INPUT(type='text', name='', value='888', data-position="bottom right")
+            +e.row(data-class='custom-color-icons-header')
+                +e.SPAN.name избранное и сравнение в шапке
+                +e.input.INPUT(type='text', name='', value='888', data-position="top right")
+
+style.
+    .algus-color-custom {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        transition: all 0.2s ease-in-out;
+        background-color: #fff1e0;
+        width: 360px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .algus-color-custom legend {
+        font-weight: 700;
+    }
+
+    .algus-color-custom__cont {
+        overflow: auto;
+        max-height: 450px;
+    }
+
+    .algus-color-custom__row {
+        display: flex;
+        margin-bottom: 2px;
+        flex-wrap: wrap;
+    }
+
+    .algus-color-custom__name {
+        flex: 1;
+    }
+
+    .algus-color-custom__input {
+        display: block !important;
+        width: 90px !important;
+        padding: 4px 27px 4px 8px !important;
+        font-size: 13px !important;
+    }
+
+    .algus-color-custom__description {
+        color: gray;
+        width: 100%;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    .algus-color-custom__description ul {
+        border-right: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .algus-color-custom__description li::before {
+        display: none;
+    }
+
+    .algus-color-custom__btn-get-setings {
+        border: 1px solid #005aff;
+        border-radius: 5px;
+        text-align: center;
+        background-color: cornflowerblue;
+        color: #fff !important;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+
+    .algus-color-custom__btn-get-setings:hover {
+        border-color: #5287e8;
+        background-color: #5287e8;
+        text-decoration: none !important;
+    }
+
+    .algus-color-custom__popup {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        background-color: #333;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-align: center;
+        transform: translateY(calc(-100% - 11px));
+    }
+
+    .algus-color-custom__popup::before {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        width: 0;
+        height: 0;
+        border-width: 10px 10px 0 10px;
+        border-style: solid;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-color: #333 transparent transparent transparent;
+    }
+
+    .algus-color-custom__ft {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        border-top: 1px solid silver;
+        padding-top: 10px;
+    }
+
+    .minicolors-theme-bootstrap .minicolors-swatch {
+        width: 19px;
+        height: 19px;
+        cursor: pointer;
+    }
+
+    .minicolors input[type="hidden"] + .minicolors-swatch {
+        width: 19px;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+    }
+
+    .minicolors-position-bottom .minicolors-panel {
+        top: 25px;
+    }

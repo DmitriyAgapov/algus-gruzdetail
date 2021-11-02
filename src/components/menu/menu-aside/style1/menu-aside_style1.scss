@@ -1,0 +1,213 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+@layer components {
+  .block-menu {
+    @apply border-color-2-bg rounded-sm border border-solid hidden lg:block;
+
+    h3 {
+      @apply bg-color-2-bg px-5 py-3 text-base m-0 uppercase;
+    }
+
+    .menu {
+      margin: 0;
+      padding: 0;
+      @apply mx-5 my-3;
+
+    }
+
+    a {
+      color: $color-1-norma;
+      font-size: $font-size-base;
+
+      &:hover {
+        @apply text-color-1-m-secondary;
+      }
+    }
+
+    .menu__item {
+      list-style: none;
+      margin: 0.625rem 0;
+    }
+
+    .menu__item {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+      &:after {
+        position: absolute;
+        top: 5px;
+        right: 0;
+      }
+      & > .menu {
+        transform: translatey(-100%);
+        height: 0;
+        visibility: hidden;
+        margin: 0;
+        position: absolute;
+      }
+      &.expanded  > .menu {
+          transform: translatey(0%);
+          height: auto;
+          visibility: visible;
+          margin: inherit;
+        position: relative;
+        }
+      .is__active {
+        font-weight: 700;
+        color: black;
+      }
+
+
+      > .collapsed, > .expanded {
+        align-items: center;
+        align-content: center;
+        position: relative;
+
+        &::after {
+          font-size: 0.75rem;
+         right: 0;
+          display: block;
+          align-items: center;
+          width: 0.75rem;
+          height: 0.75rem;
+        }
+      }
+
+      &.collapsed:after {
+        @include fontAwesome("\f078", 0.75rem, 100);
+      }
+
+      &.expanded:after {
+        @include fontAwesome("\f054", 0.75rem, 100);
+
+      }
+
+
+
+
+    }
+
+
+   .menu-level-1 > .menu__item {
+
+      padding-left: 1.375rem;
+    }
+  .menu-level-1, .menu-level-2 {
+    margin-left: 0;
+    margin-right: 0;
+    &:after {
+      content: none !important;
+    }
+
+    .collapsed {
+
+        &::after {
+          content: none;
+        }
+
+        &::before {
+          font-size: 0.75rem;
+          @include fontAwesome("\f078", 0.75rem, 100);
+          margin-right: 0.75rem;
+          display: block;
+          align-items: center;
+        }
+
+    }
+
+    & > .expanded {
+
+
+        position: relative;
+
+        &::before {
+          font-size: 0.75rem;
+          @include fontAwesome("\f054", 0.75rem, 100);
+          margin-right: 0.75rem;
+          display: block;
+          align-items: center;
+        }
+
+        &::after {
+          content: none;
+
+        }
+
+        span {
+
+          //padding-right: 1rem;
+
+        }
+
+
+  }
+
+  .menu__item_collapsed {
+  }
+
+  .menu__item_active {
+  }
+
+  .submenu {
+    @include max-screen(1199px) {
+      display: none;
+    }
+    @include min-screen(1200px) {
+      position: absolute;
+      top: 100%;
+      left: -20px;
+      padding-top: 7px;
+      min-width: 150px;
+      transition: all 0.2s 0.1s ease-in-out;
+      z-index: 2;
+    }
+  }
+
+  .submemu__inner {
+    @include min-screen(1200px) {
+      background-color: #fff;
+      border: 1px solid #eaeaea;
+      padding: 20px;
+    }
+  }
+
+  .submenu__list {
+    @include min-screen(1200px) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .submenu__item {
+    list-style: none;
+    @include min-screen(1200px) {
+      margin-bottom: 1rem;
+      //&:before {
+      //    display: none;
+      //}
+    }
+  }
+
+  .menu__item-31 {
+    .submenu__list {
+      width: 600px;
+      display: flex;
+
+      .coll_s {
+        flex: 0 0 50%;
+      }
+
+      .c_1 {
+        &:nth-child(2n-1) {
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+}
+  }
+}

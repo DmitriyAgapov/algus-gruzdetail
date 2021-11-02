@@ -1,0 +1,16 @@
+//newstyle1: cssfile[block-tabs_style1] scriptfile[block-tabs_style1]
+
+// block-tabs
+.block-tabs
+    .block-tabs__links
+        a.btn.btn-tab.active(href="#field-prices") Цены
+        a.btn.btn-tab(href="#field-field-properties") Описание
+        a.btn.btn-tab(href="#field-field-applicability") Применяемость
+    .block-tabs__content
+        .block-tabs__tab-content.active(id="field-prices")
+            include ../fields/field-field-properties1
+        .block-tabs__tab-content(id="field-field-properties")
+            include ../fields/field-field-properties
+        .block-tabs__tab-content(id="field-field-applicability")
+            include ../fields/field-field-applicability
+// block-tabs

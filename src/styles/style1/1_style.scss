@@ -1,0 +1,32 @@
+// Этап 1 Подключение общих стилей
+
+//Подключаем Шрифты
+@import "_fonts";
+
+//Подключаем стили базовых тегов
+@import "_base";
+@import "_table";
+@import "_buttons";
+@import "_input";
+@import "_radio";
+@import "_style";
+@import "_fields";
+@import "_arrows";
+
+//Подключаем стили Drupal elements
+@import "../../../src/components/drupal/drupal-regions_style1";
+@import "../../../src/components/drupal/drupal-section_style1";
+@import "../../../src/components/drupal/drupal-block_style1";
+@import "../../../src/components/drupal/drupal-file-upload/style1/drupal-file-upload_style1";
+@import "../../../src/components/drupal/drupal-menu/style1/drupal-menu_style1";
+@import "../../../src/components/drupal/drupal-pager/style1/drupal-pager_style1";
+@import "../../../src/components/drupal/drupal-ajax_common";
+@import "../../../src/components/drupal/drupal-modal/style1/drupal-modal_style1";
+@import "../../../src/components/drupal/drupal-select/style1/drupal-select_style1";
+@import "../../../src/components/drupal/drupal-message/drupal-message_common";
+@import "../../../src/components/drupal/drupal-webform/style1/drupal-webform_style1";
+@import "../../../src/components/drupal/ck-template_common";
+@import "../../../src/components/drupal/drupal-admin-panel_common";
+@import "../../../src/components/drupal/drupal-tabs/drupal-tabs_common";
+@import "../../../src/components/drupal/drupal-user-profile/style1/drupal-user-profile_style1";
+

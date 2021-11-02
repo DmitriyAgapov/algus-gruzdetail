@@ -1,0 +1,12 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.mobile-search-btn {
+  align-self: center;
+  justify-self: center;
+    span {
+        position: relative;
+		&::before {
+			@include fontAwesome("\f002", $font-size-base, 400);
+		}
+    }
+}

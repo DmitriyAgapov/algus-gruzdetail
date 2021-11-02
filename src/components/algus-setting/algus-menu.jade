@@ -1,0 +1,165 @@
+//+style("css/algus-menu.css")
+
++b.algus-menu
+    +e.UL.list
+        +e.LI.item
+            +e.A.link(href="index.html") Главная
+        +e.LI.item_expanded
+            +e.A.link(href="javascript://")
+                span Каталог
+            +b.algus-menu-sub
+                +e.UL.list
+                    +e.LI.item
+                        +e.A.link(href="catalog.html") Каталог
+                    +e.LI.item
+                        +e.A.link(href="catalog-teasers.html") Раздел со списком
+                    +e.LI.item
+                        +e.A.link(href="catalog-teasers-filter.html") Раздел со списком фильтр слева
+                    +e.LI.item
+                        +e.A.link(href="catalog-teasers-tabs.html") Раздел с вкладками
+                    +e.LI.item
+                        +e.A.link(href="catalog-teasers-filter-big-cards.html") Масла
+                    +e.LI.item
+                        +e.A.link(href="unit.html") Единица Товара
+                    +e.LI.item
+                        +e.A.link(href="unit-with-thumbs.html") Единица Товара с Тамбами
+        +e.LI.item
+            +e.A.link(href="orders.html") Заказы
+        +e.LI.item
+            +e.A.link(href="cart.html") Корзина
+        //+e.LI.item_expanded
+        //    +e.A.link(href="javascript://")
+        //        span новости
+        //    +b.algus-menu-sub
+        //        +e.UL.list
+        //            +e.LI.item
+        //                +e.A.link(href="news-list.html") список новостей
+        //            +e.LI.item
+        //                +e.A.link(href="news-unit.html") единица новости
+        //+e.LI.item_expanded
+        //    +e.A.link(href="javascript://")
+        //        span статьи
+        //    +b.algus-menu-sub
+        //        +e.UL.list
+        //            +e.LI.item
+        //                +e.A.link(href="article-list.html") список статей
+        //            +e.LI.item
+        //                +e.A.link(href="article-unit.html") единица статьи
+        +e.LI.item
+            +e.A.link(href="uikitpage.html") UikitPage
+        //+e.LI.item
+        //    +e.A.link(href="shipment-list.html") список отгрузок
+        //+e.LI.item
+        //    +e.A.link(href="contacts.html") контакты
+        +e.LI.item_expanded
+            +e.A.link(href="javascript://", style="color: burlywood;")
+                span other
+            +b.algus-menu-sub
+                +e.UL.list
+                    +e.LI.item
+                        +e.A.link(href="user-login.html", style="color: burlywood;") форма входа
+                    +e.LI.item
+                        +e.A.link(href="user-profile.html", style="color: burlywood;") профиль юзера
+                    +e.LI.item
+                        +e.A.link(href="search.html", style="color: burlywood;") поиск
+                    +e.LI.item
+                        +e.A.link(href="parts.html", style="color: burlywood;") запчасти
+
+style.
+    .algus-menu__list {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .algus-menu__item {
+        margin: 0;
+        list-style: none;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+    }
+
+    .algus-menu__item:before {
+        display: none;
+    }
+
+    .algus-menu__item:hover {
+        background-color: #fff1e0;
+    }
+
+    .algus-menu__item:hover .algus-menu__link {
+        text-decoration: none;
+        color: #d60e12;
+    }
+
+    .algus-menu__item:hover .algus-menu-sub {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .algus-menu__item_expanded .algus-menu__link span {
+        position: relative;
+        padding-right: 13px;
+    }
+
+    .algus-menu__item_expanded .algus-menu__link span::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-width: 4px 4px 0 4px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+        bottom: 0;
+        margin: auto;
+        height: 0;
+    }
+
+    .algus-menu__link {
+        padding: 0 1rem;
+        color: #333;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        border: none;
+        text-decoration: none;
+    }
+
+    .algus-menu-sub {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: all 0.2s ease-in-out;
+        background-color: #fff1e0;
+        width: 230px;
+        padding: 0 0 5px;
+    }
+
+    .algus-menu-sub__list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .algus-menu-sub__item {
+        margin: 0;
+        list-style: none;
+    }
+
+    .algus-menu-sub__item:before {
+        display: none;
+    }
+
+    .algus-menu-sub__item:hover .algus-menu-sub__link {
+        color: #d60e12;
+    }
+
+    .algus-menu-sub__link {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #333;
+        border: none;
+        text-decoration: none;
+    }

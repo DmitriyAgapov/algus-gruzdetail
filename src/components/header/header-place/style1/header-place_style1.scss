@@ -1,0 +1,14 @@
+@import "../../../../styles/style1/helpers/helpers";
+.header-place {
+    grid-area: place;
+    font-size: 0.75rem;
+    @apply hidden md:block;
+
+}
+.header-place {
+    &:before {
+        content: "";
+        @include fontAwesome("\f3c5", 1rem, 100);
+        margin-right: 6px;
+    }
+}

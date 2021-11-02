@@ -1,0 +1,136 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.search {
+    position: relative;
+
+    form {
+        display: flex;
+        position: relative;
+
+    }
+    .form-item {
+        flex: 1;
+        margin-top: 0;
+        margin-bottom: 0;
+
+
+
+    }
+    .form-text {
+        //border-radius: $border-radius-xl;
+        //border: 1px solid $color-1-main;
+        //padding-right: 6rem;
+        @apply  border hover:border-color-1-m-secondary focus:border-color-1-m-secondary;
+    }
+    .form-actions {
+        height: 40px;
+        width: 44px;
+
+        position: relative;
+        margin: 0;
+        padding: 0 !important;
+        @apply bg-color-1-m-primary;
+        border-color: transparent !important;
+        position: absolute !important;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        &::before {
+
+            content: "\ea51";
+            font-family: 'icomoon' !important;
+            speak: never;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            z-index: 2;
+        }
+    }
+    .form-submit {
+        background-color: transparent !important;
+        border: none;
+        padding: 0;
+        font-size: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+//.header {
+//    .search {
+//        //        position: relative;
+//        //        form {
+//        //            display: flex;
+//        //            position: relative;
+//        //        }
+//        //        .form-item {
+//        //            flex: 1;
+//        //            margin: 0;
+//        //        }
+//        .form-text {
+//            padding-right: $input-padding-x;
+//            //border-radius: $border-radius-xl;
+//            //border: none;
+//        }
+//        .form-actions {
+//            position: relative !important;
+//            width: 40px;
+//            //height: 40px;
+//            padding: 0 !important;
+//            background-color: transparent !important;
+//            border-color: transparent !important;
+//            //            margin: 0;
+//            //            &::before {
+//            //                @include fontAwesome("\f002", 1.125em, 100);
+//            //                position: absolute;
+//            //                top: 0;
+//            //                bottom: 0;
+//            //                left: 0;
+//            //                right: 0;
+//            //                display: flex;
+//            //                align-items: center;
+//            //                justify-content: center;
+//            //                color: #fff;
+//            //                z-index: 0;
+//            //            }
+//            }
+//        //        .form-submit {
+//        //            background-color: transparent !important;
+//        //            border: none;
+//        //            padding: 0;
+//        //            font-size: 0;
+//        //            width: 100%;
+//        //            height: 100%;
+//        //            cursor: pointer;
+//        //            z-index: 1;
+//        //            position: relative;
+//        //            &:focus {
+//        //                box-shadow: none;
+//        //            }
+//        //        }
+//    }
+//}
+//

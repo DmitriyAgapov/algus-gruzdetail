@@ -1,0 +1,17 @@
+//newstyle1: cssfile[block-tabs_style1] scriptfile[block-tabs_style1]
+
+// block-tabs
+.tabs-container
+    .tabs-container__links
+        a.btn.btn-tab.active(href="#catalog-groups") По каталожным группам
+        a.btn.btn-tab(href="#catalog-alphabet") Алфавитный каталог
+        a.btn.btn-tab(href="#catalog-visual") Визуальные каталоги
+    .tabs-container__content
+        .tabs-container__tab-content.active(id="catalog-groups")
+            include ../blocks/block-catalog-group/block-catalog-group
+            include ../blocks/block-uzli/block-uzli
+        .tabs-container__tab-content(id="catalog-alphabet")
+            include ../blocks/block-catalog-alphabet/block-catalog-alphabet
+        .tabs-container__tab-content(id="catalog-visual")
+            include ../blocks/block-catalog-visual/block-catalog-visual
+// block-tabs

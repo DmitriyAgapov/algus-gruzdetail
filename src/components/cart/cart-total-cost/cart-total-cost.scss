@@ -1,0 +1,17 @@
+@import "../../styles/helpers/_helpers";
+
+.cart-total-cost {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 46px 80px 38px 0;
+}
+.cart-total-cost__label {
+    margin-right: 16px;
+}
+.cart-total-cost__value {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 30px;
+}

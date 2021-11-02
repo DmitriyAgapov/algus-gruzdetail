@@ -1,0 +1,221 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+@layer components {
+    //----------Teaser (default)--------------//
+    .teaser-node-product {
+
+        .field {
+            @include first(1) {
+                @apply mt-0;
+            }
+            @include last(1) {
+                @apply mb-0;
+            }
+            @apply my-2;
+        }
+
+
+        .field-image img {
+            width: 100%;
+        }
+
+
+
+        .field-field-offers {
+            position: absolute;
+        }
+
+        .field-quanity {
+            @apply mt-0;
+        }
+    }
+    .teaser-node-product-teaser-0 {
+        .field-title {
+            margin-top: 0;
+        }
+        .field-cat-number {
+            margin-bottom: 0;
+        }
+        .field-cat-number {
+            .value {
+                a {
+                    @apply text-sm;
+                }
+            }
+        }
+        .field-field-price {
+            .value, .suffix, .prefix {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
+    }
+    //----------Teaser (List)--------------//
+    .teaser-node-product-teaser-1 {
+
+        @apply w-full  sm:w-auto text-left bg-white relative;
+        @apply border-b border-t border-color-1-n-mm;
+        display: grid;
+        grid-template: auto auto/88px auto;
+        min-width: 13.75rem;
+        margin: 0 0 -1px 0;
+        padding: 1rem 0 1.5rem;
+        grid-template-columns: auto 1fr;
+        .group-field-header {
+            @screen md {
+                grid-row: 1/3;
+                align-self: center;
+            }
+        }
+        .group-field-details, .group-field-btn-price {
+            @screen md {
+                display: contents;
+            }
+        }
+        gap: 1rem;
+        .field-field-image {
+            grid-row: 1/max-content;
+            @screen md {
+                grid-area: img;
+            }
+        }
+        .field-cat-number {
+            display: inline-block;
+            margin-bottom: 0;
+            @screen md {
+                grid-area: catnum;
+            }
+
+            & + .field-title {
+                margin-top: 0;
+            }
+        }
+        //&:after {
+        //  content: '';
+        //  position: absolute;
+        //  width: 100%;
+        //  top: 0;
+        //  left: 0;
+        //  right: 0;
+        //  bottom: 0;
+        //  height: 100%;
+        //  box-shadow: none;
+        //  opacity: 0;
+        //  transition: opacity 0.3s ease-in-out;
+        //  @apply bg-teaserHover drop-shadow-none;
+        //}
+        //&:hover::after {
+        //  opacity: 1;
+        //}
+        .field {
+            @apply my-0;
+        }
+
+        .group-field-btn-price {
+            display: grid;
+            grid-template-columns: 7.5rem auto;
+            gap: 0.75rem;
+        }
+        @screen md {
+            grid-template-areas: "img catnum qty nds" "img manuf deliv nds" "img btnfast seller basket";
+            grid-template-columns: auto 1fr 8rem 7.5rem;
+        }
+        @screen md {
+            gap: 0 1rem;
+        }
+        .btn-fast {
+
+            @include max-screen(767px) {
+                font-size: 0;
+                border: 0;
+                .icon-eye {
+                    font-size: 1rem;
+                }
+            }
+            display: flex;
+            align-items: center;
+
+            span {
+                font-size: 1rem;
+            }
+            @screen md {
+                align-self: start;
+                grid-area: btnfast;
+                max-width: max-content;
+                span {
+                    margin-right: 12px;
+                }
+            }
+        }
+
+        .field-manufacture-by {
+            @screen md {
+                grid-area: manuf;
+            }
+        }
+
+        .group-price-nds {
+            @include max-screen(767px) {
+                grid-column: span 2;
+            }
+            @screen md {
+                flex-wrap: wrap;
+                align-content: center;
+                grid-area: nds;
+            }
+        }
+
+        .field-delivery {
+            @screen md {
+                grid-area: deliv;
+            }
+        }
+
+        .field-title {
+
+            align-self: start;
+            @screen md {
+                grid-area: title;
+            }
+        }
+
+        .field-seller {
+            @screen md {
+                grid-area: seller;
+            }
+        }
+
+        .field-group-price {
+            @apply lg:flex justify-self-center self-center lg:flex-col;
+        }
+
+        .to-basket {
+            @screen md {
+                grid-area: basket;
+            }
+        }
+
+        .field-quanity {
+            @screen md {
+                grid-area: qty;
+            }
+        }
+
+        .field-group-commerce {
+            align-self: center;
+
+            .to-basket.to-basket_short {
+                form:not(#filter-catalog-form) {
+                    .form-item, .form-actions {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        @apply lg:grid  lg:max-w-full lg:col-span-full z-20;
+
+        & > .field {
+            @apply xl:m-0;
+        }
+    }
+}

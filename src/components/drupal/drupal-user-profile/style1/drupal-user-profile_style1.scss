@@ -1,0 +1,36 @@
+@import "../../../../styles/style1/helpers/_helpers";
+
+.user-profile {
+    position: relative;
+    margin: 1rem 0;
+    background-color: #fff;
+    border-radius: $border-radius-base;
+    border: $border-width-base solid $border-color-base;
+    transition: box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+    @include min-screen(480px) {
+        display: flex;
+        align-items: center;
+    }
+    a[href^="/user"] {
+        display: block;
+        border: none;
+        @include min-screen(480px) {
+            width: 200px;
+        }
+        img {
+            display: block;
+        }
+    }
+    .label {
+        margin-top: 0;
+    }
+    h4 {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .form-item {
+        padding: 1rem;
+    }
+}

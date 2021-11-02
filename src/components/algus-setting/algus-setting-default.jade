@@ -1,0 +1,68 @@
+//+script('https://cdn.jsdelivr.net/npm/jquery@1.11.0/dist/jquery.min.js')
+//+script('https://cdn.jsdelivr.net/npm/jquery-once@2.2.0/jquery.once.min.js')
+
+script.
+    $(document).ready(function () {
+        // -----------------------------------------------
+
+        var default_layout = 1;
+
+        window.default_setting_block = default_setting_block = {
+            "header": {
+                default: 0,
+                count_options: 2,
+                names_options: false
+            },
+            "block-category-catalog": {
+                default: 0,
+                count_options: 2,
+                names_options: [
+                    'в 4 колонки',
+                    'в 2 колонки'
+                ]
+            },
+            "footer": {
+                default: 0,
+                count_options: 3,
+                names_options: false
+            },
+            "block-category-front": {
+                default: 2,
+                count_options: 1,
+                names_options: [
+                    'в 4 колонки',
+                    'в 2 колонки',
+                    'в 3 колонки'
+                ]
+            },
+            "block-instock": {
+                default: 0,
+                count_options: 2,
+                names_options: [
+                    'по 4 шт.',
+                    'по 2 шт.',
+                ]
+            },
+            "block-shipment-last": {
+                default: 0,
+                count_options: 2,
+                names_options: [
+                    'Открытие галлереи',
+                    'Открытие в модальном окне'
+                ]
+            },
+        };
+
+        for (var item in default_setting_block) {
+            if ( !localStorage.getItem(`algus-setting-block-${item}`) )
+                localStorage.setItem(`algus-setting-block-${item}`, default_setting_block[item].default);
+        }
+
+        if (localStorage.getItem("algus-select-layout-value") == null) {
+            localStorage.setItem("algus-select-layout-value", default_layout);
+            localStorage.setItem("algus-select-layout-name", `Стиль ${default_layout}`);
+        }
+
+        // -----------------------------------------------
+
+    });

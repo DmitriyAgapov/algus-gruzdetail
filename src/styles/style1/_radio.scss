@@ -1,0 +1,50 @@
+
+// РАДИОКНОПКА RADIO BUTTON
+.radio {
+  vertical-align: top;
+  width: 16px;
+  height: 16px;
+  margin: 0 3px 0 0;
+  + label {
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  &:not(checked) {
+    position: absolute;
+    opacity: 0;
+    + label {
+      position: relative;
+      padding: 0 0 0 2em;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 4px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid ;
+        @apply border-color-1-n-mm;
+        border-radius: 50%;
+        //background-color: $radio-bg;
+        box-sizing: border-box;
+      }
+    }
+  }
+  &:checked {
+    + label {
+      &::before {
+        @apply border-color-1-m-primary;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        @apply bg-color-1-m-primary;
+      }
+    }
+  }
+}

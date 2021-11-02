@@ -1,0 +1,14 @@
+.DS_Store
+.DS_Store?
+.idea
+.vscode
+.github
+.env
+ehthumbs.db
+Thumbs.db
+node_modules
+dist
+web
+yarn.lock
+package-lock.json
+themes

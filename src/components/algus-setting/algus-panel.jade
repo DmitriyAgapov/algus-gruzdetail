@@ -1,0 +1,518 @@
+//+script('https://cdn.jsdelivr.net/npm/jquery@1.11.0/dist/jquery.min.js')
+//+script('https://cdn.jsdelivr.net/npm/jquery-once@2.2.0/jquery.once.min.js')
+
+//+style("css/algus-panel.css")
+//+script("js/- algus-panel.js")
+
+//+style("css/algus-logo.css")
+//+script("js/algus-logo.js")
+
+//+style("css/algus-slogan.css")
+//+script("js/- algus-slogan.js")
+
+//+style("css/algus-icon-catalog.css")
+//+script("js/- algus-icon-catalog.js")
+
++b.algus-panel
+    +e.container
+        include algus-burger
+        +e.content
+            +e.nv
+                include algus-menu
+            +e.select-layout
+                include algus-select-layout
+            //+e.color-scheme
+            //    include algus-color
+            //+e.dl-config
+            //    span download config
+
+//include algus-logo
+//include algus-slogan
+//include algus-icon-catalog
+
+style.
+    .algus-panel {}
+    .algus-panel.open .algus-panel__container {
+        width: 100%;
+    }
+    .algus-panel.open .algus-panel__content {
+        width: calc(100% - 65px);
+        overflow: visible;
+    }
+    .algus-panel__container {
+        position: fixed;
+        bottom: 20rem;
+        left: 0;
+        z-index: 1000;
+        background-color: bisque;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 5px 0 #ccc;
+        transition: all 0.25s ease-in-out;
+    }
+    .algus-panel__content {
+        display: flex;
+        align-items: center;
+        grid-gap: 30px;
+        overflow: hidden;
+        background-color: bisque;
+        position: relative;
+        top: 0;
+        left: 50px;
+        z-index: 1000;
+        width: 0;
+    }
+    .algus-panel__nv {
+        flex: 1;
+    }
+    .algus-panel__dl-config {
+        padding-left: 35px;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    .algus-panel__dl-config:before {
+        content: "\f019";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 25px;
+        font-weight: 100;
+        color: #333;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-in-out;
+    }
+    .algus-panel__dl-config:hover:before {
+        color: #d60e12;
+    }
+    .algus-panel__dl-config:hover span {
+        color: #d60e12;
+    }
+
+script.
+    $(document).ready(function () {
+
+        var layout = localStorage.getItem('algus-select-layout-value');
+
+        // -----------------------------------------------
+
+        // СОЗДАЕМ МАССИВ КОМПОНЕНТОВ ДЛЯ ДАЛЬНЕЙШЕГО СРАВНЕНИЯ
+        // var arrayListManualBlockSettings = [];
+        // for (let value of Object.values(listComponents)) {
+        //     value.style2.cssFiles.forEach(function (row) {
+        //         row.forEach(function (item) {
+        //             arrayListManualBlockSettings.push(item);
+        //         });
+        //     });
+        // }
+        // var arrayListManualBlockSettingsNew = Array.from(new Set(arrayListManualBlockSettings));
+
+        // СОСТАВЛЯЕМ СПИСОК БЛОКОВ У КОТОРЫХ ЕСТЬ ВЫБОР КОМПОНОВКИ
+        var arrayFileComponentsForRemove = [];
+        for (let value of Object.keys(listComponents)) {
+            arrayFileComponentsForRemove.push(value);
+        }
+
+        Array.prototype.remove = function () {
+            var what, a = arguments, L = a.length, ax;
+            while (L && this.length) {
+                what = a[--L];
+                while ((ax = this.indexOf(what)) !== -1) {
+                    this.splice(ax, 1);
+                }
+            }
+            return this;
+        };
+
+        // ФУНКЦИЯ ВЫВОДА СПИСКА ФАЙЛОВ CSS И JS
+        window.printListCssFiles = function printListCssFiles(style) {
+            var body = document.body.innerHTML;
+            var pattern = new RegExp("(?<=\<\!\-\-style" + style + ": ).*?(?=\-\-\>)", 'gi');
+            var comment = Array.from(new Set(body.match(pattern)));
+            // if ( style === 2 )
+            //     comment.shift();
+
+            console.groupCollapsed("ВЫВОД СПИСКА ФАЙЛОВ CSS И JS");
+            console.log(comment);
+
+            comment.forEach(function (item, index) {
+                console.group(index + " | " + item);
+                    var name = item.match(/(?<=name:).*?(?=;)/gi);
+                    var nameForDeleteFile = item.match(/(?<=name:).*?(?=(_1|_2)*_style[1-2];)/gi);
+                    console.log(nameForDeleteFile);
+
+                    var arrayRemovedFiles = [];
+                    arrayFileComponentsForRemove.forEach(function (item2) {
+                        // console.log(item2);
+                        if (nameForDeleteFile[0] === item2) {
+                            console.log("ЭЛЕМЕНТ: ." + nameForDeleteFile[0] + " | " + $("." + nameForDeleteFile[0]).length + " шт.");
+                            // if ( $("." + nameForDeleteFile[0]).length === "0") {
+                                console.log("НАЙДЕНО СОВПАДЕНИЕ: " + nameForDeleteFile[0]);
+                                for (let row of Object.values(listComponents[nameForDeleteFile[0]][`style${style}`].cssFiles)) {
+                                    row.forEach(function (item3) {
+                                        arrayRemovedFiles.push(item3);
+                                        var remRegexPattern = new RegExp("name:" + item3 + "; style:(true|false); script:(true|false);", 'gi');
+                                        // var remRegexPattern = "name:" + item3 + "; style:(true|false); script:(true|false);";
+                                        console.log(remRegexPattern);
+                                        // var remItem = comment.indexOf(remRegexPattern);
+                                        // var remItem = comment.indexOf(remRegexPattern);
+                                        // console.log(remItem);
+                                        // if (remItem !== -1) comment.splice(remItem, 1);
+
+                                        // comment.remove(remRegexPattern);
+
+                                        comment.remove("name:" + item3 + "; style:true; script:true;");
+                                        comment.remove("name:" + item3 + "; style:true; script:false;");
+
+                                        // var comment = removeMatching(comment, remRegexPattern);
+                                    });
+                                }
+                                console.log(arrayRemovedFiles);
+                                console.log("#" + index + " | " + item);
+                            // }
+                        }
+                    });
+                console.groupEnd();
+            });
+            console.groupEnd();
+
+            // СОСТАВЛЯЕМ МАССИВ НЕ ПОВТОРЯЮЩЕГОСЯ СПИСКА ФАЙЛОВ CSS И JS
+            // Т.Е. УДАЛЯЕМ ИЗ МАССИВА НЕ НУЖНЫЕ НАМ ФАЙЛЫ У КОТОРЫХ ЕСТЬ ВЫБОР КОМПОНОВКИ
+            // comment.forEach(function (item, index) {
+            //     var name = item.match(/(?<=name:).*?(?=;)/gi);
+            //     arrayListManualBlockSettingsNew.forEach(function (item2) {
+            //         // console.group("ITEM");
+            //         if (name[0] === item2) {
+            //             // console.log("НАЙДЕНО СОВПАДЕНИЕ: " + name[0]);
+            //             // console.log("#" + index);
+            //             comment.splice(index, 1);
+            //         }
+            //         // console.groupEnd();
+            //     });
+            // });
+            // ПОЛУЧАЕМ НОВЫЙ СПИСОВ ФАЙЛОВ CSS И JS БЕЗ ФАЙЛОВ У КОТОРЫХ ЕСТЬ ВЫБОР КОМПОНОВКИ
+            console.log(comment);
+
+            // ВЫВОДИМ CSS И JS НА СТРАНИЦУ
+            comment.forEach(function (item) {
+                var name = item.match(/(?<=name:).*?(?=;)/gi);
+                var style = item.match(/style:true/gi);
+                var script = item.match(/script:true/gi);
+
+                $("."+name[0].replace(/_[1-3]_style[1-3]|_style[1-3]/gi, "")).ready(function () {
+                if (script) {
+                    var tagScript = document.createElement("script");
+                    tagScript.src = `js/style${layout}/${name[0]}.js`;
+                    document.body.appendChild(tagScript);
+                }
+                if ( style ) {
+                    var tagLink = document.createElement("link");
+                    tagLink.rel = "stylesheet";
+                    tagLink.type = "text/css";
+                    tagLink.href = `css/style${layout}/${name[0]}.css`;
+                    document.body.appendChild(tagLink);
+                }
+                });
+
+            });
+        }
+
+        // НОВАЯ ФУНКЦИЯ ВЫВОДА СПИСКА ФАЙЛОВ CSS И JS
+        window.NEWprintListCssFiles = function NEWprintListCssFiles(style) {
+            var body = document.body.innerHTML;
+            var pattern = new RegExp("(?<=\<\!\-\-newstyle" + style + ": ).*?(?=\-\-\>)", 'gi');
+            var comment = Array.from(new Set(body.match(pattern)));
+            console.groupCollapsed("NEW ВЫВОД СПИСКА ФАЙЛОВ CSS И JS");
+                console.log(comment);
+            console.groupEnd();
+            var new_array_name_css_file = [];
+            var new_array_name_js_file = [];
+
+            // ВЫВОДИМ CSS И JS НА СТРАНИЦУ
+            comment.forEach(function (item) {
+
+                var array_name_css_file = item.match(/(?<=cssfile\[).*?(?=\])/gi);
+                if (array_name_css_file[0]) {
+                    array_name_css_file = array_name_css_file[0].split(", ");
+                    array_name_css_file.map(function (file) {
+                        // console.log( file );
+                        if (file.match(/_common/gi)) {
+                            new_array_name_css_file.push(`css/common/${file}.css`);
+                        }
+                        if (file.match(/_style1/gi)) {
+                            new_array_name_css_file.push(`css/style1/${file}.css`);
+                        }
+                        // if (file.match(/_style2/gi)) {
+                        //     new_array_name_css_file.push(`css/style2/${file}.css`);
+                        // }
+                        // new_array_name_css_file.push(`css/style${layout}/${file}.css`);
+                    });
+                } else {
+                    array_name_css_file = false;
+                };
+                // console.log(array_name_css_file);
+
+                var array_name_js_file = item.match(/(?<=scriptfile\[).*?(?=\])/gi);
+                if ( array_name_js_file[0] ) {
+                    array_name_js_file = array_name_js_file[0].split(", ");
+                    array_name_js_file.map(function (file) {
+                        if (file.match(/_common/gi)) {
+                            new_array_name_js_file.push(`js/common/${file}.js`);
+                        }
+                        if (file.match(/_style1/gi)) {
+                            new_array_name_js_file.push(`js/style1/${file}.js`);
+                        }
+                        // if (file.match(/_style2/gi)) {
+                        //     new_array_name_js_file.push(`js/style2/${file}.js`);
+                        // }
+                        // new_array_name_js_file.push(`js/style${layout}/${file}.js`);
+                    });
+                } else {
+                    array_name_js_file = false;
+                };
+                // console.log(array_name_js_file);
+            });
+
+            console.groupCollapsed("новый список css файлов");
+                new_array_name_css_file = Array.from(new Set(new_array_name_css_file));
+                console.log(new_array_name_css_file);
+            console.groupEnd();
+
+            console.groupCollapsed("новый список js файлов");
+                new_array_name_js_file = Array.from(new Set(new_array_name_js_file));
+                console.log(new_array_name_js_file);
+            console.groupEnd();
+
+            new_array_name_css_file.map(function (file) {
+                if ( file.match(/--global/gi) ) {
+                    let tagLink = document.createElement("link");
+                    tagLink.rel = "stylesheet";
+                    tagLink.type = "text/css";
+                    tagLink.href = file.replace(" --global", "");
+                    document.body.prepend(tagLink);
+                } else {
+                    let tagLink = document.createElement("link");
+                    tagLink.rel = "stylesheet";
+                    tagLink.type = "text/css";
+                    tagLink.href = file;
+                    document.body.appendChild(tagLink);
+                    // css/style${layout}/${file}.css
+                }
+            });
+
+            new_array_name_js_file.map(function (file) {
+                if ( file.match(/--global/gi) ) {
+                    let tagScript = document.createElement("script");
+                    tagScript.src = file.replace(" --global", "");
+                    tagScript.async = false;
+                    document.body.prepend(tagScript);
+                } else {
+                    let tagScript = document.createElement("script");
+                    tagScript.src = file;
+                    tagScript.async = false;
+                    document.body.appendChild(tagScript);
+                }
+            });
+
+        }
+
+        if ( localStorage.getItem('algus-select-layout-value') === '1' ) {
+            // printListCssFiles(1);
+            NEWprintListCssFiles(1);
+        }
+        if ( localStorage.getItem('algus-select-layout-value') === '2' ) {
+            // printListCssFiles(2);
+            // NEWprintListCssFiles(2);
+        }
+
+        // -----------------------------------------------
+
+        function downloadAsFile(data) {
+            let a = document.createElement("a");
+            let file = new Blob([data], {type: 'application/json'});
+            a.href = URL.createObjectURL(file);
+            a.download = "configuration.txt";
+            a.click();
+        }
+
+        var selectedColor;
+
+        $('.algus-panel__dl-config').on('click', function () {
+
+            if (localStorage.getItem('selectedColor') == "custom") {
+                selectedColor = $('#color-scheme-custom').html();
+            } else {
+                selectedColor = 'Цветовая схема: ' + localStorage.getItem('selectedColor');
+            }
+
+            let listConfig = `
+                Шапка: ${parseInt(localStorage.getItem('algus-setting-block-hd')) + 1};
+                Подвал: ${parseInt(localStorage.getItem('algus-setting-block-ft')) + 1};
+                Каталог на главной: ${parseInt(localStorage.getItem('algus-setting-block-b-catalog-front')) + 1} (${default_setting_block["b-catalog-front"]["names_options"][localStorage.getItem("algus-setting-block-b-catalog-front")]});
+                Страница каталога: ${parseInt(localStorage.getItem('algus-setting-block-b-catalog-page')) + 1};
+                Блок техника в наличии на главной: ${parseInt(localStorage.getItem('algus-setting-block-b-instock')) + 1} (${default_setting_block["b-instock"]["names_options"][localStorage.getItem("algus-setting-block-b-instock")]});
+                Страница список новостей: ${parseInt(localStorage.getItem('algus-setting-block-b-news-page')) + 1};
+                Блок последних отгрузок: ${parseInt(localStorage.getItem('algus-setting-block-b-shipment')) + 1} (${default_setting_block["b-shipment"]["names_options"][localStorage.getItem("algus-setting-block-b-shipment")]});
+                Cписок всех отгрузок: ${parseInt(localStorage.getItem('algus-setting-block-b-shipment-page')) + 1} (${default_setting_block["b-shipment-page"]["names_options"][localStorage.getItem("algus-setting-block-b-shipment-page")]});
+                -------------------------------------------------------------
+                Коллекция иконок каталога: ${localStorage.getItem('selectedIconCatalogName')}
+                Слоган: ${localStorage.getItem('custom-slogan')}
+                -------------------------------------------------------------
+                ${selectedColor}
+            `;
+            downloadAsFile(listConfig);
+        });
+        console.groupEnd();
+
+        // -----------------------------------------------
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script.
+    $(document).ready(function () {
+
+        // -----------------------------------------------
+
+        // if (!localStorage.getItem("algus-settings")) {
+        //     $("<link>")
+        //         .attr("rel", "stylesheet")
+        //         .attr("type", "text/css")
+        //         .attr("href", "css/layout-" + localStorage.getItem("algus-select-layout-value") + "-color-scheme-" + $('.algus-color__item').first().data('color') + ".css")
+        //         .appendTo("body");
+        //     localStorage.setItem("selectedColor", $('.algus-color__item').first().data('color'));
+        //     localStorage.setItem("algus-settings", true);
+        // } else {
+        //     if (localStorage.getItem("selectedColor") == 'custom') {
+        //         // добавляем тэг style кастомных стилей
+        //         writeCustomStyleTag();
+        //     } else {
+        //         // добавляем тег линк с цветовой схемой
+        //         $("<link>")
+        //             .attr("rel", "stylesheet")
+        //             .attr("type", "text/css")
+        //             .attr("href", "css/layout-" + localStorage.getItem("algus-select-layout-value") + "-color-scheme-" + localStorage.getItem("selectedColor") + ".css")
+        //             // .attr("href", "css/color-scheme-" + localStorage.getItem("selectedColor") + ".css")
+        //             .appendTo("body");
+        //     }
+        // }
+
+        // -----------------------------------------------
+
+        // ВЫБОР СТИЛЯ
+        $('.algus-select-layout__option').on('click', function () {
+            console.log( "КЛИК ПО ВЫБОРУ СТИЛЯ" );
+            var option = $(this);
+            var LAYOUT = option.data('value');
+
+            $("#color-scheme-custom").remove();
+            $("link[href^='css/layout-1-color-scheme']").remove();
+            $("link[href^='css/layout-2-color-scheme']").remove();
+            $("link[href$='_style1.css']").remove();
+            // $("link[href$='_style2.css']").remove();
+
+            $('.algus-select-layout__placeholder').contents().remove();
+            option.contents().clone().appendTo($('.algus-select-layout__placeholder'));
+            localStorage.setItem('algus-select-layout-value', $(this).data('value'));
+            localStorage.setItem('algus-select-layout-name', $(this).text());
+            printListColors();
+
+            // задаю первый цвет
+            localStorage.setItem('selectedColor', $('.algus-color__item').first().data('color') );
+            $("<link>")
+                .attr("rel", "stylesheet")
+                .attr("type", "text/css")
+                .attr("href", "css/layout-" + LAYOUT + "-color-scheme-" + localStorage.getItem("selectedColor") + ".css")
+                .appendTo("body");
+            $('.algus-color__item').first().addClass("active");
+
+            if (localStorage.getItem('algus-select-layout-value') === '1') {
+                printListCssFiles(1);
+            }
+            if (localStorage.getItem('algus-select-layout-value') === '2') {
+                printListCssFiles(2);
+            }
+
+            for (var item in default_setting_block) {
+                createCssAndJsfiles(item);
+            }
+
+        });
+
+        // -----------------------------------------------
+
+        // ПРИ ОТКРЫТИИ СТРАНИЦЫ ДОБАВЛЯЕМ КЛАСС АКТИВ К ВЫБРАННОМУ ПУНКТУ ЦВЕТА
+        $(".algus-color__item[data-color='" + localStorage.getItem("selectedColor") + "']").addClass("active");
+
+        // -----------------------------------------------
+
+        // КЛИК ПО ВЫБОРУ ЦВЕТА
+        $(document).on("click", ".algus-color__item", function () {
+            var ITEM = $(this);
+            var SELECTED = $(this).data("color");
+            var LAYOUT = localStorage.getItem("algus-select-layout-value");
+
+            $('.algus-color__item').removeClass("active");
+            ITEM.addClass("active");
+
+            localStorage.setItem("selectedColor", SELECTED);
+
+            $("link[href^='css/layout-" + LAYOUT + "-color-scheme']").remove();
+            $("#color-scheme-custom").remove();
+
+            if (SELECTED == 'custom') {
+                // добавляем тэг style кастомных стилей
+                writeCustomStyleTag();
+                $(this).parents('.algus-color').addClass('active');
+            } else {
+                // добавляем тег линк с цветовой схемой
+                $("<link>")
+                    .attr("rel", "stylesheet")
+                    .attr("type", "text/css")
+                    .attr("href", "css/layout-" + LAYOUT + "-color-scheme-" + SELECTED + ".css")
+                    .appendTo("body");
+            }
+
+        });
+
+        // -----------------------------------------------
+
+        // ЗАКРЫВАЕМ ОТКРЫТУЮ ПАНЕЛЬ С КАСТОМНЫМИ НАСТРОЙКАМИ ЦВЕТА
+        $(document).click(function (event) {
+            if ($(event.target).closest(".algus-color-custom, .algus-color__item[data-color=\"custom\"]").length) return;
+            $(".algus-color").removeClass("active");
+            event.stopPropagation();
+        });
+
+        // -----------------------------------------------
+
+    });

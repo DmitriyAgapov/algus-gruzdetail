@@ -1,0 +1,39 @@
+@import "../../../styles/style1/helpers/helpers";
+
+.menu-catalog-group {
+  display: grid;
+  grid-template: auto/repeat(4, 1fr);
+  gap: 1.5rem;
+    list-style: none;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  > .menu__item {
+    margin-bottom: 18px;
+    > a {
+      font-weight: 600;
+    }
+  }
+  a {
+    border-bottom: 1px solid transparent;
+    @apply text-color-1-n hover:text-color-1-m-primary;
+  }
+  > .menu__item {
+    a {
+      display: flex;
+      span {
+        margin: auto 0;
+      }
+    }
+  }
+  .menu__item-48 > a:before {
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    background-image: url("/img/catalog-icons/dvig.png");
+    margin-right: 0.5rem;
+  }
+}

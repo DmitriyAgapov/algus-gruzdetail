@@ -1,0 +1,22 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+.header-logo {
+    margin-top: -40px;
+    align-self: flex-start;
+    width: 236px;
+    flex: 0 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 32px 32px rgba(0, 0, 0, 0.05), 0px 16px 16px rgba(0, 0, 0, 0.05), 0px 8px 8px rgba(0, 0, 0, 0.05), 0px 4px 4px rgba(0, 0, 0, 0.05), 0px 2px 2px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    border-radius: 0px 0px 10px 10px;
+    img {
+        object-fit: contain;
+        margin-bottom: 1rem;
+    }
+}
+.header-logo__link {
+    border: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

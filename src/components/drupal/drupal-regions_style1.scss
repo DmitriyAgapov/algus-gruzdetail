@@ -1,0 +1,112 @@
+@import "../../styles/style1/helpers/helpers";
+
+.region {
+
+}
+.region-system + main {
+    padding-top: 0;
+}
+.region-content {
+    .block {
+        @include first(1) {
+            margin-top: 0;
+        }
+        @include last(1) {
+            margin-bottom: 0;
+        }
+        @include unique() {
+            margin: 0;
+        }
+    }
+}
+.region-top {
+    grid-column: 1/-1;
+    max-width: 1200px;
+}
+.region-bottom {
+    max-width: 1200px;
+}
+.is-sidebar {
+    h1 {
+        grid-column: 1/-1;
+    }
+    .region-content {
+        max-width: 996px;
+    }
+    .region-content-bottom {
+        grid-column: 1/-3;
+        width: 996px;
+    }
+    @apply  lg:grid xl:grid;
+    gap: 0 1.5rem;
+    @screen lg {
+        grid-template: auto /repeat(12, 1fr);
+    }
+    .region-sidebar {
+        grid-column: -3 / span 2;
+        grid-row: 2/-1;
+    }
+
+    .region-content {
+
+        @apply col-span-10;
+    }
+    &.is-sidebar-left {
+        .region-sidebar {
+            grid-column: 1 / span 2;
+            grid-row: 2/-1;
+        }
+    }
+    &.is-sidebar-orders {
+        .region-sidebar {
+            grid-column: 1 / span 3;
+            grid-row: 1/-1;
+        }
+        .region-content {
+            grid-column: span 9;
+        }
+    }
+    &.not-list {
+        .content-page__content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            @screen md {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .region-content-bottom {
+            grid-column: 1/-1;
+            max-width: 1200px;
+            width: initial;
+        }
+    }
+}
+
+header + section {
+    padding: 2rem 0 0 0;
+}
+.region-sidebar {
+    grid-column: -3 / span 2;
+    grid-row: 2/max-content;
+}
+.region-system {
+    ~ .region {
+        padding-top: 0;
+    }
+    + section {
+        padding: 2rem 0 0 0;
+    }
+    h1 {
+        margin: 0;
+    }
+    .container {
+        position: relative;
+    }
+    .page-breadcrumbs-heading {
+        text-align: left;
+        padding: 1.25rem 2000px 1.25rem;
+        margin-left: -2000px;
+        margin-right: -2000px;
+    }
+}

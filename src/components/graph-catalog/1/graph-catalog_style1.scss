@@ -1,0 +1,55 @@
+@import "../../../styles/style1/helpers/helpers";
+.graph-catalog {
+  @apply text-color-1-m-primary;
+  display: flex;
+  align-items: center;
+  align-items: center;
+
+  flex: 0 content;
+  //margin-left: 20px;
+  //min-width: 145px;
+  //&:before {
+  //  content: '';
+  //  min-width: 33px;
+  //  margin-right: 9px;
+  //  @include svgsprite(graph-cat);
+  //}
+  svg {
+    fill: currentColor;
+    display: block;
+    margin-right: 0.5rem;
+    flex: 0 0 auto;
+  }
+
+  a {
+    flex: 1;
+    display: inline-block;
+    width: 9rem;
+    line-height: 1rem;
+
+
+  }
+}
+
+aside {
+  .graph-catalog {
+    @apply text-color-3-n border border-color-1-m-secondary;
+    .block__content {
+      display: flex;
+    }
+    svg {
+      fill: currentColor;
+    }
+    padding: 1rem 1.875rem;
+    font-weight: 600;
+    @apply bg-color-1-m-secondary;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    a {
+      color: white;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

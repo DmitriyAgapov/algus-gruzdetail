@@ -1,0 +1,304 @@
+@import '_mixins';
+
+$min-width-site:                         320px;
+
+// основные цвета
+$color-1-bg:                             #FFFFFF;
+$color-1-norma: #444444;
+$color-1-norma-dark:                     #000000;
+$color-1-norma-light: #a7a7a7;
+$color-1-norma-light-thin: #e4e4e4;
+$color-1-main: #2f89d2;
+$color-1-main-dark:                      $color-1-norma-dark;
+$color-1-main-light:                     #baa59c;
+
+// для блоков/секция цветных
+$color-2-bg:                             #F2F2F2;
+$color-2-norma:                          #656565;
+$color-2-norma-light-thin:               #DCDCDC;
+$color-2-border:                         #EBEBEB;
+
+// для футера
+$color-3-bg:                             #484848;
+$color-3-norma:                          rgba(#FFFFFF, 0.7);
+$color-3-norma-dark:                     #FFFFFF;
+$color-3-norma-light:                    #C2C2C2;
+$color-3-norma-light-thin:               #5F5F5F;
+
+$color-warning:                          #FED700;
+$color-error:                            #D93026;
+$color-success:                          #43C343;
+
+// НАСТРОЙКА БОРДЕРОВ
+$border-width-base:                      1px;
+$border-color-base:                      $color-1-norma-light-thin;
+$border-color-split:                     $border-color-base;
+
+// НАСТРОЙКА РАДИУСОВ
+$border-radius-sm:                       3px;
+$border-radius-base:                     3px;
+$border-radius-lg:                       14px;
+$border-radius-xl:                       18px;
+$border-radius-xxl:                      28px;
+$border-radius-circle:                   50%;
+
+// НАСТРОЙКА ТЕНЕЙ
+$box-shadow-1:                            0px 32px 32px rgba(0, 0, 0, 0.02), 0px 16px 16px rgba(0, 0, 0, 0.05),0px 8px 8px rgba(0, 0, 0, 0.05), 0px 4px 4px rgba(0, 0, 0, 0.05), 0px 2px 2px rgba(0, 0, 0, 0.05);
+
+// ЗАДНИЙ ФОН ДЛЯ МОДАЛЬНЫХ ОКОН
+$overlay:                                 rgba(0, 0, 0, 0.6);
+
+// TYPOGRAPHY
+$font-family-base:                        Montserrat, sans-serif;
+$font-family-rouble:                      Rouble;
+
+$font-size-html:                          16px;
+$font-size-base:                          .875rem; // =14px
+$font-size-lg:                            0.75rem; // =16px
+$font-size-sm:                            0.75rem; // =12px
+$font-size-ssm:                           0.625rem; // =10px
+
+$font-weight-base:                        400;
+
+$line-height-base:                        1.714285714285714; // =20px (line-height/font-base)
+
+$h1-font-size:                            2rem;
+$h1-mobile-font-size:                     rem(20px);
+$h1-line-height:                          4rem; // =64px (line-height/font-html)
+$h1-mobile-line-height:                   rem(48px);
+$h1-node-line-height:                     rem(48px); // 3rem (line-height/font-html)
+$h1-margin:                               2.25rem 0 1rem; // =36px 0 16px
+
+$h2-font-size:                            rem(22px); // =22
+$h2-mobile-font-size:                     rem(18px);
+$h2-line-height:                          2.5rem; // =40px (line-height/font-html)
+$h2-margin:                               2rem 0 1rem; // =32px 0 16px
+
+$h3-font-size:                            1.25rem; // =20
+$h3-line-height:                          2rem; // =32px (line-height/font-html)
+$h3-margin:                               2rem 0 1rem; // =32px 0 16px
+
+$h4-font-size:                            $font-size-base;
+$h4-margin:                               1rem 0 1rem; // =16px 0 16px
+
+$h5-font-size:                            $font-size-base;
+$h5-margin:                               1rem 0 1rem; // =16px 0 16px
+
+$h6-font-size:                            $font-size-base;
+$h6-margin:                               1rem 0 1rem; // =16px 0 16px
+
+// НАСТРОЙКА ССЫЛОК
+$link-color:                              $color-1-main;
+$link-decoration:                         none;
+$link-border:                             1px solid transparent;
+
+$link-color-hover:                        $color-1-main;
+$link-decoration-hover:                   none;
+$link-border-hover:                       transparent;
+
+// ОТСТУП У ЭЛЕМЕНТОВ P, UL, OL, TABLE, HR
+$margin-elements:                         0.625rem 0;
+
+// НАСТРОЙКА СПИСКОВ
+// \002D - ДЕФИС
+// \2022 - ТОЧКА
+$list-ul-padding-left:                    1rem;
+$list-ol-padding-left:                    1.5625rem;
+$list-li-marker-color:                    null;
+
+//$list-ul-padding-left:                  1rem;
+//$list-ul-content:                       "\002D";
+//$list-ul-content-top:                   0;
+//$list-ul-content-left:                  -1rem;
+//
+//$list-ol-padding-left:                  25px;
+//$list-ol-content-top:                   0;
+//$list-ol-content-left:                  -22px;
+
+$list-li-margin:                          0.25rem;
+//$list-li-style:                         none;
+//$list-li-content-color:                 #d91e36;
+
+// НАСТРОЙКА БЛОКОВ
+$block-spacing-main:                      4rem;            // =64px
+$block-header-spacing-bottom:             1.5rem;            // =16px
+$block-footer-spacing-top:                2rem;            // =32px
+$block-title:                             $h2-font-size;   // заголовок блока
+
+// КНОПКИ
+$btn-font-weight:                         600;
+$btn-padding-y:                           0.625rem;
+$btn-padding-x:                           1.25rem;
+$btn-icon-size:                           1em;
+$btn-icon-margin:                         .5rem;
+$btn-radius:                              $border-radius-sm;
+
+$btn-lg-font-size:                        $font-size-sm;
+$btn-lg-padding-y:                        0.875rem;
+$btn-lg-padding-x:                        1.25rem;
+
+$btn-sm-font-size:                        $font-size-base;
+$btn-sm-padding-y:                        0.375em;
+$btn-sm-padding-x:                        0.875em;
+
+// НАСТРОЙКИ ТАБЛИЦ
+$table-bg:                                 null;
+$table-border-width:                       $border-width-base;
+$table-border-color:                       $border-color-base;
+$table-color:                              $color-1-norma;
+
+$table-head-bg:                            null;
+$table-head-color:                         $color-1-norma-dark;
+
+$table-th-font-weight:                     600;
+
+$table-cell-padding:                       1rem 1.25rem;
+$table-cell-padding-sm:                    .25rem;
+
+$table-striped-order:                      odd;
+$table-striped-bg:                         $color-2-bg;
+
+$table-hover-bg:                           rgba(#000, .075);
+$table-hover-color:                        null;
+
+// кастомная
+$table-custom-bg:                          null;
+$table-custom-border-width:                $border-width-base;
+$table-custom-border-color:                $border-color-base;
+$table-custom-head-bg:                     #e9ecef;
+$table-custom-head-color:                  #495057;
+$table-custom-cell-padding:                0.5rem 0;
+$table-custom-striped-order:               odd;
+$table-custom-striped-bg:                  rgba(#000, .05);
+
+// НАСТРОЙКА ЛЕЙБЛОВ, СТАТУСОВ
+// цвета
+$label-presence-in:                        #0b9309;    // в наличии
+$label-presence-none:                      $color-1-norma-light;    // под заказ, нет в наличии
+$label-presence-wait:                      #8d703c;    // под заказ, нет в наличии
+$label-spec:                               #b53131;    // спецпредложение
+$label-new:                                #e1a200;    // новинка
+$label-best:                               #75bc28;    // лучший выбор
+$label-sale:                               #b53131;    // распродажа
+$label-exclusive:                          #bf3bc7;    // эксклюзив
+$label-discount:                           #FED700;    // %
+$label-color-text:                         #000;    // цвет текста
+
+$label-text-transform:                     none;
+$label-padding:                            12px 5px 13px 8px;
+$label-padding-lg:                         rem(4px) rem(32px);
+$label-border-radius:                      $border-radius-base;
+
+// НАСТРОЙКА ЦЕНЫ
+$price-font-weight:                        600;
+$price-color:                              $color-1-norma-dark;
+$price-color-spec:                         $label-spec;
+$price-color-old:                          $color-1-norma-light;
+$price-color-factory:                      $color-1-norma-light;
+$price-font-size:                          rem(16px);
+$price-font-size-lg:                       rem(32px);
+$price-font-size-sm:                       rem(12px);
+
+// НАСТРОЙКА ФОРМ
+$form-item-margin-x:                       0.5rem;   // боковые отступы у полей когда 2 колонки
+$form-item-margin-y:                       1rem;       // верхние и нижние отступы у полей
+
+// НАСТРОЙКА ПОЛЕЙ
+$input-label:                              $font-size-base;
+$input-padding:                            0.75rem 1rem; // = 8px 16px
+$input-padding-y:                          0.75rem; // = 8px
+$input-padding-x:                          1rem; // = 16px
+
+$input-bg:                                 #fff;
+$input-disabled-bg:                        #e9ecef;
+
+$input-border-color:                       $border-color-base;
+$input-border-width:                       $border-width-base;
+$input-hover-border-color:                 $color-1-norma-light;
+$input-border-radius:                      $border-radius-base;
+
+// НАСТРОЙКА ЧЕКБОКСОВ
+//$checkbox-border:                          $color-1-norma-light;
+//$checkbox-bg:                              #fff;
+$checkbox-active-border:                   $color-1-main;
+$checkbox-active-bg:                       null;
+$checkbox-active-color:                    $color-1-main;
+
+// НАСТРОЙКА RADIO
+//$radio-border:                             $color-1-norma-light;
+//$radio-bg:                                 #fff;
+$radio-active-border:                      $color-1-main;
+$radio-active-bg:                          $color-1-main;
+$radio-active-color:                       $color-1-main;
+
+// НАСТРОЙКА ПОЛЯ КОЛИЧЕСТВО В КОРЗИНУ
+$cart-form-item-width:                     110px;
+$cart-form-item-height:                    34px;
+$cart-form-text-border:                    none;
+//$cart-form-text-border:                    $border-width-base solid $border-color-base;
+$cart-qty-width:                           34px;
+$cart-qty-height:                          34px;
+$cart-qty-radius:                          $border-radius-base;
+$cart-qty-color:                           $border-color-base;
+
+$cart-qty-up-position-top:                 0;
+$cart-qty-up-position-right:               0;
+$cart-qty-up-position-bottom:              0;
+$cart-qty-up-position-left:                null;
+
+$cart-qty-down-position-top:               0;
+$cart-qty-down-position-right:             null;
+$cart-qty-down-position-bottom:            0;
+$cart-qty-down-position-left:              0;
+
+//$cart-btn-padding-left:                    $btn-padding-x + $btn-icon-size + $btn-icon-margin + $btn-icon-margin;
+//$cart-btn-lg-padding-left:                 $btn-lg-padding-x + $btn-icon-size + $btn-icon-margin + $btn-icon-margin;
+//$cart-btn-sm-padding-left:                 $btn-sm-padding-x + $btn-icon-size + $btn-icon-margin + $btn-icon-margin;
+
+// НАСТРОЙКА ХЛЕБНЫХ КРОШЕК
+//$breadcrumb-margin:                        1rem 0 2.125rem;    // 16px 0 34px
+$breadcrumb-color-text:                    $color-1-norma-light;
+$breadcrumb-color-link:                    $color-1-norma;
+$breadcrumb-color-link-border:             null; // true, false, null
+$breadcrumb-color-separate:                $color-1-norma;
+
+// НАСТРОЙКА РЕЗУЛЬТАТОВ В ПОИСКЕ
+
+// НАСТРОЙКА МОДАЛЬНОГО ОКНА
+$modal-bg:                                 $color-1-bg;
+$modal-padding-y:                          4rem;
+$modal-padding-x:                          4rem;
+$modal-padding-y-mobile:                   1rem;
+$modal-padding-x-mobile:                   1rem;
+$modal-border-radius:                      $border-radius-base;
+
+// НАСТРОЙКА ПОДВАЛА
+
+// НАСТРОЙКА ПАГИНАЦИИ
+$pager-height:                             2rem;
+$pager-weight:                             600;
+$pager-margin:                             2rem 0 0;
+$pager-margin-item:                        rem(3px);
+$pager-padding-item:                       .375rem 0.75rem;
+$pager-margin-ellipsis:                    0 .5rem;
+
+// НАСТРОЙКА НАВИГАЦИИ СЛАЙДЕРА
+$slider-arrow-width:                       2rem;
+$slider-arrow-height:                      2rem;
+$slider-arrow-bg:                          $color-1-main-light;
+$slider-arrow-bg-active:                   $color-1-main;
+$slider-arrow-color-shadow:                $color-1-main-light;
+$slider-arrow-radius:                      $border-radius-circle;
+
+// НАСТРОЙКА ПАГИНАЦИИ СЛАЙДЕРА
+$slider-dot-width:                         1rem;
+$slider-dot-height:                        1rem;
+$slider-dot-margin:                        0 .375rem;
+$slider-dot-bg:                            $color-1-norma-light;
+$slider-dot-bg-active:                     $color-1-main;
+$slider-dot-radius:                        $border-radius-lg;
+
+// НАСТРОЙКА ССЫЛОК ИЗБРАННОГО И СРАВНЕНИЯ
+
+// НАСТРОЙКА СРАВНЕНИЯ
+//$compare-

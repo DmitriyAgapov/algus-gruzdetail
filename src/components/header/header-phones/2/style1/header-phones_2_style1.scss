@@ -1,0 +1,18 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+.header-phones {
+    padding-left: 1.57em;
+    position: relative;
+    &:before {
+        @include fontAwesome("\f879", 1em, 400);
+        position: absolute;
+        top: 0.3em;
+        left: 0;
+    }
+    a {
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        color: $color-1-norma;
+    }
+}

@@ -1,0 +1,38 @@
+//newstyle1: cssfile[search-result_1_style1] scriptfile[]
+
+// search-result
++b.search-result(v-if="this.keywords !== '' ", style='display: none;')
+    +e.inner
+        +e.item(v-on:click='searchClose()', v-for='result in filteredList', :key='result.id')
+            +e.link.A(:href='result.url')
+                +e.image
+                    img(:src="result.image")
+                +e.name { result.label }
+                +e.price { result.price }
+// КОНЕЦ: search-result
+
+// build:remove
++b.search-result
+    +e.inner
+        +e.item
+            +e.link.A(href='#')
+                +e.image
+                    i.fas.fa-image
+                +e.name Турбокомпрессор
+                +e.price 149999 руб
+        +e.item
+            +e.link.A(href='#')
+                +e.image
+                    i.fas.fa-image
+                +e.name Датчик давления и температуры воздуха
+                +e.price_none цена по запросу
+        +e.item
+            +e.link.A(href='#')
+                +e.image
+                    i.fas.fa-image
+                +e.name Датчик давления и температуры топлива
+                +e.price 149999 руб
+        +e.ft
+            +e.A.show-more(href="/search?key=s")
+                span Показать все результаты (38)
+// endbuild

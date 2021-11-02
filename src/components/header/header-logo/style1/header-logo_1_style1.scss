@@ -1,0 +1,30 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.header-logo {
+    @apply my-2;
+    padding-right: 1rem;
+
+    height: auto;
+    display: flex;
+    justify-self: center;
+    @screen lg {
+        max-width: initial;
+    }
+    img {
+        object-fit: contain;
+
+    }
+}
+.header-logo__link {
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    border: 0 !important;
+}
+.header-logo img {
+
+    max-height: 2.5rem;
+    @screen lg {
+        max-height: initial;
+    }
+}

@@ -1,0 +1,29 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.mobile-breadcrumb {
+	margin: 1rem 0;
+    display: none;
+    @include max-screen(1023px) {
+        display: block;
+    }
+}
+.mobile-breadcrumb__link {
+	padding-left: 1.3125em;
+	position: relative;
+    color: $breadcrumb-color-link;
+    border: none;
+    span {
+        @if $breadcrumb-color-link-border {
+            border-bottom: 1px solid $breadcrumb-color-link;
+        } @else {
+            border-bottom: none;
+        }
+    }
+    &::before {
+        @include fontAwesome("\f177", $font-size-lg, 100);
+        position: absolute;
+        top: 1px;
+        left: 0;
+        color: $breadcrumb-color-separate;
+    }
+}

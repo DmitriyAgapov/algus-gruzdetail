@@ -1,0 +1,38 @@
+.block-catalog-group {
+    .block__content {
+        display: grid;
+        @screen md {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @screen lg {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        gap: 2rem 1.5rem;
+        .field-field-image {
+            margin: 0;
+        }
+        .teaser-term-product-teaser-3 {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.125rem 0.5rem;
+
+        }
+        .field-title {
+            margin: 0;
+          line-height: 24px;
+          font-weight: 600;
+        }
+        .field-list {
+            grid-column: 1/-1;
+            margin: 0;
+            .values {
+                display: grid;
+                gap: 0.5rem;
+                    a{
+                    border-bottom: 0;
+                      @apply text-color-1-n hover:text-color-1-m-primary;
+                }
+            }
+        }
+    }
+}

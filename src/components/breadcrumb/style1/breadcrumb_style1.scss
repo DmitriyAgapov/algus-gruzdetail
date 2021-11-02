@@ -1,0 +1,33 @@
+@import "../../../styles/style1/helpers/helpers";
+
+.breadcrumb {
+    display: none;
+    font-weight: 400;
+    //margin: $breadcrumb-margin;
+
+    @include min-screen(1024px) {
+        display: block;
+    }
+}
+.breadcrumb__container {
+    display: flex;
+    align-items: center;
+}
+.breadcrumb__link {
+    span {
+        @apply text-color-1-n-m hover:text-color-1-n;
+    }
+}
+.breadcrumb__sep {
+    //font-size: 0;
+    display: inline-block;
+    margin: 0 9px;
+    position: relative;
+    line-height: 1;
+    @apply text-color-1-n-m ;
+    //&:before {
+    //    @include fontAwesome('\f178', 0.9rem, 100);
+    //    position: relative;
+    //    top: 2px;
+    //}
+}

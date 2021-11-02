@@ -1,0 +1,7 @@
+.block-catalog {
+  .block__content {
+    display: grid;
+    gap: 24px;
+    @apply md:grid-cols-2;
+  }
+}

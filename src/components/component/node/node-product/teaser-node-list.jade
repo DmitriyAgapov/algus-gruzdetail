@@ -1,0 +1,26 @@
+//newstyle1: cssfile[teaser-node-product_style1] scriptfile[]
+//newstyle1: cssfile[fields_style1] scriptfile[]
+
+// .teaser.teaser-node.teaser-node-product.teaser-node-product-list
+.teaser.teaser-node.teaser-node-product.teaser-node-product-teaser-1
+    include ../../../fields/field-field-image
+    .group-field-header
+        include ../../../fields/field-string-cat-num
+        include ../../../fields/field-string-manufacture-by
+        include ../../../fields/field-string-title
+    .group-field-details
+        include ../../../fields/field-quanity
+        include ../../../fields/field-string-delivery
+        include ../../../fields/field-string-seller
+    .group-field-btn-price
+        .group-price-nds
+            include ../../../fields/field-field-price
+            .nds НДС включен
+        include ../../../cart/to-basket/with-icon/default-full
+        a.btn.btn-icon.btn-small.btn-fast
+            span.icon-eye
+            | Быстрый просмотр
+
+
+// КОНЕЦ: .teaser.teaser-node.teaser-node-product.teaser-node-product-list
+

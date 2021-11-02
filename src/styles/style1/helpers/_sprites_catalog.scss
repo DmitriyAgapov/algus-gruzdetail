@@ -1,0 +1,321 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$auto-1-name: 'auto_1';
+$auto-1-x: 0px;
+$auto-1-y: 429px;
+$auto-1-offset-x: 0px;
+$auto-1-offset-y: -429px;
+$auto-1-width: 178px;
+$auto-1-height: 74px;
+$auto-1-total-width: 658px;
+$auto-1-total-height: 503px;
+$auto-1-image: '../img/sprite-catalog.png';
+$auto-1: (0px, 429px, 0px, -429px, 178px, 74px, 658px, 503px, '../img/sprite-catalog.png', 'auto_1', );
+$auto-10-name: 'auto_10';
+$auto-10-x: 495px;
+$auto-10-y: 87px;
+$auto-10-offset-x: -495px;
+$auto-10-offset-y: -87px;
+$auto-10-width: 147px;
+$auto-10-height: 85px;
+$auto-10-total-width: 658px;
+$auto-10-total-height: 503px;
+$auto-10-image: '../img/sprite-catalog.png';
+$auto-10: (495px, 87px, -495px, -87px, 147px, 85px, 658px, 503px, '../img/sprite-catalog.png', 'auto_10', );
+$auto-11-name: 'auto_11';
+$auto-11-x: 0px;
+$auto-11-y: 275px;
+$auto-11-offset-x: 0px;
+$auto-11-offset-y: -275px;
+$auto-11-width: 188px;
+$auto-11-height: 77px;
+$auto-11-total-width: 658px;
+$auto-11-total-height: 503px;
+$auto-11-image: '../img/sprite-catalog.png';
+$auto-11: (0px, 275px, 0px, -275px, 188px, 77px, 658px, 503px, '../img/sprite-catalog.png', 'auto_11', );
+$auto-1-hv-name: 'auto_1_hv';
+$auto-1-hv-x: 188px;
+$auto-1-hv-y: 352px;
+$auto-1-hv-offset-x: -188px;
+$auto-1-hv-offset-y: -352px;
+$auto-1-hv-width: 178px;
+$auto-1-hv-height: 74px;
+$auto-1-hv-total-width: 658px;
+$auto-1-hv-total-height: 503px;
+$auto-1-hv-image: '../img/sprite-catalog.png';
+$auto-1-hv: (188px, 352px, -188px, -352px, 178px, 74px, 658px, 503px, '../img/sprite-catalog.png', 'auto_1_hv', );
+$auto-2-name: 'auto_2';
+$auto-2-x: 174px;
+$auto-2-y: 101px;
+$auto-2-offset-x: -174px;
+$auto-2-offset-y: -101px;
+$auto-2-width: 140px;
+$auto-2-height: 76px;
+$auto-2-total-width: 658px;
+$auto-2-total-height: 503px;
+$auto-2-image: '../img/sprite-catalog.png';
+$auto-2: (174px, 101px, -174px, -101px, 140px, 76px, 658px, 503px, '../img/sprite-catalog.png', 'auto_2', );
+$auto-2-hv-name: 'auto_2_hv';
+$auto-2-hv-x: 495px;
+$auto-2-hv-y: 342px;
+$auto-2-hv-offset-x: -495px;
+$auto-2-hv-offset-y: -342px;
+$auto-2-hv-width: 140px;
+$auto-2-hv-height: 76px;
+$auto-2-hv-total-width: 658px;
+$auto-2-hv-total-height: 503px;
+$auto-2-hv-image: '../img/sprite-catalog.png';
+$auto-2-hv: (495px, 342px, -495px, -342px, 140px, 76px, 658px, 503px, '../img/sprite-catalog.png', 'auto_2_hv', );
+$auto-3-name: 'auto_3';
+$auto-3-x: 157px;
+$auto-3-y: 0px;
+$auto-3-offset-x: -157px;
+$auto-3-offset-y: 0px;
+$auto-3-width: 157px;
+$auto-3-height: 101px;
+$auto-3-total-width: 658px;
+$auto-3-total-height: 503px;
+$auto-3-image: '../img/sprite-catalog.png';
+$auto-3: (157px, 0px, -157px, 0px, 157px, 101px, 658px, 503px, '../img/sprite-catalog.png', 'auto_3', );
+$auto-3-hv-name: 'auto_3_hv';
+$auto-3-hv-x: 0px;
+$auto-3-hv-y: 0px;
+$auto-3-hv-offset-x: 0px;
+$auto-3-hv-offset-y: 0px;
+$auto-3-hv-width: 157px;
+$auto-3-hv-height: 101px;
+$auto-3-hv-total-width: 658px;
+$auto-3-hv-total-height: 503px;
+$auto-3-hv-image: '../img/sprite-catalog.png';
+$auto-3-hv: (0px, 0px, 0px, 0px, 157px, 101px, 658px, 503px, '../img/sprite-catalog.png', 'auto_3_hv', );
+$auto-4-name: 'auto_4';
+$auto-4-x: 495px;
+$auto-4-y: 257px;
+$auto-4-offset-x: -495px;
+$auto-4-offset-y: -257px;
+$auto-4-width: 147px;
+$auto-4-height: 85px;
+$auto-4-total-width: 658px;
+$auto-4-total-height: 503px;
+$auto-4-image: '../img/sprite-catalog.png';
+$auto-4: (495px, 257px, -495px, -257px, 147px, 85px, 658px, 503px, '../img/sprite-catalog.png', 'auto_4', );
+$auto-4-hv-name: 'auto_4_hv';
+$auto-4-hv-x: 495px;
+$auto-4-hv-y: 172px;
+$auto-4-hv-offset-x: -495px;
+$auto-4-hv-offset-y: -172px;
+$auto-4-hv-width: 147px;
+$auto-4-hv-height: 85px;
+$auto-4-hv-total-width: 658px;
+$auto-4-hv-total-height: 503px;
+$auto-4-hv-image: '../img/sprite-catalog.png';
+$auto-4-hv: (495px, 172px, -495px, -172px, 147px, 85px, 658px, 503px, '../img/sprite-catalog.png', 'auto_4_hv', );
+$auto-5-name: 'auto_5';
+$auto-5-x: 0px;
+$auto-5-y: 101px;
+$auto-5-offset-x: 0px;
+$auto-5-offset-y: -101px;
+$auto-5-width: 174px;
+$auto-5-height: 87px;
+$auto-5-total-width: 658px;
+$auto-5-total-height: 503px;
+$auto-5-image: '../img/sprite-catalog.png';
+$auto-5: (0px, 101px, 0px, -101px, 174px, 87px, 658px, 503px, '../img/sprite-catalog.png', 'auto_5', );
+$auto-5-hv-name: 'auto_5_hv';
+$auto-5-hv-x: 0px;
+$auto-5-hv-y: 188px;
+$auto-5-hv-offset-x: 0px;
+$auto-5-hv-offset-y: -188px;
+$auto-5-hv-width: 174px;
+$auto-5-hv-height: 87px;
+$auto-5-hv-total-width: 658px;
+$auto-5-hv-total-height: 503px;
+$auto-5-hv-image: '../img/sprite-catalog.png';
+$auto-5-hv: (0px, 188px, 0px, -188px, 174px, 87px, 658px, 503px, '../img/sprite-catalog.png', 'auto_5_hv', );
+$auto-6-name: 'auto_6';
+$auto-6-x: 0px;
+$auto-6-y: 352px;
+$auto-6-offset-x: 0px;
+$auto-6-offset-y: -352px;
+$auto-6-width: 188px;
+$auto-6-height: 77px;
+$auto-6-total-width: 658px;
+$auto-6-total-height: 503px;
+$auto-6-image: '../img/sprite-catalog.png';
+$auto-6: (0px, 352px, 0px, -352px, 188px, 77px, 658px, 503px, '../img/sprite-catalog.png', 'auto_6', );
+$auto-6-hv-name: 'auto_6_hv';
+$auto-6-hv-x: 188px;
+$auto-6-hv-y: 275px;
+$auto-6-hv-offset-x: -188px;
+$auto-6-hv-offset-y: -275px;
+$auto-6-hv-width: 188px;
+$auto-6-hv-height: 77px;
+$auto-6-hv-total-width: 658px;
+$auto-6-hv-total-height: 503px;
+$auto-6-hv-image: '../img/sprite-catalog.png';
+$auto-6-hv: (188px, 275px, -188px, -275px, 188px, 77px, 658px, 503px, '../img/sprite-catalog.png', 'auto_6_hv', );
+$auto-7-name: 'auto_7';
+$auto-7-x: 495px;
+$auto-7-y: 0px;
+$auto-7-offset-x: -495px;
+$auto-7-offset-y: 0px;
+$auto-7-width: 163px;
+$auto-7-height: 87px;
+$auto-7-total-width: 658px;
+$auto-7-total-height: 503px;
+$auto-7-image: '../img/sprite-catalog.png';
+$auto-7: (495px, 0px, -495px, 0px, 163px, 87px, 658px, 503px, '../img/sprite-catalog.png', 'auto_7', );
+$auto-7-hv-name: 'auto_7_hv';
+$auto-7-hv-x: 314px;
+$auto-7-hv-y: 162px;
+$auto-7-hv-offset-x: -314px;
+$auto-7-hv-offset-y: -162px;
+$auto-7-hv-width: 163px;
+$auto-7-hv-height: 87px;
+$auto-7-hv-total-width: 658px;
+$auto-7-hv-total-height: 503px;
+$auto-7-hv-image: '../img/sprite-catalog.png';
+$auto-7-hv: (314px, 162px, -314px, -162px, 163px, 87px, 658px, 503px, '../img/sprite-catalog.png', 'auto_7_hv', );
+$auto-8-name: 'auto_8';
+$auto-8-x: 174px;
+$auto-8-y: 188px;
+$auto-8-offset-x: -174px;
+$auto-8-offset-y: -188px;
+$auto-8-width: 136px;
+$auto-8-height: 68px;
+$auto-8-total-width: 658px;
+$auto-8-total-height: 503px;
+$auto-8-image: '../img/sprite-catalog.png';
+$auto-8: (174px, 188px, -174px, -188px, 136px, 68px, 658px, 503px, '../img/sprite-catalog.png', 'auto_8', );
+$auto-8-hv-name: 'auto_8_hv';
+$auto-8-hv-x: 178px;
+$auto-8-hv-y: 429px;
+$auto-8-hv-offset-x: -178px;
+$auto-8-hv-offset-y: -429px;
+$auto-8-hv-width: 136px;
+$auto-8-hv-height: 68px;
+$auto-8-hv-total-width: 658px;
+$auto-8-hv-total-height: 503px;
+$auto-8-hv-image: '../img/sprite-catalog.png';
+$auto-8-hv: (178px, 429px, -178px, -429px, 136px, 68px, 658px, 503px, '../img/sprite-catalog.png', 'auto_8_hv', );
+$auto-9-name: 'auto_9';
+$auto-9-x: 314px;
+$auto-9-y: 0px;
+$auto-9-offset-x: -314px;
+$auto-9-offset-y: 0px;
+$auto-9-width: 181px;
+$auto-9-height: 81px;
+$auto-9-total-width: 658px;
+$auto-9-total-height: 503px;
+$auto-9-image: '../img/sprite-catalog.png';
+$auto-9: (314px, 0px, -314px, 0px, 181px, 81px, 658px, 503px, '../img/sprite-catalog.png', 'auto_9', );
+$auto-9-hv-name: 'auto_9_hv';
+$auto-9-hv-x: 314px;
+$auto-9-hv-y: 81px;
+$auto-9-hv-offset-x: -314px;
+$auto-9-hv-offset-y: -81px;
+$auto-9-hv-width: 181px;
+$auto-9-hv-height: 81px;
+$auto-9-hv-total-width: 658px;
+$auto-9-hv-total-height: 503px;
+$auto-9-hv-image: '../img/sprite-catalog.png';
+$auto-9-hv: (314px, 81px, -314px, -81px, 181px, 81px, 658px, 503px, '../img/sprite-catalog.png', 'auto_9_hv', );
+$menu-12-name: 'menu_12';
+$menu-12-x: 376px;
+$menu-12-y: 275px;
+$menu-12-offset-x: -376px;
+$menu-12-offset-y: -275px;
+$menu-12-width: 51px;
+$menu-12-height: 51px;
+$menu-12-total-width: 658px;
+$menu-12-total-height: 503px;
+$menu-12-image: '../img/sprite-catalog.png';
+$menu-12: (376px, 275px, -376px, -275px, 51px, 51px, 658px, 503px, '../img/sprite-catalog.png', 'menu_12', );
+$menu-12-hv-name: 'menu_12_hv';
+$menu-12-hv-x: 427px;
+$menu-12-hv-y: 275px;
+$menu-12-hv-offset-x: -427px;
+$menu-12-hv-offset-y: -275px;
+$menu-12-hv-width: 51px;
+$menu-12-hv-height: 51px;
+$menu-12-hv-total-width: 658px;
+$menu-12-hv-total-height: 503px;
+$menu-12-hv-image: '../img/sprite-catalog.png';
+$menu-12-hv: (427px, 275px, -427px, -275px, 51px, 51px, 658px, 503px, '../img/sprite-catalog.png', 'menu_12_hv', );
+$spritesheet-width: 658px;
+$spritesheet-height: 503px;
+$spritesheet-image: '../img/sprite-catalog.png';
+$spritesheet-sprites: ($auto-1, $auto-10, $auto-11, $auto-1-hv, $auto-2, $auto-2-hv, $auto-3, $auto-3-hv, $auto-4, $auto-4-hv, $auto-5, $auto-5-hv, $auto-6, $auto-6-hv, $auto-7, $auto-7-hv, $auto-8, $auto-8-hv, $auto-9, $auto-9-hv, $menu-12, $menu-12-hv, );
+$spritesheet: (658px, 503px, '../img/sprite-catalog.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@import "helpers/_helpers";
+.arrows {
+    position: absolute;
+    top: -50px;
+    width: 75px;
+    z-index: 1;
+    right: 0;
+    height: 100%;
+    display: none;
+    @include min-screen(1024px) {
+        display: block !important;
+    }
+}
+
+.tabbed-panels {
+    .arrows {
+        position: relative;
+        top: initial;
+        display: block;
+    }
+}
+
+.arrows__arrow {
+    position: absolute;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    @apply text-color-1-n bg-color-1-n-mm hover:text-white hover:bg-color-1-m-primary rounded-full;
+    justify-content: center;
+    align-items: center;
+
+    outline: none;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+.swiper-button-disabled {
+    display: none;
+}
+.arrows__prev,
+.arrows__next {
+    &::before {
+        //top: 50%;
+        //border-color: #838383;
+        //
+        //margin-top: -6px;
+    }
+    &:hover::before {
+        //border-color: white;
+    }
+}
+
+.arrows__prev {
+
+
+    top: 35%;
+    left: -20px;
+
+    &::before {
+        content: '\e9ee';
+        font-family: 'icomoon' !important;
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        left: 50%;
+        margin-left: -4px;
+    }
+}
+
+.arrows__next {
+    top: 35%;
+    right: -20px;
+
+    &::before {
+        content: '\ea42';
+        font-family: 'icomoon' !important;
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        right: 50%;
+        margin-right: -4px;
+    }
+}
+

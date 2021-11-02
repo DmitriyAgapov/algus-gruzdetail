@@ -1,0 +1,31 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.mobile-phone-btn {}
+.mobile-phone-btn__link {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: none !important;
+    span {
+        position: relative;
+        font-size: 0;
+        &::before {
+            @include fontAwesome("\f879", $font-size-lg, 100);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-1-norma;
+            z-index: 0;
+        }
+    }
+}

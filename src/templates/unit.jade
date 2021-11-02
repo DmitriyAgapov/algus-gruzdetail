@@ -1,0 +1,35 @@
+extends default
+
+block variables
+    - const title = "Карточка товара";
+    - const description = '';
+    - const keywords = '';
+    - const pageClass = 'no-front';
+
+block styles
+    +style("http://uralval.algus.net/libraries/jquery.intl-tel-input/build/css/intlTelInput.min.css")
+    +style("https://unpkg.com/swiper/swiper-bundle.min.css")
+
+block scripts
+    +script("https://unpkg.com/swiper/swiper-bundle.min.js")
+
+block content
+    .wrapper
+        .container
+            include ../components/header/header/1/header_1
+            .region.region-system
+                .page-breadcrumbs-heading
+                    include ../components/breadcrumb/breadcrumb
+                    include ../components/mobile/mobile-breadcrumb/mobile-breadcrumb
+            main.is-sidebar
+                h1 5323-2707231 — Усилитель поперечины
+                .region.region-content
+                    include ../components/component/node/node-product/node-full
+                    include ../components/blocks/block-related/block-related
+                    include ../components/blocks/block-banner-bottom/block-banner-bottom
+                    include ../components/blocks/block-recently-viewed/block-recently-viewed
+                .region.region-sidebar
+                    include ../components/aside/aside
+            section.region.region-botttom
+                include ../components/blocks/block-test/block-test
+        include ../components/footer/footer/1/footer

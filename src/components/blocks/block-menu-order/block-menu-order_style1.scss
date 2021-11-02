@@ -1,0 +1,53 @@
+
+.block-menu-order {
+  border: 1px solid #F0F0F0;
+
+  margin: 0;
+  min-height: calc(100vh - 300px);
+  .menu {
+    list-style: none;
+    display: grid;
+    grid-auto-rows: 3rem;
+    grid-template-rows: repeat(5,3rem) 500px;
+    li {
+      margin:0;
+      align-self: center;
+    }
+    li:last-child {
+      align-self: end;
+      min-height: 48px;
+    }
+    
+    a {
+      display: flex;
+      @apply text-color-1-n border-0 font-semibold hover:text-color-1-m-primary relative;
+      .icon {
+        font-size: 1.25rem;
+        margin-right: 1rem;
+      }
+      &.active {
+        @apply text-color-1-m-primary ;
+      }
+      &.active:before {
+        content: '';
+        left: -1rem;
+        position: absolute;
+        top: -15px;
+        bottom: -13px;
+        width: 4px;
+        display: block;
+        @apply bg-color-1-m-primary;
+      }
+      &:after {
+        content: '';
+        left: 0;
+        right: 1.5rem;
+        bottom: -12px;
+        position: absolute;
+        height: 1px;
+        background-color: #F9F9F9;
+
+      }
+    }
+  }
+}

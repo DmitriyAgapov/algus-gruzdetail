@@ -1,0 +1,46 @@
+@import "./helpers/helpers";
+@layer components {
+    .btn {
+        @apply inline-block text-sm p-inputButton text-black border border-solid border-color-1-n-mm bg-white hover:bg-color-1-bg font-semibold hover:text-color-1-m-secondary hover:border-color-1-m-secondary;
+        cursor: pointer;
+
+        letter-spacing: 0.0125em;
+
+        svg {
+            display: inline-block;
+        }
+    }
+    .btn-block {
+        @apply  text-center;
+        display: block;
+    }
+    .btn-small {
+        padding: 2px 1rem 4px;
+        font-weight: 400;
+        line-height: 1;
+    }
+    .btn-primary {
+        @apply bg-color-1-m-primary text-white hover:text-white border-color-1-m-primary border-none hover:border-color-1-m-secondary hover:bg-color-1-m-secondary;
+    }
+    .btn-icon {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .btn-icon-hamburger {
+
+        &:before {
+            @include fontAwesome("", 1rem, 400);
+            margin-right: 0.75rem;
+        }
+    }
+    .btn-icon-only {
+        font-size: 0;
+        line-height: 1.5;
+        &:before {
+
+            margin-right: 0;
+        }
+    }
+
+
+}

@@ -1,0 +1,49 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.header__search {
+    flex: 1;
+
+    .search {
+        .form-text {
+            padding-right: $input-padding-x;
+            //border: none;
+        }
+        .form-item {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .form-actions {
+            //position: relative !important;
+            //width: 40px;
+            //padding: 0;
+            //background-color: transparent;
+            //border-color: transparent;
+        }
+    }
+}
+.header__search_short {
+    position: absolute;
+    right: 0;
+    .search {
+        .form-item {
+            width: 0;
+            flex: 0 0 auto;
+            overflow: hidden;
+            opacity: 0;
+            margin: 0;
+            transition: width 0.25s ease-in-out, opacity 0.25s ease-in-out;
+        }
+        &:hover {
+            .form-item {
+                opacity: 1;
+                width: 300px;
+            }
+        }
+    }
+    .search_focused {
+        .form-item {
+            opacity: 1;
+            width: 300px;
+        }
+    }
+}

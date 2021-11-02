@@ -1,0 +1,17 @@
+@import "../../styles/style1/helpers/helpers";
+
+#toolbar-administration {
+    .toolbar-tab {
+        position: initial !important;
+    }
+    li {
+        &:before {
+            display: none;
+        }
+    }
+    #toolbar-item-administration-tray {
+        li {
+            margin: 0;
+        }
+    }
+}

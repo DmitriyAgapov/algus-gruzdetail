@@ -1,0 +1,49 @@
+form.webform-submission-form
+    //include ../drupal-message/drupal-message-error-webform
+    //.form-item.form-item-markup
+    //    p Если у вас уже есть готовая заявка на запасные части, то просто прикрепите файл с ней либо в поле «Комментарии» напишите артикулы и названия необходимых вам запчастей и оставьте контактные данные.
+    .form-item.form-item-upload
+        // загрузка изображения
+        .form-managed-file
+            input#edit-file-upload.form-file(name="files[file]", size="22", type="file")
+        .description
+            | Только один файл.
+            br
+            | Ограничение 128 МБ.
+            br
+            | Допустимые типы: gif jpg png.
+
+    .form-item.form-item-upload
+        // прикрепленное изображение
+        .form-managed-file
+            span.file.file--image название_картинки.png
+            .form-action
+                input.button.form-submit(type="submit", name="file_custom_composite_items_1_file_remove_button", value="Удалить")
+        .description
+            | Только один файл.
+            br
+            | Ограничение 128 МБ.
+            br
+            | Допустимые типы: gif jpg png.
+    .webform-flexbox
+        .webform-flex.webform-flex--1
+            .webform-flex--container
+                div
+                    .form-item
+                        label(for="form-item-phone") Ваш телефон:
+                        input.form-text.error#form-item-phone(type='tel' name='phone' value='' size='60' maxlength='255' placeholder='Телефон*')
+                    .form-item
+                        label(for="form-item-email") Ваша почта:
+                        input.form-text#form-item-email(type='email' name='email' value='' size='60' maxlength='255' placeholder='E-mail*')
+        .webform-flex.webform-flex--2
+            .webform-flex--container
+                .form-item
+                    label(for="form-item-comment") Комментарий:
+                    textarea.form-textarea#form-item-comment(name='comment' rows='5' cols='60' placeholder='Комментарий')
+    .form-item
+        p.privacy-policy
+            | Отправляя форму вы подтверждаете согласие с
+            a(target='_blank' href='/privacy-policy')  политикой обработки персональных данных
+            | .
+    .form-actions
+        input.webform-button--submit.form-submit(type="submit" name="op" value="Отправить")

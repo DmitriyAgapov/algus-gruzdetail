@@ -1,0 +1,123 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+$selectFxPlaceholderPadding: 5px 30px 6px 10px;
+$selectFxFontSize: 14px;
+$selectFxOptionsPaddingLiSpan: 6px 19px;
+
+.cs-select {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+    background: #fff;
+    z-index: 100;
+    width: 100%;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    user-select: none;
+
+    select {
+        display: none;
+    }
+    outline: none;
+}
+
+.cs-placeholder {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding: $input-padding-y $input-padding-x;
+    transition: border 0.25s ease-in-out;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    color: $color-1-norma-light;
+    &:hover {
+        border-color: $input-hover-border-color;
+    }
+    &::after {
+        @include fontAwesome("\f078", 1rem, 100);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 43px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, transparent, #fff 20%);
+        border-radius: $input-border-radius;
+    }
+}
+
+.cs-options {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    visibility: hidden;
+    margin-top: -1px;
+    background-color: #fff;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale3d(1, 0, 1);
+            background: #fff;
+        }
+        li {
+            margin: 0;
+            opacity: 0;
+            &:before {
+                display: none;
+            }
+            span {
+                display: block;
+                overflow: hidden;
+                padding: $selectFxOptionsPaddingLiSpan;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.cs-active {
+    z-index: 999;
+    .cs-placeholder {
+        border-color: $input-hover-border-color;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        &::after {
+            transform: scaleY(-1);
+        }
+    }
+    .cs-options {
+        visibility: visible;
+        pointer-events: auto;
+        border-color: $input-hover-border-color;
+        border-top: none;
+        ul {
+            li {
+                opacity: 1;
+                &:hover {
+                    background-color: $color-1-norma-light-thin;
+                }
+            }
+        }
+    }
+}
+.cs-selected {
+    background-color: $color-1-norma-light-thin;
+}

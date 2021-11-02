@@ -1,0 +1,13 @@
+// user
+form#user-login-form.user-login-form
+    .form-item.form-item-name
+        label.form-required(for='edit-name') Имя пользователя
+        input#edit-name.form-text.required(placeholder='Ваше имя', type='text', name='name', value='', size='60', maxlength='60', required='required')
+        #edit-name--description.description Укажите ваше имя на сайте ТЕХАВТОКОМ.
+    .form-item.form-item-pass
+        label.form-required(for='edit-pass') Пароль
+        input#edit-pass.form-text.required(placeholder='Ваш пароль', type='password', name='pass', size='60', maxlength='128', required='required')
+        #edit-pass--description.description Укажите пароль, соответствующий вашему имени пользователя.
+    #edit-actions.form-actions.form-wrapper
+        input#edit-submit.button.form-submit(type='submit', name='op', value='Войти')
+// КОНЕЦ: user

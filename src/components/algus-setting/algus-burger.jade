@@ -1,0 +1,61 @@
++b.algus-burger
+    +e.menu.LABEL(for='algus-burger-checkbox')
+    +e.checkbox.INPUT(type='checkbox')#algus-burger-checkbox
+
+style.
+    .algus-burger {}
+    .algus-burger.active .algus-burger__menu::before {
+        content: "\f00d";
+        font-weight: 100;
+    }
+    .algus-burger__checkbox {
+        display: none;
+    }
+    .algus-burger__menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 50px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        padding: 0;
+    }
+    .algus-burger__menu:hover {
+        background-color: #fff1e0;
+    }
+    .algus-burger__menu::before {
+        content: "\f0c9";
+        font-family: "Font Awesome 5 Pro";
+        font-size: 30px;
+        font-weight: 400;
+        color: #333;
+        line-height: 1;
+    }
+
+script.
+    document.addEventListener('DOMContentLoaded', function () { // Аналог $(document).ready(function(){
+        if ( localStorage.getItem("algus-setting-burger") == "true" ) {
+            document.querySelector(".algus-burger__checkbox").checked = true;
+        } else {
+            document.querySelector(".algus-burger__checkbox").checked = false;
+
+        }
+        if ( document.querySelector(".algus-burger__checkbox").checked ) {
+            document.querySelector(".algus-panel").classList.add('open');
+            document.querySelector(".algus-burger").classList.add('active');
+        } else {
+            document.querySelector(".algus-panel").classList.remove('open');
+            document.querySelector(".algus-burger").classList.remove('active');
+        }
+        document.querySelector(".algus-burger__checkbox").addEventListener('click', function () {
+            localStorage.setItem("algus-setting-burger", document.querySelector(".algus-burger__checkbox").checked );
+            if (document.querySelector(".algus-burger__checkbox").checked) {
+                document.querySelector(".algus-panel").classList.add('open');
+                document.querySelector(".algus-burger").classList.add('active');
+            } else {
+                document.querySelector(".algus-panel").classList.remove('open');
+                document.querySelector(".algus-burger").classList.remove('active');
+            }
+        });
+    });

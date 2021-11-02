@@ -1,0 +1,35 @@
+//newstyle1: cssfile[catalog_style1] scriptfile[]
+//newstyle1: cssfile[node-product-full_style1] scriptfile[node_common]
+
+// node node-product node-view-mode-full
+.node.node-product.node-view-mode-full
+    .group-field-image
+        include ../../../fields/field-images
+        //include ../../../slider-dots/slider-dots-base
+        //include ../../../slider-arrows/slider-arrows-base
+        //include ../../../fields/field-image-thumbnails
+
+    .group-field-text
+        include ../../../fields/fields-custom-short-desc
+        .group-field-short-desc
+            include ../../../fields/field-length
+            include ../../../fields/field-width
+            include ../../../fields/field-height
+            include ../../../fields/field-weight
+            include ../../../fields/field-volume
+        .group-field-variant-price
+            .field.field-type-custom.field-geo.field-label-hidden
+                .value
+                    span.prefix Самая низкая цена в
+                    | Нижневартовске
+            include ../../../fields/field-field-price
+            include ../../../fields/fields-custom-qty-providers
+            a.btn.btn-primary.btn-block(href="#") Выбрать
+        include ../../../fields/fields-custom-applicability
+
+    .group-field-full
+        include ../../../block-tabs/block-tabs-node
+
+
+// КОНЕЦ:  node node-product node-view-mode-full
+

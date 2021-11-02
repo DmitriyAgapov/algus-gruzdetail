@@ -1,0 +1,22 @@
+// pager (css)
++b.pager
+    +e.load-more
+        a.btn.btn-block(href="javascript://") Показать еще
+    +e.UL.list
+        +e.arrow.__first
+            +e.A(href='#').link «
+        +e.arrow.__previous
+            +e.A(href='#').link Назад
+        +e.item.__current 1
+        +e.item
+            +e.A(href='#').link 2
+        +e.item
+            +e.A(href='#').link 3
+        +e.item.__ellipsis …
+        +e.item
+            +e.A(href='#').link 10
+        +e.arrow.__next
+            +e.A(href='#').link Вперед
+        +e.arrow.__last
+            +e.A(href='#').link »
+// КОНЕЦ: pager (css)

@@ -1,0 +1,32 @@
+.block-consumables {
+  .block__content {
+    display: grid;
+    gap: 24px;
+    @apply  grid-cols-2 md:grid-cols-4 lg:grid-cols-4;
+    grid-auto-flow: column dense;
+  }
+  .teaser-group {
+    grid-row: 1/3;
+    background: #F0F0F0;
+    &.teaser-group-100h {
+      .teaser-term-product-teaser-2 {
+        height: 100%;
+      }
+    }
+  }
+  .teaser-term-product-teaser-2 {
+    background: #F0F0F0;
+    position: relative;
+    min-height: 282px;
+    padding: 0;
+    overflow: hidden;
+    .field-title {
+      position: relative;
+      z-index: 5;
+      margin: 28px 24px;
+    }
+    .field-field-image {
+      position: absolute;
+    }
+  }
+}

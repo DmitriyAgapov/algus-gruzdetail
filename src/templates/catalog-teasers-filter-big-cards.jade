@@ -1,0 +1,47 @@
+extends default
+
+block variables
+    - const title = "catalog-teasers-big-cards";
+    - const description = '';
+    - const keywords = '';
+    - const pageClass = 'no-front';
+
+block styles
+    +style("http://uralval.algus.net/libraries/jquery.intl-tel-input/build/css/intlTelInput.min.css")
+    +style("https://unpkg.com/swiper/swiper-bundle.min.css")
+
+block scripts
+    +script("https://unpkg.com/swiper/swiper-bundle.min.js")
+
+block content
+    .wrapper
+        .container
+            include ../components/header/header/1/header_1
+            .region.region-system
+                .page-breadcrumbs-heading
+                    include ../components/breadcrumb/breadcrumb
+                    include ../components/mobile/mobile-breadcrumb/mobile-breadcrumb
+            main.is-sidebar.is-sidebar-left.not-list
+                h1 Масла моторные
+                .region.region-content
+                    .content-page.content-page-product
+                        .content-page__content
+                            include ../components/component/node/node-product/teaser-node
+                            include ../components/component/node/node-product/teaser-node
+                            include ../components/component/node/node-product/teaser-node
+                            include ../components/component/node/node-product/teaser-node
+                            include ../components/component/node/node-product/teaser-node
+                            include ../components/component/node/node-product/teaser-node
+                            include ../components/component/node/node-product/teaser-node
+
+                        .content-page__footer
+                            include ../components/drupal/drupal-pager/drupal-pager
+                    //include ../components/blocks/block-banner-bottom/block-banner-bottom
+                //.region.region-content-bottom
+                //    include ../components/blocks/block-recently-viewed/block-recently-viewed
+                .region.region-sidebar
+                    include ../components/filter/filter/filter
+                    //include ../components/filter/filter-btn/filter-btn
+            section.region.region-bottom
+                include ../components/blocks/block-recently-viewed/block-recently-viewed
+        include ../components/footer/footer/1/footer

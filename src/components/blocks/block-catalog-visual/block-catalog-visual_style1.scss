@@ -1,0 +1,29 @@
+.block-catalog-visual {
+    .block__content {
+        display: grid;
+        @screen md {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        gap: 2rem 3rem;
+        .teaser-term-product-teaser-5 {
+            display: grid;
+            grid-template-columns: 78px 1fr;
+            gap: 0 1rem;
+            .field {
+                margin: 0;
+            }
+            .field-title {
+                font-weight: 600;
+            }
+            .field-field-image {
+                grid-row: 1/3;
+            }
+            .field-body {
+                @apply text-color-1-n-m;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

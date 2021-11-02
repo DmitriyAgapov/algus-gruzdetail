@@ -1,0 +1,20 @@
+//newstyle1: cssfile[mobile-panel_style1] scriptfile[mobile-panel_common]
+
+// mobile-panel (css, js)
++b.mobile-panel.mobile-panel-menu(style="opacity: 0; visibility: hidden;")
+    +e.overlay
+    +e.panel
+        +e.hd
+            include ../../close/close
+        +e.cont
+            +e.inner
+                include ../../menu/menu-catalog/menu-catalog
++b.mobile-panel.mobile-panel-search(style="opacity: 0; visibility: hidden;")
+    +e.overlay
+    +e.panel
+        +e.hd
+            include ../../close/close
+        +e.cont
+            +e.inner
+                include ../../search/search/search
+// КОНЕЦ: mobile-panel (css, js)

@@ -1,0 +1,17 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+.header-slogan {
+    position: relative;
+    padding-left: 1rem;
+    max-width: 200px;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-color: $color-1-norma-light-thin;
+        width: 1px;
+        height: 30px;
+        transform: translateY(-50%);
+    }
+}

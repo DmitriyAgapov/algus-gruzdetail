@@ -1,0 +1,353 @@
+script.
+    $(document).ready(function () {
+        // -----------------------------------------------
+
+        window.listComponents = listComponents = {
+            'header': {
+                style1: {
+                    cssFiles: false,
+                    jsFiles: false
+                }
+            },
+            'footer': {
+                style1: {
+                    cssFiles: false,
+                    jsFiles: false
+                }
+            },
+            'block-category-front': {
+                style1: {
+                    cssFiles: false,
+                    jsFiles: false
+                }
+            },
+            'block-instock': {
+                style1: {
+                    cssFiles: false,
+                    jsFiles: [
+                        [
+                            "block-instock_1_style1"
+                        ],
+                        [
+                            "block-instock_2_style1"
+                        ]
+                    ],
+                }
+            },
+            'block-category-catalog': {
+                style1: {
+                    cssFiles: false,
+                    jsFiles: false
+                }
+            },
+            'block-shipment-last': {
+                style1: {
+                    cssFiles: false,
+                    jsFiles: [
+                        [
+                            "block-shipment-last_1_style1"
+                        ],
+                        [
+                            "block-shipment-last_2_style1"
+                        ]
+                    ],
+                }
+            }
+        }
+
+        window.createCssAndJsfiles  = function createCssAndJsfiles(block) {
+            // console.clear();
+            switch (localStorage.getItem('algus-setting-block-' + block)) {
+                case '0':
+                    appendCssAndJsfiles(block, 0);
+                    break;
+                case '1':
+                    appendCssAndJsfiles(block, 1);
+                    break;
+                case '2':
+                    appendCssAndJsfiles(block, 2);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        window.appendCssAndJsfiles = function appendCssAndJsfiles(block, blockLayout) {
+            // console.clear();
+
+            var layout = localStorage.getItem('algus-select-layout-value');
+
+            console.groupCollapsed('БЛОК: ' + block);
+                console.log(`Компоновка блока #${blockLayout}`);
+
+                // цикл по всем блокам
+                document.querySelectorAll(`.${block}`).forEach(function (itemBlock) {
+
+                    // в шестеренке удаляем у пунктов активный класс
+                    itemBlock.querySelectorAll('.setting__item').forEach(function (settingItem) {
+                        settingItem.classList.remove("active");
+                    });
+
+                    if ((block == "header") || (block == "footer")) {
+                        // все контенты внутри блока скрываем
+                        itemBlock.style.display = "none";// прописываем номер выбранной компоновки в иконку шестеренки
+                        itemBlock.querySelector('.setting__text').innerHTML = '#' + (blockLayout + 1);
+                        // в шестеренке добавляем активный класс у выброного пункта
+                        itemBlock.querySelectorAll('.setting__item')[blockLayout].classList.add("active");
+                    } else {
+                        // у блока удаляем классы лейаут
+                        itemBlock.classList.remove(`${block}_layout-1`);
+                        itemBlock.classList.remove(`${block}_layout-2`);
+                        itemBlock.classList.remove(`${block}_layout-3`);
+
+                        itemBlock.querySelectorAll(`.block__content`).forEach(function(content) {
+                            // все контенты внутри блока скрываем
+                            content.style.display = "none";
+                            content.classList.add("js-block-content-hide");
+                            // прописываем номер выбранной компоновки в иконку шестеренки
+                            content.querySelector('.setting__text').innerHTML = '#' + (blockLayout + 1);
+                            // в шестеренке добавляем активный класс у выброного пункта
+                            content.querySelectorAll('.setting__item')[blockLayout].classList.add("active");
+                        });
+                    }
+                });
+
+                if ((block == "header") || (block == "footer")) {
+                    // у выбранного блока удаляем атрибут style
+                    document.querySelectorAll(`.${block}`)[blockLayout].style.display = null;
+                } else {
+                    // у блока добавляем модификатор компоновки
+                    document.querySelector(`.${block}`).classList.add(`${block}_layout-${blockLayout + 1}`);
+                    // у выбранного контента блока удаляем атрибут style
+                    document.querySelector(`.${block}`).querySelectorAll(`.block__content`)[blockLayout].style.display = null;
+                    document.querySelector(`.${block}`).querySelectorAll(`.block__content`)[blockLayout].classList.remove("js-block-content-hide");
+                }
+
+                // цикл по всем блокам
+                // document.querySelectorAll(`.${block}`).forEach(function (itemBlock) {
+                //     // добаляем ко всем блокам класс "js-block-hide"
+                //     itemBlock.classList.add("js-block");
+                //     itemBlock.classList.add("js-block-hide");
+                // });
+
+                // удаляем класс "js-block-hide" у конкретного блока
+                // document.querySelectorAll(`.${block}`)[blockLayout].classList.remove("js-block-hide");
+
+                if (listComponents[block][`style${layout}`].cssFiles) {
+                    // УДАЛЯЕМ ВСЕ CSS ФАЙЛЫ
+                    console.groupCollapsed('СПИСОК УДАЛЯЕМЫХ CSS');
+                    listComponents[block][`style${layout}`].cssFiles.map(function (item, index) {
+                        console.groupCollapsed(`Компоновка ${index+1}`);
+                            item.forEach(function (item2) {
+                                console.log(item2 + ".css");
+                                $(`link[href^="css/style${layout}/${item2}.css"]`).remove();
+                                // $('link[href^="css/' + item2 + '.css"]').remove();
+                            });
+                        console.groupEnd();
+                    });
+                    console.groupEnd();
+
+                    console.groupCollapsed('СПИСОК ДОБАВЛЯЕМЫХ CSS');
+                        listComponents[block][`style${layout}`].cssFiles[blockLayout].forEach(function (name) {
+                            console.log(`${name}.css`);
+                            $('body').prepend(`<link rel="stylesheet" href="css/style${layout}/${name}.css"/>`);
+                            // $('body').prepend(`<link rel="stylesheet" href="css/${name}.css"/>`);
+                        });
+                    console.groupEnd();
+                }
+
+                if (listComponents[block][`style${layout}`].jsFiles) {
+                    // УДАЛЯЕМ ВСЕ JS ФАЙЛЫ
+                    console.groupCollapsed('СПИСОК УДАЛЯЕМЫХ JS');
+                    if (listComponents[block][`style${layout}`].jsFiles) {
+                        listComponents[block][`style${layout}`].jsFiles.map(function (item, index) {
+                            console.groupCollapsed(`Компоновка ${index + 1}`);
+                            item.forEach(function (item2) {
+                                console.log(item2 + ".js");
+                                $(`script[src^="js/style${layout}/${item2}.js"]`).remove();
+                                // $('script[src^="js/' + item2 + '.js"]').remove();
+                            });
+                            console.groupEnd();
+                        });
+                    }
+                    console.groupEnd();
+
+                    console.groupCollapsed('СПИСОК ДОБАВЛЯЕМЫХ JS');
+                    listComponents[block][`style${layout}`].jsFiles[blockLayout].forEach(function (name) {
+                        console.log(`${name}.js`);
+                        var newScript = document.createElement("script");
+                        newScript.src = `js/style${layout}/${name}.js`;
+                        // newScript.src = `js/${name}.js`;
+                        document.body.appendChild(newScript);
+                    });
+                    console.groupEnd();
+                }
+
+            console.groupEnd();
+        }
+
+        // console.groupCollapsed('СПИСОК БЛОКОВ У КОТОРЫХ ЕСТЬ ВЫБОР ВАРИАНТОВ');
+        // for (var item in default_setting_block) {
+        //     var items = '';
+        //     for (var i = 0; i < default_setting_block[item].count_options; i++) {
+        //         if (default_setting_block[item].names_options) {
+        //             items += `<div class="setting__item" data-layout="${i}"><span>${default_setting_block[item].names_options[i]}</span></div>`
+        //         } else {
+        //             items += `<div class="setting__item" data-layout="${i}"><span>Вариант ${i + 1}</span></div>`
+        //         }
+        //     }
+        //     // $(`.${item}`).parent().once().prepend(`
+        //     //     <div class="setting" data-block="${item}">
+        //     //         <div class="setting__icon"></div>
+        //     //         <div class="setting__text"></div>
+        //     //         <div class="setting__list">
+        //     //             ${items}
+        //     //         </div>
+        //     //     </div>
+        //     // `);
+        //
+        //     if ( $(`.${item}`).length ) {
+        //         // $(`.${item}`).wrapAll("<div class='settings-block-wrapper'></div>");
+        //         $(`.${item}`).css({"position": "relative"});
+        //         if ( $(`.${item} .block__content`).length ) {
+        //             $(`.${item} .block__content`).prepend(`
+        //                 <div class="setting" data-block="${item}" style="top: 0; right: 0;">
+        //                     <div class="setting__icon"></div>
+        //                     <div class="setting__text"></div>
+        //                     <div class="setting__list">
+        //                         ${items}
+        //                     </div>
+        //                 </div>
+        //             `);
+        //         } else {
+        //             $(`.${item}`).prepend(`
+        //             <div class="setting" data-block="${item}" style="top: 0; right: 0;">
+        //                 <div class="setting__icon"></div>
+        //                 <div class="setting__text"></div>
+        //                 <div class="setting__list">
+        //                     ${items}
+        //                 </div>
+        //             </div>
+        //         `);
+        //         }
+        //
+        //         createCssAndJsfiles(item);
+        //     }
+        // }
+        // console.groupEnd();
+
+        // ПРИ ХОВЕРЕ НА БЛОК ДОБАВЛЯЕМ ПУНКТИРНУЮ РАМКУ, ПОКАЗЫВАЮЩУЮ ЧТО РУДАКТИРУЕТСЯ ИМЕННО ЭТОТ БЛОК
+        $('.setting').hover(function () {
+            $(this).parent().addClass('block-hover');
+        }, function () {
+            $(this).parent().removeClass('block-hover');
+        });
+
+        $('.setting').each(function () {
+            var block = $(this).data('block');
+            let number = parseInt(localStorage.getItem('algus-setting-block-' + $(this).data('block'))) + 1;
+            if (number) {
+                $(this).find('.setting__item').eq( localStorage.getItem('algus-setting-block-'+block)).addClass("active");
+                $(this).find('.setting__text').text('#' + number);
+            }
+        });
+
+        // КЛИК ПО ВЫБОРУ КОМПОНОВКИ
+        $(document).on('click', '.setting__item', function (e) {
+            console.clear();
+            var block = $(this).parents('.setting').data('block');
+            var layoutBlock = $(this).data('layout');
+            var layout = localStorage.getItem('algus-select-layout-value');
+            console.log("BLOCK: " + block);
+            console.log("BLOCK LAYOUT: " + layoutBlock);
+
+            // СОХРАНЯЕМ В ХРАНИЛИЩЕ НОМЕР КОМПАНОВКИ ВЫБРАННОГО БЛОКА
+            localStorage.setItem('algus-setting-block-' + block, layoutBlock);
+
+            // цикл по всем блокам
+            // document.querySelectorAll(`.${block}`).forEach(function(item) {
+            //     // добаляем ко всем блокам класс "js-block-hide"
+            //     // item.classList.add("js-block-hide");
+            //     //
+            //     // // в шестеренке удаляем в пунктов активный класс
+            //     // item.querySelectorAll('.setting__item').forEach(function(settingItem) {
+            //     //     settingItem.classList.remove("active");
+            //     // });
+            //
+            //     // в шестеренке добавляем активный класс у выброного пункта
+            //     // item.querySelectorAll('.setting__item')[layoutBlock].classList.add("active");
+            //
+            //     // if ( (block != "header") && (block != "footer") ) {
+            //     //     console.log( "не шапка не футер" );
+            //     //     // все контенты внутри блока скрываем
+            //     //     item.querySelectorAll(`.block__content`).forEach(function(content) {
+            //     //         content.style.display = "none";// прописываем номер выбранной компоновки в иконку шестеренки
+            //     //         content.querySelector('.setting__text').innerHTML = '#' + (layoutBlock + 1);
+            //     //
+            //     //         // в шестеренке добавляем активный класс у выброного пункта
+            //     //         content.querySelectorAll('.setting__item')[layoutBlock].classList.add("active");
+            //     //     });
+            //     //
+            //     //     // у блока удаем классы лейаут
+            //     //     item.classList.remove(`${block}_layout-1`);
+            //     //     item.classList.remove(`${block}_layout-2`);
+            //     //     item.classList.remove(`${block}_layout-3`);
+            //     // } else {
+            //     //     // все контенты внутри блока скрываем
+            //     //     item.style.display = "none";// прописываем номер выбранной компоновки в иконку шестеренки
+            //     //     item.querySelector('.setting__text').innerHTML = '#' + (layoutBlock + 10);
+            //     //     // в шестеренке добавляем активный класс у выброного пункта
+            //     //     item.querySelectorAll('.setting__item')[layoutBlock].classList.add("active");
+            //     // }
+            //
+            // });
+
+            // if ( (block != "header") && (block != "footer") ) {
+            //     console.log("не шапка не футер");
+            //
+            //     // у блока добавляем модификатор компоновки
+            //     document.querySelector(`.${block}`).classList.add(`${block}_layout-${layoutBlock + 1}`);
+            //
+            //     // у выбранного контента блока удаляем атрибут style
+            //     document.querySelector(`.${block}`).querySelectorAll(`.block__content`)[layoutBlock].style.display = null;
+            // } else {
+            //     // у выбранного блока удаляем атрибут style
+            //     document.querySelectorAll(`.${block}`)[layoutBlock].style.display = null;
+            // }
+
+
+            // удаляем класс "js-block-hide" у конкретного блока
+            // document.querySelectorAll(`.${block}`)[layoutBlock].classList.remove("js-block-hide");
+
+            // // УДАЛЯЕМ ВСЕ CSS ФАЙЛЫ
+            // console.groupCollapsed('СПИСОК УДАЛЯЕМЫХ CSS ДЛЯ БЛОКА: ' + block);
+            // listComponents[block][`style${layout}`].cssFiles.map(function (item, index) {
+            //     console.groupCollapsed(`Компоновка ${index+1}`);
+            //         item.forEach(function (item2) {
+            //             console.log(item2 + ".css");
+            //             $('link[href^="css/' + item2 + '.css"]').remove();
+            //         });
+            //     console.groupEnd();
+            // });
+            // console.groupEnd();
+            //
+            // // УДАЛЯЕМ ВСЕ JS ФАЙЛЫ
+            // console.groupCollapsed('СПИСОК УДАЛЯЕМЫХ JS ДЛЯ БЛОКА: ' + block);
+            // if (listComponents[block][`style${layout}`].jsFiles) {
+            //     listComponents[block][`style${layout}`].jsFiles.map(function (item, index) {
+            //         console.groupCollapsed(`Компоновка ${index + 1}`);
+            //             item.forEach(function (item2) {
+            //                 console.log(item2 + ".js");
+            //                 $('script[src^="js/' + item2 + '.js"]').remove();
+            //             });
+            //         console.groupEnd();
+            //     });
+            // }
+            // console.groupEnd();
+
+            createCssAndJsfiles(block);
+
+        });
+        // -----------------------------------------------
+
+    });

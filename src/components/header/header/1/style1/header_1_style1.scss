@@ -1,0 +1,211 @@
+@import "../../../../../styles/style1/helpers/helpers";
+
+
+header {
+  @apply my-0  bg-white;
+  display: grid;
+  grid-template: auto auto auto auto 1fr/2rem 1fr repeat(2, auto) 1px;
+  grid-template-areas: "logo logo logo logo logo" "burger search search search hide" "mc mc mc mc hide"  "mm mm mm mm hide" "gc gc gc gc hide";
+  height: 3.5rem;
+  @screen md {
+    grid-template: 3.375rem 3.5rem/13rem auto 1fr 4rem 4rem;
+    grid-template-areas: "logo place mm mm mm" "mc search search login cart";
+    gap: 0 1.5rem;
+  }
+  align-items: center;
+
+  .hide {
+    grid-area: hide;
+    @apply md:hidden;
+  }
+
+  .menu-main, .menu-catalog, .graph-catalog {
+    grid-area: hide;
+    max-width: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  @screen md {
+    height: initial;
+     .menu-main, .menu-catalog, .graph-catalog {
+      max-width: initial;
+      width: initial;
+      overflow: visible;
+    }
+
+    .search {
+      grid-area: search;
+      align-self: start;
+      // display: none;
+      * {
+        margin: 0 !important;
+      }
+    }
+
+    .menu-main {
+      grid-area: mm;
+      display: flex;
+      justify-self: end;
+      li {
+        @include first(1) {
+          padding-left: 0;
+        }
+        @include last(1) {
+          padding-right: 0;
+        }
+      }
+
+    }
+
+    .menu-catalog {
+      padding-left: 0;
+
+      .menu__item {
+        svg {
+          margin-right: 0.5rem;
+        }
+      }
+
+      &.menu-level-0 {
+
+        .menu__item {
+          margin: 0;
+
+          &.contents {
+            display: contents;
+          }
+
+          &.expanded {
+            display: contents;
+          }
+
+          &.expanded > .menu {
+            display: block;
+            grid-column: 1/-1;
+          }
+        }
+      }
+
+      .menu-level-1 {
+        @apply hidden;
+        margin-top: -1rem;
+        padding-top: 2rem;
+
+        .active {
+          display: block;
+          grid-column: 1/-1;
+        }
+
+      }
+    }
+
+    //.graph-catalog {
+    //  grid-area: gc;
+    //}
+    .header-login, .header-cart {
+      align-self: start;
+    }
+  }
+  &.open {
+    min-height: 100vh;
+    height: 100%;
+
+     .menu-main, .menu-catalog, .graph-catalog {
+
+      max-width: initial;
+      width: initial;
+      overflow: visible;
+    }
+
+    .search {
+      grid-area: search;
+      // display: none;
+    }
+
+    .menu-main {
+      grid-area: mm;
+    }
+
+    .menu-catalog {
+      grid-area: mc;
+
+      .menu-level-1 {
+        @apply hidden lg:block;
+      }
+    }
+
+    .graph-catalog {
+      grid-area: gc;
+    }
+  }
+
+  .top, .center, .bottom {
+    display: contents;
+  }
+
+  .top {
+
+  }
+
+  .bottom {
+    &::before {
+      content: '';
+      top: 111px;
+
+      height: 1px;
+      --tw-bg-opacity: 1;
+      background-color: rgba(242, 242, 242, var(--tw-bg-opacity));
+      left: 0;
+      right: 0;
+      position: absolute;
+
+      z-index: -1;
+    }
+  }
+
+  .mobile-burger {
+    grid-area: burger;
+    @apply  md:hidden;
+  }
+
+  .header-logo {
+    grid-area: logo;
+  }
+
+  .header-slogan {
+    grid-area: slogan;
+    @apply hidden lg:block;
+  }
+
+  .header-phones {
+    grid-area: call;
+
+    .info {
+      @apply hidden md:flex;
+    }
+  }
+  .header-login {
+    grid-area: login;
+    @apply hidden md:flex;
+    flex-flow: column;
+
+  }
+  .header-send {
+    grid-area: send;
+
+    .info {
+      @apply hidden md:flex;
+    }
+  }
+
+  .header-cart {
+    grid-area: cart;
+    @apply hidden md:flex;
+    .info {
+      @apply hidden md:flex;
+    }
+  }
+
+
+}

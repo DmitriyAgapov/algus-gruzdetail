@@ -1,0 +1,41 @@
+@import "../../styles/style1/helpers/helpers";
+
+
+section, main {
+    @apply py-section;
+    //padding-top: $block-spacing-main;
+    //padding-bottom: $block-spacing-main;
+    //&:nth-of-type(even) {
+    //    background-color: $color-2-bg;
+    //}
+    //> .container {
+    //    > div {
+    //        @include first(1) {
+    //            margin-top: 0;
+    //        }
+    //    }
+    //}
+    > * {
+        @include first(1) {
+            margin-top: 0;
+        }
+        @include last(1) {
+            margin-bottom: 0;
+        }
+        @include unique() {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    .block-section {
+        @include first(1) {
+            @apply -mt-16;
+        }
+        @include last(1) {
+            @apply -mb-16;
+        }
+        + .block-section {
+            @apply -mt-16;
+        }
+    }
+}

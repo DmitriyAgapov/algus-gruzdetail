@@ -1,0 +1,67 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.mobile-burger {
+    width: 40px;
+    height: 40px;
+
+    @apply lg:hidden bg-color-1-m-primary text-white;
+    justify-self: center;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    &.open {
+        animation: smallbig 0.6s forwards;
+    }
+    .line{
+        width: 1rem;
+        height: 2px;
+        @apply bg-color-1-n;
+        display: block;
+        margin: 6px auto;
+
+        transition: all 0.3s ease-in-out;
+    }
+    &.open .line:nth-child(1),
+    &.open .line:nth-child(2),
+    &.open .line:nth-child(3){
+        -webkit-transition-delay: 0.2s;
+        -o-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+    }
+    &.open .line:nth-child(2){
+        opacity: 0;
+    }
+    &.open .line:nth-child(1){
+
+        transform: translateY(0.5rem) rotate(45deg);
+    }
+    &.open .line:nth-child(3){
+
+        transform: translateY(-0.5rem) rotate(-45deg);
+    }
+
+}
+
+@keyframes smallbig{
+    0%, 100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50%{
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+
+.mobile-burger:hover{
+    cursor: pointer;
+}

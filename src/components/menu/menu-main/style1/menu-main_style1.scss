@@ -1,0 +1,62 @@
+@import "../../../../styles/style1/helpers/helpers";
+
+.menu-main {
+    @apply p-0 m-0 list-none;
+    .menu__item {
+        padding: 0;
+        margin: 1rem 0;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+
+        @screen md {
+            margin-right: 1rem;
+
+        }
+
+        &::before {
+            display: none;
+        }
+        &:last-child {
+            //border-right: 0px solid rgba(#fff, .1);
+        }
+    }
+    a {
+        @apply text-color-1-n text-sm;
+        border-bottom: none;
+        font-size: 0.75rem;
+
+        --svg-size: 1em;
+        &:before {
+            @apply mr-4 w-8 inline-flex justify-center md:w-auto ;
+        }
+        //&[href="/about"]:before {
+        //    content: '';
+        //    // @include svgsprite(about);
+        //    @include fontAwesome("\f1ad", var(--svg-size), 400);
+        //
+        //}
+        //&[href="/contacts"]:before {
+        //    content: '';
+        //    @include fontAwesome("\f2b9", var(--svg-size), 400);
+        //
+        //}
+        //&[href="/oplata-i-skidki"]:before {
+        //    content: '';
+        //    @include fontAwesome("\f09d", var(--svg-size), 400);
+        //
+        //}
+        //&[href="/delivery"]:before {
+        //    content: '';
+        //    @include fontAwesome("\f0d1", var(--svg-size), 400);
+        //
+        //}
+        &:hover {
+            @apply text-color-1-m-secondary;
+        }
+    }
+}
+

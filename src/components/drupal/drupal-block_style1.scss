@@ -1,0 +1,136 @@
+@import "../../styles/style1/helpers/helpers";
+
+.block {
+    @apply m-block;
+}
+.block__header {
+    @apply mb-4;
+    .title {
+        margin: 0;
+    }
+}
+.block__title {
+    margin: 0;
+}
+.block__slider {
+    overflow: hidden;
+}
+.block__slider-wrapper {
+    display: flex;
+}
+.node, .content {
+    @apply md:bg-white;
+    > * {
+        @include first(1) {
+            margin-top: 0;
+        }
+        @include last(1) {
+            margin-bottom: 0;
+        }
+        @include unique() {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+}
+//.block:not(.block-flex) {
+//    > .block__header + .block__content {
+//        padding: 1.75rem 0 0;
+//        border-top: 1px solid #e4e4e4;
+//    }
+//}
+
+.block__content {
+    position: relative;
+    > * {
+        @include first(1) {
+            margin-top: 0;
+        }
+        @include last(1) {
+            margin-bottom: 0;
+        }
+    }
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include first(1) {
+            margin-top: 0;
+        }
+    }
+}
+.block__footer {
+    position: relative;
+    margin-top: 1.5rem;
+    .dots {
+
+    }
+}
+.block-footer-center {
+    text-align: center;
+}
+.block__footer-center {
+    text-align: center;
+    .dots {
+        //left: 0;
+        //right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// дополнительный класс для блока с обозначенными границами в пределах контента сайта.
+// например: фон, фон картинка, бордер, тень.
+.block-border {
+    background-color: yellowgreen;
+    padding: 3rem;
+}
+
+// дополнительный класс для блока типа секция.
+// например: когда блок выходит за рамки контента.
+// эффект отрицательного маржина.
+.block-section {
+    background-color: #fff;
+
+    padding: 4rem 2000px;
+
+    margin-left: -2000px;
+    margin-right: -2000px;
+    .block {
+        @include first(1) {
+            margin-top: 0;
+        }
+    }
+}
+
+// если в блоке есть слйадер
+.block__slider {
+    padding: 0 1rem 2.25rem;
+    margin: 0 -1rem -36px;
+    @include min-screen(768px) {
+        overflow: hidden;
+    }
+    &.swiper-container-initialized {
+        @include max-screen(767px) {
+            padding-right: 2rem;
+        }
+    }
+}
+.block__slider-wrapper {
+    display: flex;
+
+}
+aside {
+    & > .block {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+}
+.block-flex {
+    @apply block md:flex;
+    gap: 1.25rem;
+    .col {
+        flex: 1;
+    }
+}
